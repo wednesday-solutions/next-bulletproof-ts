@@ -13,8 +13,22 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "noImplicitAny": false,
+    "paths": {
+      "@features/*": ["features/*"],
+      "@slices/*": ["store/slices/*"],
+      "@store": ["store"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "next.config.js",
+    "global.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "commitlint.config.js"
+  ],
+  "exclude": ["node_modules", "**/*.stories.tsx"]
 }
