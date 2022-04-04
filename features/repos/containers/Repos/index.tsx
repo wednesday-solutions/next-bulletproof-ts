@@ -1,22 +1,15 @@
 import React, { useEffect, memo, useState } from "react";
 import get from "lodash/get";
 import { compose } from "redux";
-import PropTypes from "prop-types";
+import PropTypes, { ReactComponentLike } from "prop-types";
 import { Input, Divider, Row } from "antd";
-import isEmpty from "lodash/isEmpty";
-import { connect } from "react-redux";
-import debounce from "lodash/debounce";
-import { createStructuredSelector } from "reselect";
+import { isEmpty, debounce } from "lodash-es";
 import { T } from "@common";
 import { fonts } from "@themes";
-import saga from "@store/sagas/app";
 import { injectIntl } from "react-intl";
 import { RepoList, YouAreAwesome, Recommended, ErrorState } from "@features/repos/components";
 import { Container, CustomCard } from "@common";
-import { appCreators } from "@store/reducers/app";
-import { useInjectSaga } from "@utils/injectSaga";
 import { commonPropTypes } from "@utils";
-import { selectApp, selectReposData, selectReposError, selectRepoName } from "@store/selectors/app";
 
 const { Search } = Input;
 
@@ -24,13 +17,12 @@ export const App = ({
   intl,
   repoName,
   maxwidth,
-  reposData = {},
+  reposData,
   recommendations,
   reposError = null,
   dispatchGithubRepos,
   dispatchClearGithubRepos,
 }) => {
-  useInjectSaga({ key: "app", saga });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -38,7 +30,7 @@ export const App = ({
     if (loading && loaded) {
       setLoading(false);
     }
-  }, [reposData]);
+  }, [loading, reposData, reposError]);
 
   useEffect(() => {
     if (repoName && !reposData?.items?.length) {
@@ -125,21 +117,4 @@ App.defaultProps = {
   maxwidth: 500,
 };
 
-const mapStateToProps = createStructuredSelector({
-  app: selectApp(),
-  repoName: selectRepoName(),
-  reposData: selectReposData(),
-  reposError: selectReposError(),
-});
-
-function mapDispatchToProps(dispatch) {
-  const { requestGetGithubRepos, clearGithubRepos } = appCreators;
-  return {
-    dispatchClearGithubRepos: () => dispatch(clearGithubRepos()),
-    dispatchGithubRepos: repoName => dispatch(requestGetGithubRepos(repoName)),
-  };
-}
-
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
-
-export default compose(injectIntl, withConnect, memo)(App);
+export default compose(injectIntl, memo)(App) as ReactComponentLike;

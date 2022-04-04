@@ -19,11 +19,12 @@ const Recommended = ({ recommendations }: Props) => {
   const router = useRouter();
   return (
     <Row data-testid="recommended">
-      {recommendations.map(({ id, name }) => (
-        <Col key={id} onClick={() => router.push(`/info/${name}`)}>
-          <ClickableTags>{name}</ClickableTags>
-        </Col>
-      ))}
+      {recommendations &&
+        recommendations.map(({ id, name }) => (
+          <Col key={id} onClick={() => router.push(`/info/${name}`)}>
+            <ClickableTags>{name}</ClickableTags>
+          </Col>
+        ))}
     </Row>
   );
 };

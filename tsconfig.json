@@ -21,7 +21,7 @@
       "@slices/*": ["store/slices/*"],
       "@store": ["store"],
       "@common": ["common"],
-      "@themes": ["themes"],
+      "@themes/*": ["themes/*"],
       "@utils": ["utils"]
     }
   },
