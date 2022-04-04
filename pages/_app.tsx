@@ -4,16 +4,17 @@ import { Provider } from "react-redux";
 import { store } from "../store/index";
 import { IntlProvider } from "react-intl";
 import messages from "../translations/en.json";
+import { ErrorBoundary } from "@common";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <>
-      <IntlProvider messages={messages} locale="en" defaultLocale="en">
-        <Provider store={store}>
+    <IntlProvider messages={messages} locale="en" defaultLocale="en">
+      <Provider store={store}>
+        <ErrorBoundary>
           <Component {...pageProps} />
-        </Provider>
-      </IntlProvider>
-    </>
+        </ErrorBoundary>
+      </Provider>
+    </IntlProvider>
   );
 };
 
