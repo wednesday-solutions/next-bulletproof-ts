@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorState /> should render and match the snapshot 1`] = `
+.c1 {
+  white-space: pre-line;
+}
+
+.c0.c0 {
+  margin: 20px 0;
+  color: grey;
+  color: grey;
+}
+
+<body>
+  <div>
+    <div
+      class="ant-card ant-card-bordered c0"
+      color="grey"
+      data-testid="error-state"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Repository List
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <span
+          class="c1"
+          data-testid="text"
+        >
+          Search for a repository by entering it's name in the search box
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+`;

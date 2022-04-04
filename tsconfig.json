@@ -19,7 +19,10 @@
     "paths": {
       "@features/*": ["features/*"],
       "@slices/*": ["store/slices/*"],
-      "@store": ["store"]
+      "@store": ["store"],
+      "@common": ["common"],
+      "@themes": ["themes"],
+      "@utils": ["utils"]
     }
   },
   "include": [

@@ -1,7 +1,7 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, ReactNode } from "react";
 
 interface Props {
-  otherwise?: React.ReactElement;
+  otherwise?: ReactNode;
   condition: any;
 }
 
