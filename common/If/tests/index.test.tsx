@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import If from "../If";
+import If from "..";
 
 describe("<If />", () => {
   it("should render and match the snapshot", () => {
