@@ -30,34 +30,13 @@ export const Repos = ({
   intl,
   // repoName,
   maxwidth,
-}: // reposData,
-// recommendations,
-// reposError,
-// dispatchGithubRepos,
-// dispatchClearGithubRepos,
-Props) => {
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const loaded = get(reposData, "items", null) || reposError;
-    if (loading && loaded) {
-      setLoading(false);
-    }
-  }, [loading, reposData, reposError]);
-
-  useEffect(() => {
-    if (repoName && !reposData?.items?.length) {
-      dispatchGithubRepos(repoName);
-      setLoading(true);
-    }
-  }, []);
-
+  recommendations,
+}: Props) => {
   const handleOnChange = rName => {
     if (!isEmpty(rName)) {
-      dispatchGithubRepos(rName);
-      setLoading(true);
+      // dispatchGithubRepos(rName);
     } else {
-      dispatchClearGithubRepos();
+      // dispatchClearGithubRepos();
     }
   };
   const debouncedHandleOnChange = debounce(handleOnChange, 200);
@@ -84,14 +63,14 @@ Props) => {
         <T marginBottom={10} id="get_repo_details" />
         <Search
           data-testid="search-bar"
-          defaultValue={repoName}
+          defaultValue={"test"}
           type="text"
           onChange={evt => debouncedHandleOnChange(evt.target.value)}
           onSearch={searchText => debouncedHandleOnChange(searchText)}
         />
       </CustomCard>
-      <RepoList reposData={reposData} loading={loading} repoName={repoName} />
-      <ErrorState reposData={reposData} loading={loading} reposError={reposError} />
+      <RepoList reposData={null} repoName={"test"} />
+      {/* <ErrorState reposData={reposData} loading={loading} reposError={reposError} /> */}
     </Container>
   );
 };
@@ -111,15 +90,12 @@ const types = {
   ),
 };
 
-const { reposData, reposError, repoName, recommendations } = types;
+// const { reposData, reposError, repoName, recommendations } = types;
 const { intl } = commonPropTypes;
 
 Repos.propTypes = {
   intl,
-  repoName,
-  reposData,
-  reposError,
-  recommendations,
+  ...types,
   padding: PropTypes.number,
   maxwidth: PropTypes.number,
   dispatchGithubRepos: PropTypes.func,

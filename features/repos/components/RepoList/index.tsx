@@ -9,7 +9,7 @@ import get from "lodash/get";
 import { Skeleton } from "antd";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
-import { T, CustomCard } from "@common";
+import { T, CustomCard, If } from "@common";
 import { commonPropTypes } from "@utils";
 
 const RepoList = props => {
@@ -20,7 +20,7 @@ const RepoList = props => {
   const totalCount = get(reposData, "totalCount", 0);
   const BlockText = props => <T display="block" {...props} />;
   return (
-    (items.length !== 0 || loading) && (
+    <If condition={items.length !== 0 || loading}>
       <CustomCard data-testid="repo-list">
         <Skeleton loading={loading} active>
           {repoName && <BlockText id="search_query" values={{ repoName }} />}
@@ -37,7 +37,7 @@ const RepoList = props => {
           ))}
         </Skeleton>
       </CustomCard>
-    )
+    </If>
   );
 };
 
