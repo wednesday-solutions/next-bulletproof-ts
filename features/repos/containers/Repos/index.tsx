@@ -1,29 +1,44 @@
 import React, { useEffect, memo, useState } from "react";
 import get from "lodash/get";
 import { compose } from "redux";
+import { connect } from "react-redux";
 import PropTypes, { ReactComponentLike } from "prop-types";
 import { Input, Divider, Row } from "antd";
 import { isEmpty, debounce } from "lodash-es";
 import { T } from "@common";
-import { fonts } from "@themes";
+import { fonts } from "@themes/index";
 import { injectIntl } from "react-intl";
 import { RepoList, YouAreAwesome, Recommended, ErrorState } from "@features/repos/components";
 import { Container, CustomCard } from "@common";
 import { commonPropTypes } from "@utils";
+import { useAppDispatch } from "@store";
 
 const { Search } = Input;
 
-export const App = ({
+interface Props {
+  intl: any;
+  repoName: string;
+  maxwidth: number;
+  reposData: any;
+  recommendations: any;
+  reposError: string;
+  dispatchGithubRepos: any;
+  dispatchClearGithubRepos: any;
+}
+
+export const Repos = ({
   intl,
-  repoName,
+  // repoName,
   maxwidth,
-  reposData,
-  recommendations,
-  reposError = null,
-  dispatchGithubRepos,
-  dispatchClearGithubRepos,
-}) => {
+  // reposData,
+  // recommendations,
+  // reposError,
+  // dispatchGithubRepos,
+  // dispatchClearGithubRepos,
+}: Props) => {
   const [loading, setLoading] = useState(false);
+
+
 
   useEffect(() => {
     const loaded = get(reposData, "items", null) || reposError;
@@ -38,6 +53,7 @@ export const App = ({
       setLoading(true);
     }
   }, []);
+
 
   const handleOnChange = rName => {
     if (!isEmpty(rName)) {
@@ -100,7 +116,8 @@ const types = {
 
 const { reposData, reposError, repoName, recommendations } = types;
 const { intl } = commonPropTypes;
-App.propTypes = {
+
+Repos.propTypes = {
   intl,
   repoName,
   reposData,
@@ -112,9 +129,26 @@ App.propTypes = {
   dispatchClearGithubRepos: PropTypes.func,
 };
 
-App.defaultProps = {
+Repos.defaultProps = {
   padding: 20,
   maxwidth: 500,
 };
 
-export default compose(injectIntl, memo)(App) as ReactComponentLike;
+// const mapStateToProps = createStructuredSelector({
+//   app: selectApp(),
+//   repoName: selectRepoName(),
+//   reposData: selectReposData(),
+//   reposError: selectReposError(),
+// });
+
+// function mapDispatchToProps(dispatch) {
+//   const { requestGetGithubRepos, clearGithubRepos } = appCreators;
+//   return {
+//     dispatchClearGithubRepos: () => dispatch(clearGithubRepos()),
+//     dispatchGithubRepos: repoName => dispatch(requestGetGithubRepos(repoName)),
+//   };
+}
+
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+
+export default compose(injectIntl, memo, withConnect)(Repos) as ReactComponentLike;

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
-import counterReducer from "@slices/Home";
+import counterReducer from "@slices/repos";
 
 export const store = configureStore({
   reducer: {
