@@ -30,15 +30,13 @@ export const Repos = ({
   intl,
   // repoName,
   maxwidth,
-  // reposData,
-  // recommendations,
-  // reposError,
-  // dispatchGithubRepos,
-  // dispatchClearGithubRepos,
-}: Props) => {
+}: // reposData,
+// recommendations,
+// reposError,
+// dispatchGithubRepos,
+// dispatchClearGithubRepos,
+Props) => {
   const [loading, setLoading] = useState(false);
-
-
 
   useEffect(() => {
     const loaded = get(reposData, "items", null) || reposError;
@@ -53,7 +51,6 @@ export const Repos = ({
       setLoading(true);
     }
   }, []);
-
 
   const handleOnChange = rName => {
     if (!isEmpty(rName)) {
@@ -147,8 +144,8 @@ Repos.defaultProps = {
 //     dispatchClearGithubRepos: () => dispatch(clearGithubRepos()),
 //     dispatchGithubRepos: repoName => dispatch(requestGetGithubRepos(repoName)),
 //   };
-}
+// }
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
+// const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(injectIntl, memo, withConnect)(Repos) as ReactComponentLike;
+export default compose(injectIntl, memo)(Repos) as ReactComponentLike;

@@ -22,7 +22,9 @@
       "@store": ["store"],
       "@common": ["common"],
       "@themes/*": ["themes/*"],
-      "@utils": ["utils"]
+      "@themes": ["themes"],
+      "@utils": ["utils"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": [

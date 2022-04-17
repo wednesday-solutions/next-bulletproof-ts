@@ -17,9 +17,10 @@ interface Props {
 
 const Recommended = ({ recommendations }: Props) => {
   const router = useRouter();
+  console.log({ recommendations });
   return (
     <Row data-testid="recommended">
-      {recommendations &&
+      {recommendations?.length &&
         recommendations.map(({ id, name }) => (
           <Col key={id} onClick={() => router.push(`/info/${name}`)}>
             <ClickableTags>{name}</ClickableTags>
