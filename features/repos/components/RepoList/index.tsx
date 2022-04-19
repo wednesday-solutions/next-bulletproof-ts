@@ -30,6 +30,7 @@ const RepoList = props => {
               key={index}
               onClick={() => router.push(`/info/${item?.name}?owner=${item?.owner.login}`)}
             >
+              {item.name}
               <BlockText id="repository_name" values={{ name: item.name }} />
               <BlockText id="repository_full_name" values={{ fullName: item.fullName }} />
               <BlockText id="repository_stars" values={{ stars: item.stargazersCount }} />

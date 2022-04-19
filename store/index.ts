@@ -1,11 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import counterReducer from "@slices/repos";
+import {reccomendationsApi} from '@features/repos/api/getReccomendations';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    [reccomendationsApi.reducerPath]:reccomendationsApi.reducer
   },
+  middleware:(getDefaultMiddleware)=> getDefaultMiddleware().concat(reccomendationsApi.middleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>;

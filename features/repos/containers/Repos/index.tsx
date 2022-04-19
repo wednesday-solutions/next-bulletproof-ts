@@ -11,7 +11,7 @@ import { injectIntl } from "react-intl";
 import { RepoList, YouAreAwesome, Recommended, ErrorState } from "@features/repos/components";
 import { Container, CustomCard } from "@common";
 import { commonPropTypes } from "@utils";
-import { useAppDispatch } from "@store";
+import { useFetchRecommendationQuery } from "@features/repos/api/getReccomendations";
 
 const { Search } = Input;
 
@@ -32,14 +32,13 @@ export const Repos = ({
   maxwidth,
   recommendations,
 }: Props) => {
-  const handleOnChange = rName => {
-    if (!isEmpty(rName)) {
-      // dispatchGithubRepos(rName);
-    } else {
-      // dispatchClearGithubRepos();
-    }
+  const [repoName, setRepoName] = useState("");
+  const { data, error, isLoading, isFetching } = useFetchRecommendationQuery(repoName);
+  const HandleOnChange = rName => {
+    setRepoName(rName);
   };
-  const debouncedHandleOnChange = debounce(handleOnChange, 200);
+  const debouncedHandleOnChange = debounce(HandleOnChange, 200);
+  console.log({ error });
   return (
     <Container
       padding={20}
@@ -69,8 +68,12 @@ export const Repos = ({
           onSearch={searchText => debouncedHandleOnChange(searchText)}
         />
       </CustomCard>
-      <RepoList reposData={null} repoName={"test"} />
-      {/* <ErrorState reposData={reposData} loading={loading} reposError={reposError} /> */}
+      <RepoList reposData={data} repoName={"test"} loading={isLoading && isFetching} />
+      <ErrorState
+        reposData={data}
+        loading={isLoading && isFetching}
+        reposError={error?.data?.message}
+      />
     </Container>
   );
 };

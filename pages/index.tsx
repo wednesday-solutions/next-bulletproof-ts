@@ -1,4 +1,4 @@
-import { Repos, getReccomendations } from "@features/repos";
+import { Repos } from "@features/repos";
 import React, { memo } from "react";
 import { injectIntl } from "react-intl";
 import { compose } from "redux";
@@ -8,10 +8,10 @@ export const ReposPage = ({ recommendations }) => {
 };
 
 export async function getStaticProps() {
-  const recommendations = await getReccomendations();
+  // const recommendations = await getReccomendations();
   return {
     props: {
-      recommendations,
+      // recommendations,
     },
   };
 }
