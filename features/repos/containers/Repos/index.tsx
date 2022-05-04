@@ -102,7 +102,7 @@ Repos.propTypes = {
   padding: PropTypes.number,
   maxwidth: PropTypes.number,
   dispatchGithubRepos: PropTypes.func,
-  dispatchClearGithubRepos: PropTypes.func,
+  dispatchClearGithubRepos: PropTypes.func
 };
 
 Repos.defaultProps = {
