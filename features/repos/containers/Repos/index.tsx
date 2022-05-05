@@ -1,10 +1,8 @@
-import React, { useEffect, memo, useState } from "react";
-import get from "lodash/get";
+import React, { memo, useState } from "react";
 import { compose } from "redux";
-import { connect } from "react-redux";
 import PropTypes, { ReactComponentLike } from "prop-types";
 import { Input, Divider, Row } from "antd";
-import { isEmpty, debounce } from "lodash-es";
+import { debounce } from "lodash-es";
 import { T } from "@common";
 import { fonts } from "@themes/index";
 import { injectIntl } from "react-intl";
@@ -38,7 +36,7 @@ export const Repos = ({
     setRepoName(rName);
   };
   const debouncedHandleOnChange = debounce(HandleOnChange, 200);
-  console.log({ error });
+  console.log({ error, isLoading, isFetching });
   return (
     <Container
       padding={20}
@@ -62,7 +60,7 @@ export const Repos = ({
         <T marginBottom={10} id="get_repo_details" />
         <Search
           data-testid="search-bar"
-          defaultValue={"test"}
+          defaultValue={repoName}
           type="text"
           onChange={evt => debouncedHandleOnChange(evt.target.value)}
           onSearch={searchText => debouncedHandleOnChange(searchText)}
@@ -102,29 +100,12 @@ Repos.propTypes = {
   padding: PropTypes.number,
   maxwidth: PropTypes.number,
   dispatchGithubRepos: PropTypes.func,
-  dispatchClearGithubRepos: PropTypes.func
+  dispatchClearGithubRepos: PropTypes.func,
 };
 
 Repos.defaultProps = {
   padding: 20,
   maxwidth: 500,
 };
-
-// const mapStateToProps = createStructuredSelector({
-//   app: selectApp(),
-//   repoName: selectRepoName(),
-//   reposData: selectReposData(),
-//   reposError: selectReposError(),
-// });
-
-// function mapDispatchToProps(dispatch) {
-//   const { requestGetGithubRepos, clearGithubRepos } = appCreators;
-//   return {
-//     dispatchClearGithubRepos: () => dispatch(clearGithubRepos()),
-//     dispatchGithubRepos: repoName => dispatch(requestGetGithubRepos(repoName)),
-//   };
-// }
-
-// const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 export default compose(injectIntl, memo)(Repos) as ReactComponentLike;
