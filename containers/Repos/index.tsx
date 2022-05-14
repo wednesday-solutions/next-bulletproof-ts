@@ -1,5 +1,5 @@
 import { Container, CustomCard, T } from "@common";
-import { useFetchRecommendationQuery } from "@features/repos/api/getReccomendations";
+import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
 import { ErrorState, Recommended, RepoList, YouAreAwesome } from "@features/repos/components";
 import { IRepoError, Recommendation } from "@features/repos/types";
 import { fonts } from "@themes/index";

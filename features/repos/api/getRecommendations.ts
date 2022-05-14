@@ -14,8 +14,8 @@ export interface IResponse {
   totalCount: number;
 }
 
-export const reccomendationsApi = createApi({
-  reducerPath: "reccomendationsApi",
+export const recommendationsApi = createApi({
+  reducerPath: "recommendationsApi",
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.github.com/" }),
   endpoints: builder => ({
     fetchRecommendation: builder.query<IResponse, string>({
@@ -35,4 +35,4 @@ export const reccomendationsApi = createApi({
   }),
 });
 
-export const { useFetchRecommendationQuery } = reccomendationsApi;
+export const { useFetchRecommendationQuery } = recommendationsApi;

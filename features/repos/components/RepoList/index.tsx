@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import { T, CustomCard, If } from "@common";
 import { commonPropTypes } from "@utils";
-import { IResponse, ResponseItem } from "@features/repos/api/getReccomendations";
+import { IResponse, ResponseItem } from "@features/repos/api/getRecommendations";
 
 interface RepoListProps {
   reposData: IResponse | undefined;
@@ -52,8 +52,8 @@ const RepoList: React.FC<RepoListProps> = props => {
 
 const types = {
   reposData: PropTypes.shape({
-    total_count: PropTypes.number.isRequired,
-    incomplete_results: PropTypes.bool.isRequired,
+    totalCount: PropTypes.number.isRequired,
+    incompleteResults: PropTypes.bool.isRequired,
     items: PropTypes.array.isRequired,
   }),
   repoName: PropTypes.string.isRequired,

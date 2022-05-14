@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 import { injectIntl, IntlShape } from "react-intl";
 import { T, CustomCard } from "@common";
 import { commonPropTypes } from "@utils";
-import { IResponse } from "@features/repos/api/getReccomendations";
+import { IResponse } from "@features/repos/api/getRecommendations";
 
 interface ErrorStateProps {
   intl: IntlShape;
@@ -28,18 +28,15 @@ const ErrorState: React.FC<ErrorStateProps> = ({ intl, reposData, reposError, lo
     repoError = "respo_search_default";
   }
 
-  return (
-    !loading &&
-    repoError && (
-      <CustomCard
-        color={reposError ? "red" : "grey"}
-        title={intl.formatMessage({ id: "repo_list" })}
-        data-testid="error-state"
-      >
-        <T id={repoError} />
-      </CustomCard>
-    )
-  );
+  return !loading && repoError ? (
+    <CustomCard
+      color={reposError ? "red" : "grey"}
+      title={intl.formatMessage({ id: "repo_list" })}
+      data-testid="error-state"
+    >
+      <T id={repoError} />
+    </CustomCard>
+  ) : null;
 };
 
 const types = {
