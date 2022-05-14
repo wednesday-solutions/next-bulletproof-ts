@@ -24,7 +24,8 @@
       "@themes/*": ["themes/*"],
       "@themes": ["themes"],
       "@utils": ["utils"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@containers/*": ["containers/*"]
     }
   },
   "include": [

@@ -1,37 +1,36 @@
-import React, { useEffect, memo, useState } from "react";
-import get from "lodash/get";
-import { compose } from "redux";
-import { connect } from "react-redux";
-import PropTypes, { ReactComponentLike } from "prop-types";
-import { Input, Divider, Row } from "antd";
-import { isEmpty, debounce } from "lodash-es";
-import { T } from "@common";
+import { Container, CustomCard, T } from "@common";
+import { ResponseItem, useFetchRecommendationQuery } from "@features/repos/api/getReccomendations";
+import { ErrorState, Recommended, RepoList, YouAreAwesome } from "@features/repos/components";
 import { fonts } from "@themes/index";
-import { injectIntl } from "react-intl";
-import { RepoList, YouAreAwesome, Recommended, ErrorState } from "@features/repos/components";
-import { Container, CustomCard } from "@common";
 import { commonPropTypes } from "@utils";
-import { useFetchRecommendationQuery } from "@features/repos/api/getReccomendations";
+import { Divider, Input, Row } from "antd";
+import { debounce } from "lodash-es";
+import PropTypes, { ReactComponentLike } from "prop-types";
+import React, { memo, useState } from "react";
+import { injectIntl, IntlShape } from "react-intl";
+import { compose } from "redux";
 
 const { Search } = Input;
 
+export interface ReposData {
+  incomplete_results: boolean;
+  items: ResponseItem[];
+  total_count: string;
+}
+
 interface Props {
-  intl: any;
   repoName: string;
   maxwidth: number;
-  reposData: any;
+  intl: IntlShape;
+  reposData: ReposData;
   recommendations: any;
   reposError: string;
   dispatchGithubRepos: any;
   dispatchClearGithubRepos: any;
+  padding: number;
 }
 
-export const Repos = ({
-  intl,
-  // repoName,
-  maxwidth,
-  recommendations,
-}: Props) => {
+export const Repos: React.FC<Props> = ({ intl, maxwidth, recommendations }) => {
   const [repoName, setRepoName] = useState("");
   const { data, error, isLoading, isFetching } = useFetchRecommendationQuery(repoName);
   const HandleOnChange = rName => {
@@ -39,6 +38,7 @@ export const Repos = ({
   };
   const debouncedHandleOnChange = debounce(HandleOnChange, 200);
   console.log({ error });
+
   return (
     <Container
       padding={20}
@@ -97,12 +97,13 @@ const types = {
 const { intl } = commonPropTypes;
 
 Repos.propTypes = {
+  // @ts-expect-error intl is of type IntlShape, which is not possible in PropTypes
   intl,
   ...types,
-  padding: PropTypes.number,
-  maxwidth: PropTypes.number,
+  padding: PropTypes.number.isRequired,
+  maxwidth: PropTypes.number.isRequired,
   dispatchGithubRepos: PropTypes.func,
-  dispatchClearGithubRepos: PropTypes.func
+  dispatchClearGithubRepos: PropTypes.func,
 };
 
 Repos.defaultProps = {
