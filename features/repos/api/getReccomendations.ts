@@ -1,5 +1,5 @@
+import _ from "lodash";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
 export interface ResponseItem {
   name: string;
   fullName: string;
@@ -9,9 +9,9 @@ export interface ResponseItem {
   };
 }
 export interface IResponse {
-  incomplete_results: boolean;
+  incompleteResults: boolean;
   items: ResponseItem[];
-  total_count: number;
+  totalCount: number;
 }
 
 export const reccomendationsApi = createApi({
@@ -20,6 +20,17 @@ export const reccomendationsApi = createApi({
   endpoints: builder => ({
     fetchRecommendation: builder.query<IResponse, string>({
       query: repo => `search/repositories?q=${repo}`,
+      transformResponse: (response: IResponse) => {
+        for (const key in response) {
+          const camelKey = _.camelCase(key);
+          if (camelKey !== key) {
+            response[camelKey] = response[key];
+            delete response[key];
+          }
+        }
+
+        return response;
+      },
     }),
   }),
 });

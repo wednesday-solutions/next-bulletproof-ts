@@ -1,3 +1,6 @@
+import pickBy from "lodash/pickBy";
+import screenSizes from "@themes/media";
+
 export const mapKeysDeep = (obj, fn) =>
   Array.isArray(obj)
     ? obj.map(val => mapKeysDeep(val, fn))
@@ -19,11 +22,6 @@ export const isLocal = () => {
   }
   return false;
 };
-
-export { default as commonPropTypes } from "./commonPropTypes";
-
-import pickBy from "lodash/pickBy";
-import screenSizes from "@themes/media";
 
 export function getQueryStringValue(keys) {
   const queryString = {};
@@ -57,3 +55,4 @@ export const setDeviceType = (width = document.body.clientWidth) => {
 };
 
 export const getDeviceType = device => (device || setDeviceType()).toUpperCase();
+export { default as commonPropTypes } from "./commonPropTypes";

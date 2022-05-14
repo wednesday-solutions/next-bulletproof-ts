@@ -11,13 +11,13 @@ import { useRouter } from "next/router";
 import { ClickableTags } from "@common";
 import { Recommendation } from "@features/repos/types";
 
-interface Props {
-  recommendations: [Recommendation];
+interface RecommendedProps {
+  recommendations: Recommendation[] | undefined;
 }
 
-const Recommended = ({ recommendations }: Props) => {
+const Recommended: React.FC<RecommendedProps> = ({ recommendations }) => {
   const router = useRouter();
-  console.log({ recommendations });
+
   return (
     <Row data-testid="recommended">
       {recommendations?.length &&

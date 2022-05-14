@@ -1,6 +1,7 @@
 import { Container, CustomCard, T } from "@common";
-import { ResponseItem, useFetchRecommendationQuery } from "@features/repos/api/getReccomendations";
+import { useFetchRecommendationQuery } from "@features/repos/api/getReccomendations";
 import { ErrorState, Recommended, RepoList, YouAreAwesome } from "@features/repos/components";
+import { IRepoError, Recommendation } from "@features/repos/types";
 import { fonts } from "@themes/index";
 import { commonPropTypes } from "@utils";
 import { Divider, Input, Row } from "antd";
@@ -12,32 +13,20 @@ import { compose } from "redux";
 
 const { Search } = Input;
 
-export interface ReposData {
-  incomplete_results: boolean;
-  items: ResponseItem[];
-  total_count: string;
-}
-
 interface Props {
-  repoName: string;
-  maxwidth: number;
   intl: IntlShape;
-  reposData: ReposData;
-  recommendations: any;
-  reposError: string;
-  dispatchGithubRepos: any;
-  dispatchClearGithubRepos: any;
   padding: number;
+  maxwidth: number;
+  recommendations: Recommendation[];
 }
 
 export const Repos: React.FC<Props> = ({ intl, maxwidth, recommendations }) => {
-  const [repoName, setRepoName] = useState("");
+  const [repoName, setRepoName] = useState<string>("");
   const { data, error, isLoading, isFetching } = useFetchRecommendationQuery(repoName);
-  const HandleOnChange = rName => {
+  const handleOnChange = (rName: string) => {
     setRepoName(rName);
   };
-  const debouncedHandleOnChange = debounce(HandleOnChange, 200);
-  console.log({ error });
+  const debouncedHandleOnChange = debounce(handleOnChange, 200);
 
   return (
     <Container
@@ -72,28 +61,18 @@ export const Repos: React.FC<Props> = ({ intl, maxwidth, recommendations }) => {
       <ErrorState
         reposData={data}
         loading={isLoading && isFetching}
-        reposError={error?.data?.message}
+        reposError={(error as IRepoError)?.data?.message}
       />
     </Container>
   );
 };
 
 const types = {
-  reposData: PropTypes.arrayOf(
-    PropTypes.shape({
-      totalCount: PropTypes.number,
-      incompleteResults: PropTypes.bool,
-      items: PropTypes.array,
-    })
-  ),
-  reposError: PropTypes.object,
-  repoName: PropTypes.string,
   recommendations: PropTypes.arrayOf(
     PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired })
   ),
 };
 
-// const { reposData, reposError, repoName, recommendations } = types;
 const { intl } = commonPropTypes;
 
 Repos.propTypes = {
@@ -102,30 +81,11 @@ Repos.propTypes = {
   ...types,
   padding: PropTypes.number.isRequired,
   maxwidth: PropTypes.number.isRequired,
-  dispatchGithubRepos: PropTypes.func,
-  dispatchClearGithubRepos: PropTypes.func,
 };
 
 Repos.defaultProps = {
   padding: 20,
   maxwidth: 500,
 };
-
-// const mapStateToProps = createStructuredSelector({
-//   app: selectApp(),
-//   repoName: selectRepoName(),
-//   reposData: selectReposData(),
-//   reposError: selectReposError(),
-// });
-
-// function mapDispatchToProps(dispatch) {
-//   const { requestGetGithubRepos, clearGithubRepos } = appCreators;
-//   return {
-//     dispatchClearGithubRepos: () => dispatch(clearGithubRepos()),
-//     dispatchGithubRepos: repoName => dispatch(requestGetGithubRepos(repoName)),
-//   };
-// }
-
-// const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 export default compose(injectIntl, memo)(Repos) as ReactComponentLike;
