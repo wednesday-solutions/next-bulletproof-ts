@@ -10,11 +10,10 @@ import { Skeleton } from "antd";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import { T, CustomCard, If } from "@common";
-import { commonPropTypes } from "@utils";
 import { IResponse, ResponseItem } from "@features/repos/api/getRecommendations";
 
 interface RepoListProps {
-  reposData: IResponse | undefined;
+  reposData?: IResponse;
   loading: boolean;
   repoName: string;
 }
@@ -56,15 +55,13 @@ const types = {
     incompleteResults: PropTypes.bool.isRequired,
     items: PropTypes.array.isRequired,
   }),
-  repoName: PropTypes.string.isRequired,
 };
 
-const { loading } = commonPropTypes;
-const { repoName, reposData } = types;
+const {  reposData } = types;
 
 RepoList.propTypes = {
-  loading,
-  repoName,
+  loading: PropTypes.bool.isRequired,
+  repoName: PropTypes.string.isRequired,
   reposData,
 };
 

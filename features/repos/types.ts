@@ -1,5 +1,5 @@
 export interface Recommendation {
-  id: string;
+  id: number;
   name: string;
 }
 

@@ -21,7 +21,7 @@ export const recommendationsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.github.com/" }),
   endpoints: builder => ({
     fetchRecommendation: builder.query<IResponse, string>({
-      query: repo => `search/repositories?q=${repo}`,
+      query: (repo)=> `search/repositories?q=${repo}`,
       transformResponse: (response: IResponse) => {
         return convertObjectToCamelCase<IResponse>(response);
       },

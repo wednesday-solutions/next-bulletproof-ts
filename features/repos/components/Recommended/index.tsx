@@ -12,7 +12,7 @@ import { ClickableTags } from "@common";
 import { Recommendation } from "@features/repos/types";
 
 interface RecommendedProps {
-  recommendations: Recommendation[] | undefined;
+  recommendations?: Recommendation[];
 }
 
 const Recommended: React.FC<RecommendedProps> = ({ recommendations }) => {
@@ -32,7 +32,7 @@ const Recommended: React.FC<RecommendedProps> = ({ recommendations }) => {
 
 Recommended.propTypes = {
   recommendations: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired })
+    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired }).isRequired
   ),
 };
 
