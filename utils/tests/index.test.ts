@@ -1,5 +1,5 @@
 import camelCase from "lodash/camelCase";
-import { isLocal, mapKeysDeep } from "../index";
+import { isLocal, mapKeysDeep, convertObjectToCamelCase } from "../index";
 
 describe("Tests for isLocal method", () => {
   const OLD_ENV = process.env;
@@ -47,5 +47,34 @@ describe("Tests for mapKeysDeep method", () => {
 
   it("should return the passed value if its not an array or object", () => {
     expect(mapKeysDeep(10, fn)).toEqual(10);
+  });
+});
+
+describe("Tests for convertObjectToCamelCase", () => {
+  it("should throw an error if incorrect type is provided", () => {
+    // @ts-expect-error this is an error case which ts identifies but check for just in case
+    expect(convertObjectToCamelCase(["hey"])).toThrow(
+      "The type of value passed in must be an object's reference"
+    );
+  });
+
+  it("should convert the object's keys into camelCase", () => {
+    const camelObject = {
+      thisIsCamel: "statement",
+      anotherCamel: "statement",
+    };
+
+    const snakeObject = {
+      this_is_camel: "statement",
+      another_camel: "statement",
+    };
+
+    convertObjectToCamelCase(snakeObject);
+
+    const cKeys = Object.keys(camelObject);
+    const sKeys = Object.keys(snakeObject);
+
+    expect(cKeys[0]).toEqual(sKeys[0]);
+    expect(cKeys[1]).toEqual(sKeys[1]);
   });
 });

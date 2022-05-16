@@ -3,7 +3,6 @@ import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendati
 import { ErrorState, Recommended, RepoList, YouAreAwesome } from "@features/repos/components";
 import { IRepoError, Recommendation } from "@features/repos/types";
 import { fonts } from "@themes/index";
-import { commonPropTypes } from "@utils";
 import { Divider, Input, Row } from "antd";
 import { debounce } from "lodash-es";
 import PropTypes, { ReactComponentLike } from "prop-types";
@@ -13,14 +12,14 @@ import { compose } from "redux";
 
 const { Search } = Input;
 
-interface Props {
+interface RepoContainerProps {
   intl: IntlShape;
   padding: number;
   maxwidth: number;
   recommendations: Recommendation[];
 }
 
-export const Repos: React.FC<Props> = ({ intl, maxwidth, recommendations }) => {
+export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommendations }) => {
   const [repoName, setRepoName] = useState<string>("");
   const { data, error, isLoading, isFetching } = useFetchRecommendationQuery(repoName);
   const handleOnChange = (rName: string) => {
@@ -73,14 +72,12 @@ const types = {
   ),
 };
 
-const { intl } = commonPropTypes;
-
 Repos.propTypes = {
   // @ts-expect-error intl is of type IntlShape, which is not possible in PropTypes
-  intl,
-  ...types,
+  intl: PropTypes.object.isRequired,
   padding: PropTypes.number.isRequired,
   maxwidth: PropTypes.number.isRequired,
+  ...types,
 };
 
 Repos.defaultProps = {

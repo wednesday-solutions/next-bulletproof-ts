@@ -10,7 +10,6 @@ import { compose } from "redux";
 import PropTypes from "prop-types";
 import { injectIntl, IntlShape } from "react-intl";
 import { T, CustomCard } from "@common";
-import { commonPropTypes } from "@utils";
 import { IResponse } from "@features/repos/api/getRecommendations";
 
 interface ErrorStateProps {
@@ -45,21 +44,15 @@ const types = {
     incompleteResults: PropTypes.bool.isRequired,
     items: PropTypes.array.isRequired,
   }),
-  reposError: PropTypes.string,
-  repoName: PropTypes.string,
-  recommendations: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired })
-  ),
 };
 
-const { intl, loading } = commonPropTypes;
-const { reposError, reposData } = types;
+const { reposData } = types;
 
 ErrorState.propTypes = {
   // @ts-expect-error intl is of type IntlShape, which is not possible in PropTypes
-  intl,
-  loading,
-  reposError,
+  intl: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  reposError: PropTypes.string.isRequired,
   reposData,
 };
 
