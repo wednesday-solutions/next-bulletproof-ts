@@ -1,3 +1,7 @@
+import pickBy from "lodash-es/pickBy";
+import camelCase from "lodash-es/camelCase";
+import screenSizes from "@themes/media";
+
 export const mapKeysDeep = (obj, fn) =>
   Array.isArray(obj)
     ? obj.map(val => mapKeysDeep(val, fn))
@@ -19,11 +23,6 @@ export const isLocal = () => {
   }
   return false;
 };
-
-export { default as commonPropTypes } from "./commonPropTypes";
-
-import pickBy from "lodash/pickBy";
-import screenSizes from "@themes/media";
 
 export function getQueryStringValue(keys) {
   const queryString = {};
@@ -56,4 +55,25 @@ export const setDeviceType = (width = document.body.clientWidth) => {
   }
 };
 
+/**
+ * Converts an object's keys to camelCase, takes reference to the object
+ * @param obj the object whose keys to convert
+ */
+export const convertObjectToCamelCase = <T>(obj: Record<string, unknown>): T => {
+  if (typeof obj !== "object") {
+    throw new Error("The type of value passed in must be an object's reference");
+  }
+
+  for (const key in obj) {
+    const camelKey = camelCase(key);
+    if (camelKey !== key) {
+      obj[camelKey] = obj[key];
+      delete obj[key];
+    }
+  }
+
+  return obj as T;
+};
+
 export const getDeviceType = device => (device || setDeviceType()).toUpperCase();
+export { default as commonPropTypes } from "./commonPropTypes";

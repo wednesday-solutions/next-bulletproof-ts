@@ -11,13 +11,13 @@ import { useRouter } from "next/router";
 import { ClickableTags } from "@common";
 import { Recommendation } from "@features/repos/types";
 
-interface Props {
-  recommendations: [Recommendation];
+interface RecommendedProps {
+  recommendations?: Recommendation[];
 }
 
-const Recommended = ({ recommendations }: Props) => {
+const Recommended: React.FC<RecommendedProps> = ({ recommendations }) => {
   const router = useRouter();
-  console.log({ recommendations });
+
   return (
     <Row data-testid="recommended">
       {recommendations?.length &&
@@ -32,7 +32,7 @@ const Recommended = ({ recommendations }: Props) => {
 
 Recommended.propTypes = {
   recommendations: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired })
+    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired }).isRequired
   ),
 };
 
