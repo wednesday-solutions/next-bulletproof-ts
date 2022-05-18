@@ -1,5 +1,5 @@
-import pickBy from "lodash/pickBy";
-import camelCase from "lodash/camelCase";
+import pickBy from "lodash-es/pickBy";
+import camelCase from "lodash-es/camelCase";
 import screenSizes from "@themes/media";
 
 export const mapKeysDeep = (obj, fn) =>

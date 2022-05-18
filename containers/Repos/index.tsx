@@ -16,16 +16,15 @@ interface RepoContainerProps {
   intl: IntlShape;
   padding: number;
   maxwidth: number;
-  recommendations: Recommendation[];
+  recommendations?: Recommendation[];
 }
 
 export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommendations }) => {
   const [repoName, setRepoName] = useState<string>("");
   const { data, error, isLoading, isFetching } = useFetchRecommendationQuery(repoName);
-  const handleOnChange = (rName: string) => {
+  const handleOnChange = debounce((rName: string) => {
     setRepoName(rName);
-  };
-  const debouncedHandleOnChange = debounce(handleOnChange, 200);
+  }, 200);
 
   return (
     <Container
@@ -52,8 +51,8 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
           data-testid="search-bar"
           defaultValue={"test"}
           type="text"
-          onChange={evt => debouncedHandleOnChange(evt.target.value)}
-          onSearch={searchText => debouncedHandleOnChange(searchText)}
+          onChange={evt => handleOnChange(evt.target.value)}
+          onSearch={searchText => handleOnChange(searchText)}
         />
       </CustomCard>
       <RepoList reposData={data} repoName={"test"} loading={isLoading && isFetching} />
@@ -66,18 +65,15 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
   );
 };
 
-const types = {
-  recommendations: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired })
-  ),
-};
-
 Repos.propTypes = {
   // @ts-expect-error intl is of type IntlShape, which is not possible in PropTypes
   intl: PropTypes.object.isRequired,
   padding: PropTypes.number.isRequired,
   maxwidth: PropTypes.number.isRequired,
-  ...types,
+  recommendations: PropTypes.arrayOf(
+    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired })
+      .isRequired
+  ),
 };
 
 Repos.defaultProps = {
