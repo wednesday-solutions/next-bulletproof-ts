@@ -1,24 +1,25 @@
-{
-  "env": {
-    "browser": true,
-    "es2021": true
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
   },
-  "extends": [
+  extends: [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:storybook/recommended",
   ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
-  "plugins": ["react", "@typescript-eslint"],
-  "rules": {
+  plugins: ["react", "@typescript-eslint"],
+  rules: {
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
@@ -34,9 +35,9 @@
     "react/function-component-definition": [
       "warn",
       {
-        "namedComponents": "arrow-function",
-        "unnamedComponents": "arrow-function"
-      }
-    ]
-  }
-}
+        namedComponents: "arrow-function",
+        unnamedComponents: "arrow-function",
+      },
+    ],
+  },
+};
