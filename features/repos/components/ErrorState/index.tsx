@@ -52,7 +52,7 @@ ErrorState.propTypes = {
   // @ts-expect-error intl is of type IntlShape, which is not possible in PropTypes
   intl: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
-  reposError: PropTypes.string.isRequired,
+  reposError: PropTypes.string,
   reposData,
 };
 
