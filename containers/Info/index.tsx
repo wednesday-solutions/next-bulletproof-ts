@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import isEmpty from "lodash/isEmpty";
 
 import { If } from "@common";
@@ -32,10 +31,6 @@ const Info: React.FC<RepoInfoProps> = ({ repoinfo }) => {
       </p>
     </If>
   );
-};
-
-Info.propTypes = {
-  repoinfo: PropTypes.object.isRequired,
 };
 
 export default Info;

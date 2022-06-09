@@ -1,11 +1,18 @@
-const getPresets = (options = {}) => ({
-  presets: options.presets || ["next/babel"],
-
+const getPresets = (options = {}) => {
   /**
    * Styled-component prop to SSR so as to prevent className mismatch
    */
-  plugins: [["styled-components", { ssr: true }], ...(options.plugins || [])],
-});
+  const plugins = [["styled-components", { ssr: true }], ...(options.plugins || [])];
+
+  if (process.env.NODE_ENV !== "production") {
+    plugins.push("babel-plugin-typescript-to-proptypes");
+  }
+
+  return {
+    presets: options.presets || ["next/babel"],
+    plugins,
+  };
+};
 
 module.exports = {
   env: {
