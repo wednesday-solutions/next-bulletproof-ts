@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "noImplicitAny": false,
     "paths": {
+      "@app/*": ["./*"],
       "@features/*": ["features/*"],
       "@slices/*": ["store/slices/*"],
       "@store": ["store"],

@@ -4,11 +4,11 @@
  *
  */
 
-import React, { ReactNode } from "react";
+import React from "react";
 import Proptypes from "prop-types";
 import styled from "styled-components";
 
-const FlexContainer = styled.div`
+const FlexContainer = styled.div<{ orientation: "row" | "column" }>`
   display: flex;
   flex-direction: ${props => props.orientation};
 `;
@@ -17,7 +17,7 @@ interface Props<TListItem> {
   of: TListItem[];
   parentProps?: any;
   noParent?: boolean;
-  ParentComponent?: React.FunctionComponent;
+  ParentComponent?: React.FC;
   renderItem: (item: TListItem, index: number) => React.ReactElement;
   orientation?: "row" | "column";
 }

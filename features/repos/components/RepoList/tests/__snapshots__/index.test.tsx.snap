@@ -1,14 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<RepoList /> should render and match the snapshot 1`] = `
-.c0.c0 {
-  margin: 20px 0;
-}
-
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered c0"
+      class="ant-card ant-card-bordered styled__CustomCard-sc-15gkald-1 kmxBSK"
       data-testid="repo-list"
     >
       <div

@@ -21,7 +21,7 @@ const StyledClickable = styled.div`
   }
 `;
 
-const Clickable = ({ onClick, textId }: Props) => {
+const Clickable: React.FC<Props> = ({ onClick, textId }) => {
   return (
     <StyledClickable data-testid="clickable" onClick={onClick}>
       {textId && <T id={textId} />}

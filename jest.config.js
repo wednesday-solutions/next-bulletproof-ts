@@ -1,7 +1,16 @@
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  collectCoverageFrom: ["**/*.{js,jsx,ts,tsx}", "!**/*.d.ts", "!**/node_modules/**"],
+  collectCoverageFrom: [
+    "./common/**/*.{js,jsx,ts,tsx}",
+    "./containers/**/*.{js,jsx,ts,tsx}",
+    "./features/**/*.{js,jsx,ts,tsx}",
+    "./pages/**/*.{js,jsx,ts,tsx}",
+    "./store/**/*.{js,jsx,ts,tsx}",
+    "./styles/**/*.{js,jsx,ts,tsx}",
+    "./themes/**/*.{js,jsx,ts,tsx}",
+    "./utils/**/*.{js,jsx,ts,tsx}",
+  ],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
     // https://jestjs.io/docs/webpack#mocking-css-modules
@@ -9,6 +18,9 @@ module.exports = {
 
     // Handle CSS imports (without CSS modules)
     "^.+\\.(css|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+
+    // Map lodash-es to lodash
+    "^lodash-es(.*)": "lodash$1",
 
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets
@@ -27,8 +39,18 @@ module.exports = {
     "^@slices(.*)": "<rootDir>/store/slices/$1",
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
-  testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
+  testPathIgnorePatterns: [
+    "<rootDir>/node_modules/",
+    "<rootDir>/.next/",
+    "<rootDir>/coverage/",
+    "<rootDir>/babel.config.js",
+    "<rootDir>/jest.config.js",
+    "<rootDir>/jest.setup.js",
+    "<rootDir>/next-env.d.ts",
+    "<rootDir>/next.config.js",
+  ],
   transform: {
+    "node_modules/lodash-es/.+\\.(j|t)sx?$": "ts-jest",
     // Use babel-jest to transpile tests with the next/babel preset
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
     "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
@@ -36,8 +58,12 @@ module.exports = {
   transformIgnorePatterns: [
     "/node_modules/",
     "^.+\\.module\\.(css|sass|scss)$",
-    "!/node_modules/lodash/*",
+    "/node_modules/(?!lodash-es/*)",
   ],
   passWithNoTests: true,
-  globals: {},
+  globals: {
+    "ts-jest": {
+      tsconfig: "tsconfig.json",
+    },
+  },
 };

@@ -3,6 +3,7 @@ import React from "react";
 import { IntlProvider } from "react-intl";
 import { Provider as ReduxProvider } from "react-redux";
 import { store } from "../store";
+import messages from "../translations/en.json";
 
 /**
  * Renders the passed in components or tree with all the providers.
@@ -13,7 +14,7 @@ import { store } from "../store";
 export const WithAllProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <ReduxProvider store={store}>
-      <IntlProvider locale="en" defaultLocale="en">
+      <IntlProvider messages={messages} locale="en" defaultLocale="en">
         {children}
       </IntlProvider>
     </ReduxProvider>

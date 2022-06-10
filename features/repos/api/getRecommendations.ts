@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { convertObjectToCamelCase } from "@utils";
+import isomorphicFetch from "isomorphic-fetch";
 
 export interface ResponseItem {
   name: string;
@@ -18,10 +19,10 @@ export type IResponse = {
 
 export const recommendationsApi = createApi({
   reducerPath: "recommendationsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://api.github.com/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://api.github.com/", fetchFn: isomorphicFetch }),
   endpoints: builder => ({
     fetchRecommendation: builder.query<IResponse, string>({
-      query: (repo)=> `search/repositories?q=${repo}`,
+      query: repo => `search/repositories?q=${repo}`,
       transformResponse: (response: IResponse) => {
         return convertObjectToCamelCase<IResponse>(response);
       },
