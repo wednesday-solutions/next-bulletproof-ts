@@ -18,10 +18,10 @@ export type IResponse = {
 
 export const recommendationsApi = createApi({
   reducerPath: "recommendationsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://api.github.com/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_GITHUB_URL }),
   endpoints: builder => ({
     fetchRecommendation: builder.query<IResponse, string>({
-      query: (repo)=> `search/repositories?q=${repo}`,
+      query: repo => `search/repositories?q=${repo}`,
       transformResponse: (response: IResponse) => {
         return convertObjectToCamelCase<IResponse>(response);
       },
