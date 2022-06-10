@@ -20,6 +20,10 @@ jest.mock("store", () => {
   };
 });
 
+/**
+ * Stub for window.matchMedia()
+ * @refer https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia
+ */
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: jest.fn().mockImplementation(query => ({
