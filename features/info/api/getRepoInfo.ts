@@ -1,3 +1,4 @@
+import { HYDRATE } from "next-redux-wrapper";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { RepoInfo as RepoInfoResponse } from "@features/info/types";
 import { convertObjectToCamelCase } from "@utils";
@@ -9,10 +10,21 @@ type Params = {
 
 export const repoInfoApi = createApi({
   reducerPath: "repoInfoApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://api.github.com/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_GITHUB_URL }),
+  extractRehydrationInfo(action, { reducerPath }) {
+    if (action.type === HYDRATE) {
+      return action.payload[reducerPath];
+    }
+  },
   endpoints: builder => ({
     fetchRepoInfo: builder.query<RepoInfoResponse, object>({
-      query: (params: Params) => `repos/${params.username}/${params.repo}`,
+      query: (params: Params) => {
+        if (!params.username || !params.repo) {
+          throw new Error("Invalid params");
+        }
+
+        return `repos/${params.username}/${params.repo}`;
+      },
       transformResponse: (response: RepoInfoResponse) => {
         return convertObjectToCamelCase<RepoInfoResponse>(response);
       },

@@ -1,16 +1,25 @@
-import { compose } from "redux";
-import React, { memo } from "react";
-import { injectIntl } from "react-intl";
+import React from "react";
+import { store } from "@store";
 import { Info } from "@features/info";
+import { repoInfoApi } from "@features/info/api/getRepoInfo";
 
-export const RepoInfoPage = ({ repoinfo }) => {
-  return <Info repoinfo={repoinfo} />;
+export const RepoInfoPage = () => {
+  return <Info />;
 };
 
-// export async function getStaticProps() {
-//   return {
-//     props: {},
-//   };
-// }
+export const getServerSideProps = context => {
+  store.dispatch(
+    repoInfoApi.endpoints.fetchRepoInfo.initiate({
+      username: context.query.owner || "wednesday-solutions",
+      repo: context.query.slug,
+    })
+  );
 
-export default compose(injectIntl, memo)(RepoInfoPage);
+  Promise.all(repoInfoApi.util.getRunningOperationPromises());
+
+  return {
+    props: {},
+  };
+};
+
+export default RepoInfoPage;
