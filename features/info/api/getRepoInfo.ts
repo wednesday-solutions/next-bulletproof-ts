@@ -1,6 +1,6 @@
 import { HYDRATE } from "next-redux-wrapper";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { RepoInfo as RepoInfoResponse } from "@features/info/types";
+import { RepoInfoTypes as RepoInfoResponse } from "@features/info/types";
 import { convertObjectToCamelCase } from "@utils";
 
 type Params = {

@@ -1,36 +1,34 @@
-import React from "react";
 import isEmpty from "lodash/isEmpty";
+import { useRouter } from "next/router";
+import { ReactComponentLike } from "prop-types";
+import React from "react";
 
-import { If } from "@common";
-import { RepoInfo } from "@features/info/types";
-
-interface RepoInfoProps {
-  repoinfo: RepoInfo;
-}
+import { If, Loader } from "@common";
+import { useFetchRepoInfoQuery } from "@features/info/api/getRepoInfo";
+import RepoInfo from "@features/info/components/RepoInfo";
+import { RepoInfoError } from "@features/info/components";
 
 const EmptyResult = () => {
   return <h1>No Records Found</h1>;
 };
 
-const Info: React.FC<RepoInfoProps> = ({ repoinfo }) => {
-  return (
-    <If condition={!isEmpty(repoinfo)} otherwise={<EmptyResult />}>
-      <h1>{repoinfo?.name}</h1>
-      <p>{repoinfo?.description}</p>
+const Info: React.FC = () => {
+  const router = useRouter();
 
-      <p>
-        <span>
-          Forks: <b>{repoinfo?.forks}</b>
-        </span>
-        <span>
-          Watchers: <b>{repoinfo?.watchers}</b>
-        </span>
-        <span>
-          Stars: <b>{repoinfo?.stargazers_count}</b>
-        </span>
-      </p>
+  const { data, error, isLoading } = useFetchRepoInfoQuery({
+    username: router.query.owner,
+    repo: router.query.slug,
+  });
+
+  if (isLoading) return <Loader />;
+
+  if (error || !data) return <RepoInfoError />;
+
+  return (
+    <If condition={!isEmpty(data)} otherwise={<EmptyResult />}>
+      <RepoInfo repoinfo={data} />
     </If>
   );
 };
 
-export default Info;
+export default Info as ReactComponentLike;
