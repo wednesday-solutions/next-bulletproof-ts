@@ -6,11 +6,7 @@ import React from "react";
 import { If, Loader } from "@common";
 import { useFetchRepoInfoQuery } from "@features/info/api/getRepoInfo";
 import RepoInfo from "@features/info/components/RepoInfo";
-import { RepoInfoError } from "@features/info/components";
-
-const EmptyResult = () => {
-  return <h1>No Records Found</h1>;
-};
+import { RepoInfoError, EmptyResult } from "@features/info/components";
 
 const Info: React.FC = () => {
   const router = useRouter();

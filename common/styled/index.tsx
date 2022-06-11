@@ -1,6 +1,6 @@
 import styled, { CSSProperties } from "styled-components";
 import { Card, Tag } from "antd";
-import { colors } from "@themes";
+import { colors, styles } from "@themes";
 
 interface Props {
   maxwidth: CSSProperties["maxWidth"];
@@ -38,6 +38,5 @@ export const AlignCenter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  opacity: 0.7;
+  ${styles.viewHeight(100)}
 `;
