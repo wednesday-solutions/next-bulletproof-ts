@@ -25,32 +25,36 @@ const RepoInfo: React.FC<RepoInfoProps> = ({ intl, repoinfo }) => {
         {intl.formatMessage({ id: "back_to_home_button" })}
       </Button>
 
-      <T text={name} type="heading" />
-      <T text={owner.login} type="subText" />
+      <If condition={name}>
+        <T text={name} type="heading" />
+      </If>
 
-      <T text={description} />
+      <If condition={owner.login}>
+        <T text={owner.login} type="subText" />
+      </If>
+
+      <If condition={description}>
+        <T text={description} />
+      </If>
 
       <TextGrid>
-        <Tag color={colors.primary}>
-          {intl.formatMessage({ id: "repo_fork_count" })}:
-          <If condition={forks} otherwise="0">
-            {forks}
-          </If>
-        </Tag>
+        <If condition={forks}>
+          <Tag color={colors.primary}>
+            {intl.formatMessage({ id: "repo_fork_count" })}: {forks}
+          </Tag>
+        </If>
 
-        <Tag color={colors.primary}>
-          {intl.formatMessage({ id: "repo_watchers_count" })}:
-          <If condition={watchers} otherwise="0">
-            {watchers}
-          </If>
-        </Tag>
+        <If condition={watchers}>
+          <Tag color={colors.primary}>
+            {intl.formatMessage({ id: "repo_watchers_count" })}: {watchers}
+          </Tag>
+        </If>
 
-        <Tag color={colors.primary}>
-          {intl.formatMessage({ id: "repo_stars_count" })}:
-          <If condition={stargazersCount} otherwise="0">
-            {stargazersCount}
-          </If>
-        </Tag>
+        <If condition={stargazersCount}>
+          <Tag color={colors.primary}>
+            {intl.formatMessage({ id: "repo_stars_count" })}: {stargazersCount}
+          </Tag>
+        </If>
       </TextGrid>
     </Card>
   );
