@@ -3,6 +3,7 @@ import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import counterReducer from "@slices/repos";
 import { recommendationsApi } from "@features/repos/api/getRecommendations";
 import { repoInfoApi } from "@features/info/api/getRepoInfo";
+import middlewares from "@utils/middlewares";
 
 export const store = configureStore({
   reducer: {
@@ -10,8 +11,7 @@ export const store = configureStore({
     [recommendationsApi.reducerPath]: recommendationsApi.reducer,
     [repoInfoApi.reducerPath]: repoInfoApi.reducer,
   },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(recommendationsApi.middleware, repoInfoApi.middleware),
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat([...middlewares]),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { convertObjectToCamelCase } from "@utils";
+import { emptySplitApi } from "@utils/baseApi";
 
 export interface ResponseItem {
   name: string;
@@ -16,9 +16,7 @@ export type IResponse = {
   totalCount: number;
 };
 
-export const recommendationsApi = createApi({
-  reducerPath: "recommendationsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_GITHUB_URL }),
+export const recommendationsApi = emptySplitApi.injectEndpoints({
   endpoints: builder => ({
     fetchRecommendation: builder.query<IResponse, string>({
       query: repo => `search/repositories?q=${repo}`,
@@ -27,6 +25,7 @@ export const recommendationsApi = createApi({
       },
     }),
   }),
+  overrideExisting: false,
 });
 
 export const { useFetchRecommendationQuery } = recommendationsApi;

@@ -1,21 +1,13 @@
-import { HYDRATE } from "next-redux-wrapper";
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { RepoInfoTypes as RepoInfoResponse } from "@features/info/types";
 import { convertObjectToCamelCase } from "@utils";
+import { emptySplitApi } from "@utils/baseApi";
 
 type Params = {
   username: string;
   repo: string;
 };
 
-export const repoInfoApi = createApi({
-  reducerPath: "repoInfoApi",
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_GITHUB_URL }),
-  extractRehydrationInfo(action, { reducerPath }) {
-    if (action.type === HYDRATE) {
-      return action.payload[reducerPath];
-    }
-  },
+export const repoInfoApi = emptySplitApi.injectEndpoints({
   endpoints: builder => ({
     fetchRepoInfo: builder.query<RepoInfoResponse, object>({
       query: (params: Params) => {
@@ -30,6 +22,7 @@ export const repoInfoApi = createApi({
       },
     }),
   }),
+  overrideExisting: false,
 });
 
 export const { useFetchRepoInfoQuery } = repoInfoApi;
