@@ -1,6 +1,8 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ApisauceInstance, create } from "apisauce";
-import snakeCase from "lodash/snakeCase";
 import camelCase from "lodash/camelCase";
+import snakeCase from "lodash/snakeCase";
+import { HYDRATE } from "next-redux-wrapper";
 import { mapKeysDeep } from "./index";
 
 const apiClients: Record<string, ApisauceInstance | null> = {
@@ -41,3 +43,15 @@ export const createApiClientWithTransForm = baseURL => {
   });
   return api;
 };
+
+// Here we initialize an empty api service that we'll inject endpoints into later as needed
+export const githubApiService = createApi({
+  reducerPath: "github",
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_GITHUB_URL }),
+  extractRehydrationInfo(action, { reducerPath }) {
+    if (action.type === HYDRATE) {
+      return action.payload[reducerPath];
+    }
+  },
+  endpoints: () => ({}),
+});
