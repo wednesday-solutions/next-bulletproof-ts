@@ -10,7 +10,7 @@
     "prepare": "husky install",
     "test": "jest",
     "test:watch": "jest --env=jsdom --watch",
-    "prettify": "prettier --write app/**/*.ts",
+    "prettify": "prettier --write ./**/*.{ts,tsx,json}",
     "lint:eslint:fix": "yarn eslint . --ext .ts,.tsx --fix",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
@@ -18,6 +18,23 @@
   },
   "resolutions": {
     "styled-components": "^5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettify && git add -A ."
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npm run lint:eslint:fix",
+      "yarn prettify",
+      "git add --force",
+      "jest --findRelatedTests $STAGED_FILES"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add --force"
+    ]
   },
   "dependencies": {
     "@next/bundle-analyzer": "^12.1.0",
