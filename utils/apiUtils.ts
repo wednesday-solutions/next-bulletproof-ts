@@ -21,7 +21,7 @@ export const generateApiClient = (type = "github") => {
   }
 };
 
-export const createApiClientWithTransForm = baseURL => {
+export const createApiClientWithTransForm = (baseURL: string) => {
   const api = create({
     baseURL,
     headers: { "Content-Type": "application/json" },

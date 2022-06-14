@@ -19,7 +19,7 @@ jobs:
           # cache: "yarn"
 
       - name: Install dependencies
-        run: yarn && yarn global add @lhci/cli@0.8.x
+        run: yarn
 
       - name: Lint codebase
         run: yarn lint
@@ -31,7 +31,9 @@ jobs:
         run: yarn build
 
       - name: run Lighthouse CI
-        run: lhci autorun
+        run: |
+          yarn global add @lhci/cli@0.8.x
+          lhci autorun
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
