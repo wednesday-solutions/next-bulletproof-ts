@@ -1,6 +1,6 @@
 import styled, { CSSProperties } from "styled-components";
 import { Card, Tag } from "antd";
-import { colors } from "@themes";
+import { colors, styles } from "@themes";
 
 interface Props {
   maxwidth: CSSProperties["maxWidth"];
@@ -32,4 +32,11 @@ export const ClickableTags = styled(Tag)`
   :hover {
     border: 1px solid ${colors.primary};
   }
+`;
+
+export const AlignCenter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${styles.viewHeight(100)}
 `;
