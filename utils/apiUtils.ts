@@ -44,7 +44,9 @@ export const createApiClientWithTransForm = (baseURL: string) => {
   return api;
 };
 
-// Here we initialize an empty api service that we'll inject endpoints into later as needed
+/**
+ * @desc Here we initialize an empty api service that we'll inject endpoints into later as needed
+ */
 export const githubApiService = createApi({
   reducerPath: "github",
   baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_GITHUB_URL }),

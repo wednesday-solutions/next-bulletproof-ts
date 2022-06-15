@@ -26,15 +26,15 @@ const RepoInfo: React.FC<RepoInfoProps> = ({ intl, repoinfo }) => {
         {intl.formatMessage({ id: "back_to_home_button" })}
       </Button>
 
-      <If condition={isEmpty(name)}>
+      <If condition={!isEmpty(name)}>
         <T text={name} type="heading" />
       </If>
 
-      <If condition={isEmpty(owner.login)}>
+      <If condition={!isEmpty(owner.login)}>
         <T text={owner.login} type="subText" />
       </If>
 
-      <If condition={isEmpty(description)}>
+      <If condition={!isEmpty(description)}>
         <T text={description} />
       </If>
 
