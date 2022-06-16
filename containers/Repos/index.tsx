@@ -1,14 +1,18 @@
+import React, { memo, useState } from "react";
+import { injectIntl, IntlShape } from "react-intl";
+import { compose } from "redux";
+import Image from 'next/image'
+import { Divider, Input, Row } from "antd";
+import { debounce } from "lodash-es";
+import PropTypes, { ReactComponentLike } from "prop-types";
+
 import { Container, CustomCard, T } from "@common";
 import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
 import { ErrorState, Recommended, RepoList, YouAreAwesome } from "@features/repos/components";
 import { IRepoError, Recommendation } from "@features/repos/types";
 import { fonts } from "@themes/index";
-import { Divider, Input, Row } from "antd";
-import { debounce } from "lodash-es";
-import PropTypes, { ReactComponentLike } from "prop-types";
-import React, { memo, useState } from "react";
-import { injectIntl, IntlShape } from "react-intl";
-import { compose } from "redux";
+
+import url from "../../public/test.svg";
 
 const { Search } = Input;
 
@@ -45,6 +49,8 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
         </YouAreAwesome>
       </Row>
       <Divider />
+      <Image src={url} alt="test"  width={300}
+      height={300} />
       <CustomCard title={intl.formatMessage({ id: "repo_search" })} maxwidth={maxwidth}>
         <T marginBottom={10} id="get_repo_details" />
         <Search

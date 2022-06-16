@@ -22,6 +22,7 @@
   "dependencies": {
     "@next/bundle-analyzer": "^12.1.0",
     "@reduxjs/toolkit": "^1.7.2",
+    "@svgr/webpack": "^6.2.1",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
@@ -41,7 +42,8 @@
     "react-redux": "^7.2.6",
     "styled-components": "^5.3.3",
     "styled-media-query": "^2.1.2",
-    "util": "^0.12.4"
+    "util": "^0.12.4",
+    "webpack": "^5.73.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -73,12 +75,14 @@
     "eslint": "^8.8.0",
     "eslint-config-next": "12.0.10",
     "eslint-plugin-react": "^7.28.0",
+    "file-loader": "^6.2.0",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.3",
     "pre-commit": "^1.2.2",
     "prettier": "2.5.1",
     "prop-types": "^15.8.1",
-    "typescript": "4.5.5"
+    "typescript": "4.5.5",
+    "url-loader": "^4.1.1"
   }
 }
