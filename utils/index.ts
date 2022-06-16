@@ -63,7 +63,7 @@ export const convertObjectToCamelCase = <T>(obj: Record<string, unknown>): T => 
   // Almost everything is JS is of type Object which means doing typeof obj is unreliable
   // this is a better method to check if the object gives back [object Object] since
   // Array and null return [object Array] and [object Null]
-  if (Object.prototype.toString.call(obj) !== "[object Object]") {
+  if (obj.toString() !== "[object Object]") {
     throw new Error("The type of value passed in must be an object's reference");
   }
 
