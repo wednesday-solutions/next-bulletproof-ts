@@ -1,29 +1,29 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ResponseItem } from "@features/repos/api/getRecommendations";
 
-export interface CounterState {
-  value: number;
+export interface RepoState {
+  reposCount: number;
+  repos: ResponseItem[];
+  error?: string;
 }
 
-const initialState: CounterState = {
-  value: 0,
+const initialState: RepoState = {
+  reposCount: 0,
+  repos: [],
+  error: undefined,
 };
 
-export const counterSlice = createSlice({
-  name: "counter",
+export const repoSlice = createSlice({
+  name: "github",
   initialState,
   reducers: {
-    increment: state => {
-      state.value += 1;
-    },
-    decrement: state => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    successGetRepos: (state: RepoState, action: PayloadAction<ResponseItem[]>) => {
+      state.repos = action.payload;
+      state.reposCount = 0;
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { successGetRepos } = repoSlice.actions;
 
-export default counterSlice.reducer;
+export default repoSlice.reducer;

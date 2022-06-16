@@ -43,6 +43,10 @@ const height = (height = 4) => css`
   height: ${height}rem;
 `;
 
+const viewHeight = (height = 0) => css`
+  height: ${height}vh;
+`;
+
 const top = (marginTop = 0) =>
   css`
     margin-top: ${marginTop}rem;
@@ -116,6 +120,7 @@ const textEllipsis = (width = "200px") => css`
 `;
 const styles = {
   height,
+  viewHeight,
   zIndex,
   textEllipsis,
   margin: {

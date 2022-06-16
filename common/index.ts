@@ -7,3 +7,4 @@ export { translate } from "./IntlGlobalProvider";
 export { default as Meta } from "./Meta";
 export { default as T } from "./T";
 export { Container, ClickableTags, CustomCard } from "./styled";
+export { default as Loader } from "./Loader";
