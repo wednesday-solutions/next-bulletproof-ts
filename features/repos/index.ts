@@ -1,2 +1,2 @@
 export { default as Repos } from "@containers/Repos";
-export { recommendationsApi } from "./api/getRecommendations";
+export { repoDataApi } from "./api/getRepoData";

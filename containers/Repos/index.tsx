@@ -1,5 +1,5 @@
 import { Container, CustomCard, T } from "@common";
-import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
+import { useFetchRepoDataQuery } from "@features/repos/api/getRepoData";
 import { ErrorState, Recommended, RepoList, YouAreAwesome } from "@features/repos/components";
 import { IRepoError, Recommendation } from "@features/repos/types";
 import { fonts } from "@themes/index";
@@ -21,7 +21,9 @@ interface RepoContainerProps {
 
 export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommendations }) => {
   const [repoName, setRepoName] = useState<string>("");
-  const { data, error, isLoading, isFetching } = useFetchRecommendationQuery(repoName);
+
+  const { data, error, isLoading, isFetching } = useFetchRepoDataQuery(repoName);
+
   const handleOnChange = debounce((rName: string) => {
     setRepoName(rName);
   }, 200);
@@ -49,7 +51,6 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
         <T marginBottom={10} id="get_repo_details" />
         <Search
           data-testid="search-bar"
-          defaultValue={"test"}
           type="text"
           onChange={evt => handleOnChange(evt.target.value)}
           onSearch={searchText => handleOnChange(searchText)}

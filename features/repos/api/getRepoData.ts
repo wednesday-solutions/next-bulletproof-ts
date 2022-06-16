@@ -16,11 +16,12 @@ export type IResponse = {
   totalCount: number;
 };
 
-export const recommendationsApi = githubApiService.injectEndpoints({
+export const repoDataApi = githubApiService.injectEndpoints({
   endpoints: builder => ({
-    fetchRecommendation: builder.query<IResponse, string>({
+    fetchRepoData: builder.query<IResponse, string>({
       query: repo => `search/repositories?q=${repo}`,
       transformResponse: (response: IResponse) => {
+        console.log({ response });
         return convertObjectToCamelCase<IResponse>(response);
       },
     }),
@@ -28,4 +29,4 @@ export const recommendationsApi = githubApiService.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useFetchRecommendationQuery } = recommendationsApi;
+export const { useFetchRepoDataQuery } = repoDataApi;

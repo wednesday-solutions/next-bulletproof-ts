@@ -10,7 +10,7 @@ import { Skeleton } from "antd";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import { T, CustomCard, If } from "@common";
-import { IResponse, ResponseItem } from "@features/repos/api/getRecommendations";
+import { IResponse, ResponseItem } from "@features/repos/api/getRepoData";
 
 interface RepoListProps {
   reposData?: IResponse;
@@ -57,7 +57,7 @@ const types = {
   }),
 };
 
-const {  reposData } = types;
+const { reposData } = types;
 
 RepoList.propTypes = {
   loading: PropTypes.bool.isRequired,
