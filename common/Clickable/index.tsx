@@ -5,7 +5,6 @@
  */
 
 import React, { ReactEventHandler } from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { T } from "@common";
 
@@ -27,11 +26,6 @@ const Clickable: React.FC<Props> = ({ onClick, textId }) => {
       {textId && <T id={textId} />}
     </StyledClickable>
   );
-};
-
-Clickable.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  textId: PropTypes.string.isRequired,
 };
 
 export default Clickable;

@@ -79,4 +79,3 @@ export const convertObjectToCamelCase = <T>(obj: Record<string, unknown>): T => 
 };
 
 export const getDeviceType = device => (device || setDeviceType()).toUpperCase();
-export { default as commonPropTypes } from "./commonPropTypes";

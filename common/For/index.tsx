@@ -5,7 +5,6 @@
  */
 
 import React from "react";
-import Proptypes from "prop-types";
 import styled from "styled-components";
 
 const FlexContainer = styled.div<{ orientation: "row" | "column" }>`
@@ -39,15 +38,6 @@ const For = ({
     return (of || []).length ? list() : null;
   }
   return (of || []).length ? children() : null;
-};
-
-For.propTypes = {
-  of: Proptypes.array,
-  type: Proptypes.node,
-  parent: Proptypes.object,
-  renderItem: Proptypes.func.isRequired,
-  noParent: Proptypes.bool,
-  orientation: Proptypes.oneOf(["row", "column"]),
 };
 
 For.defaultProps = {
