@@ -1,20 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Clickable /> component tests should render and match the snapshot 1`] = `
-.c0 {
-  color: #1890ff;
-}
-
-.c0:hover {
-  cursor: pointer;
-}
-
 <body>
   <div>
     <div
-      class="c0"
+      class="Clickable__StyledClickable-sc-wshbsq-0 drTgFv"
       data-testid="clickable"
-    />
+    >
+      <p
+        class="T__StyledText-sc-apdcd0-0 fjJkvM"
+        data-testid="t"
+      >
+        Repository List
+      </p>
+    </div>
   </div>
 </body>
 `;

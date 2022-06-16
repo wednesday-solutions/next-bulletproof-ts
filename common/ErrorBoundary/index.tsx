@@ -5,7 +5,6 @@
  */
 
 import { translate } from "@common";
-import PropTypes from "prop-types";
 import React, { ReactElement } from "react";
 
 class ErrorBoundary extends React.Component<
@@ -16,10 +15,6 @@ class ErrorBoundary extends React.Component<
     super(props);
     this.state = { hasError: false, error: null };
   }
-
-  propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-  };
 
   static getDerivedStateFromError(error) {
     return { hasError: true, error };

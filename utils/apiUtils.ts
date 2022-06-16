@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ApisauceInstance, create } from "apisauce";
 import camelCase from "lodash/camelCase";
 import snakeCase from "lodash/snakeCase";
+import isomorphicFetch from "isomorphic-fetch";
 import { HYDRATE } from "next-redux-wrapper";
 import { mapKeysDeep } from "./index";
 
@@ -49,7 +50,10 @@ export const createApiClientWithTransForm = (baseURL: string) => {
  */
 export const githubApiService = createApi({
   reducerPath: "github",
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_GITHUB_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.NEXT_PUBLIC_GITHUB_URL,
+    fetchFn: isomorphicFetch,
+  }),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
       return action.payload[reducerPath];

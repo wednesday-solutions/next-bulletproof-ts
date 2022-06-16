@@ -4,11 +4,10 @@
  *
  */
 
-import React, { ReactNode } from "react";
-import Proptypes from "prop-types";
+import React from "react";
 import styled from "styled-components";
 
-const FlexContainer = styled.div`
+const FlexContainer = styled.div<{ orientation: "row" | "column" }>`
   display: flex;
   flex-direction: ${props => props.orientation};
 `;
@@ -17,7 +16,7 @@ interface Props<TListItem> {
   of: TListItem[];
   parentProps?: any;
   noParent?: boolean;
-  ParentComponent?: React.FunctionComponent;
+  ParentComponent?: React.FC;
   renderItem: (item: TListItem, index: number) => React.ReactElement;
   orientation?: "row" | "column";
 }
@@ -39,15 +38,6 @@ const For = ({
     return (of || []).length ? list() : null;
   }
   return (of || []).length ? children() : null;
-};
-
-For.propTypes = {
-  of: Proptypes.array,
-  type: Proptypes.node,
-  parent: Proptypes.object,
-  renderItem: Proptypes.func.isRequired,
-  noParent: Proptypes.bool,
-  orientation: Proptypes.oneOf(["row", "column"]),
 };
 
 For.defaultProps = {

@@ -1,10 +1,10 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import { Provider as ReduxProvider } from "react-redux";
+import { store } from "@store";
 import Head from "next/head";
-import { Provider } from "react-redux";
 import { IntlProvider } from "react-intl";
 import { ErrorBoundary } from "@common";
-import { store } from "@store";
 import messages from "../translations/en.json";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -17,11 +17,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         />
       </Head>
       <IntlProvider messages={messages} locale="en" defaultLocale="en">
-        <Provider store={store}>
+        <ReduxProvider store={store}>
           <ErrorBoundary>
             <Component {...pageProps} />
           </ErrorBoundary>
-        </Provider>
+        </ReduxProvider>
       </IntlProvider>
     </>
   );
