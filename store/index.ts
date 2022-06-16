@@ -12,6 +12,7 @@ import {
   REHYDRATE,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import middlewares from "./middlewares";
 import reducers from "./slices";
 
 const persistConfig: PersistConfig<ReturnType<typeof reducers>> = {
@@ -29,7 +30,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(middlewares),
 });
 
 export const persistor = persistStore(store);
