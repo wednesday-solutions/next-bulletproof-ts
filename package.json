@@ -22,7 +22,6 @@
   "dependencies": {
     "@next/bundle-analyzer": "^12.1.0",
     "@reduxjs/toolkit": "^1.7.2",
-    "@svgr/webpack": "^6.2.1",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
@@ -64,6 +63,7 @@
     "@typescript-eslint/parser": "^5.10.2",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "babel-jest": "^27.5.1",
+    "@svgr/webpack": "^6.2.1",
     "babel-plugin-formatjs": "^10.3.18",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-react-remove-properties": "^0.3.0",

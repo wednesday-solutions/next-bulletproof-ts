@@ -17,17 +17,17 @@ const nextConfig = {
 };
 
 const svgLoader = {
-  webpack: function (config) {
+  webpack(config) {
     config.module.rules.push({
-      test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
-      use: {
-        loader: "url-loader",
-        options: {
-          limit: 100000,
-          name: "[name].[ext]",
-        },
+      test: /\.svg$/,
+      issuer: {
+        test: /\.(js|ts)x?$/,
+        and: [/\.(js|ts)x?$/],
       },
+
+      use: ["@svgr/webpack"],
     });
+
     return config;
   },
 };
