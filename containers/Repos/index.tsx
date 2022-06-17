@@ -25,7 +25,7 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
   const [page, setPage] = useState<number>(1);
   const nextPage = () => {
     setPage(val => val + 1);
-    router.push(`/?search=${repoName}&page=${+page + 1}`, undefined, {
+    router.push(`/?search=${repoName}&page=${page + 1}`, undefined, {
       shallow: true,
       scroll: true,
     });
@@ -45,6 +45,7 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
 
   const handleOnChange = debounce((rName: string) => {
     setRepoName(rName);
+    setPage(1);
   }, 200);
 
   useEffect(() => {
