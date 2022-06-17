@@ -27,12 +27,14 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
     setPage(val => val + 1);
     router.push(`/?search=${repoName}&page=${+page + 1}`, undefined, {
       shallow: true,
+      scroll: true,
     });
   };
   const prevPage = () => {
     setPage(val => val - 1);
     router.push(`/?search=${repoName}&page=${page - 1}`, undefined, {
       shallow: true,
+      scroll: true,
     });
   };
 
