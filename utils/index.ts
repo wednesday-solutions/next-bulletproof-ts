@@ -1,6 +1,6 @@
 import pickBy from "lodash-es/pickBy";
 import camelCase from "lodash-es/camelCase";
-import screenSizes from "@themes/media";
+import { screenBreakPoints } from "@themes/media";
 
 export const mapKeysDeep = (obj, fn) =>
   Array.isArray(obj)
@@ -46,9 +46,9 @@ export function getQueryStringValue(keys) {
 }
 
 export const setDeviceType = (width = document.body.clientWidth) => {
-  if (width >= screenSizes.mobile && width < screenSizes.tablet) {
+  if (width >= screenBreakPoints.MOBILE && width < screenBreakPoints.TABLET) {
     return "mobile";
-  } else if (width >= screenSizes.tablet && width < screenSizes.desktop) {
+  } else if (width >= screenBreakPoints.TABLET && width < screenBreakPoints.DESKTOP) {
     return "tablet";
   } else {
     return "desktop";
@@ -60,7 +60,10 @@ export const setDeviceType = (width = document.body.clientWidth) => {
  * @param obj the object whose keys to convert
  */
 export const convertObjectToCamelCase = <T>(obj: Record<string, unknown>): T => {
-  if (typeof obj !== "object") {
+  // Almost everything is JS is of type Object which means doing typeof obj is unreliable
+  // this is a better method to check if the object gives back [object Object] since
+  // Array and null return [object Array] and [object Null]
+  if (obj.toString() !== "[object Object]") {
     throw new Error("The type of value passed in must be an object's reference");
   }
 
@@ -76,4 +79,3 @@ export const convertObjectToCamelCase = <T>(obj: Record<string, unknown>): T => 
 };
 
 export const getDeviceType = device => (device || setDeviceType()).toUpperCase();
-export { default as commonPropTypes } from "./commonPropTypes";

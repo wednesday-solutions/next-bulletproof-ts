@@ -1,0 +1,50 @@
+{
+  "name": "nextjs-template",
+  "short_name": "nextjs",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "description": "nextjs template based on bulletproof architecture written in typescript",
+  "dir": "ltr",
+  "orientation": "portrait",
+  "scope": "/",
+  "theme_color": "#26547C",
+  "icons": [
+    {
+      "src": "/icons/icon_48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon_72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon_96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon_144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon_168x168.png",
+      "sizes": "168x168",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/maskable_icon_640x640.png",
+      "sizes": "640x640",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

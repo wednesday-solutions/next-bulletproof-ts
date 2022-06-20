@@ -6,7 +6,6 @@
 
 import Head from "next/head";
 import React, { memo } from "react";
-import PropTypes from "prop-types";
 import { useIntl } from "react-intl";
 
 const Meta = ({ title, description, useTranslation }) => {
@@ -22,12 +21,6 @@ const Meta = ({ title, description, useTranslation }) => {
       <link rel="shortcut icon" href={"../../public/favicon.ico"} />
     </Head>
   );
-};
-
-Meta.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  useTranslation: PropTypes.bool,
 };
 
 export default memo(Meta);

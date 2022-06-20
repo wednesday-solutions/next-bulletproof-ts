@@ -7,7 +7,6 @@
 import React from "react";
 import get from "lodash/get";
 import { Skeleton } from "antd";
-import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import { T, CustomCard, If } from "@common";
 import { IResponse, ResponseItem } from "@features/repos/api/getRepoData";
@@ -47,22 +46,6 @@ const RepoList: React.FC<RepoListProps> = props => {
       </CustomCard>
     </If>
   );
-};
-
-const types = {
-  reposData: PropTypes.shape({
-    totalCount: PropTypes.number.isRequired,
-    incompleteResults: PropTypes.bool.isRequired,
-    items: PropTypes.array.isRequired,
-  }),
-};
-
-const { reposData } = types;
-
-RepoList.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  repoName: PropTypes.string.isRequired,
-  reposData,
 };
 
 export default RepoList;

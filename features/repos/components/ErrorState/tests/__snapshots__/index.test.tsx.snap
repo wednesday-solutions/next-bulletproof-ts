@@ -1,20 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ErrorState /> should render and match the snapshot 1`] = `
-.c1 {
-  white-space: pre-line;
-}
-
-.c0.c0 {
-  margin: 20px 0;
-  color: grey;
-  color: grey;
-}
-
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered c0"
+      class="ant-card ant-card-bordered styled__CustomCard-sc-15gkald-1 kUFFUB"
       color="grey"
       data-testid="error-state"
     >
@@ -34,12 +24,12 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
       <div
         class="ant-card-body"
       >
-        <span
-          class="c1"
-          data-testid="text"
+        <p
+          class="T__StyledText-sc-apdcd0-0 fjJkvM"
+          data-testid="t"
         >
-          Search for a repository by entering it's name in the search box
-        </span>
+          Search Default
+        </p>
       </div>
     </div>
   </div>

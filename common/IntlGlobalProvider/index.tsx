@@ -1,13 +1,12 @@
-// eslint-disable-next-line
 import React from "react";
 import { useIntl } from "react-intl";
 
 // 'intl' service singleton reference
 let intl;
 
-const IntlGlobalProvider = ({ children }) => {
+const IntlGlobalProvider: React.FC = ({ children }) => {
   intl = useIntl(); // Keep the 'intl' service reference
-  return children;
+  return <>{children}</>;
 };
 
 export default IntlGlobalProvider;

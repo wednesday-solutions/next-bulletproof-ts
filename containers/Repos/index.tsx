@@ -5,7 +5,6 @@ import { IRepoError, Recommendation } from "@features/repos/types";
 import { fonts } from "@themes/index";
 import { Divider, Input, Row } from "antd";
 import { debounce } from "lodash-es";
-import PropTypes, { ReactComponentLike } from "prop-types";
 import React, { memo, useState } from "react";
 import { injectIntl, IntlShape } from "react-intl";
 import { compose } from "redux";
@@ -66,20 +65,9 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
   );
 };
 
-Repos.propTypes = {
-  // @ts-expect-error intl is of type IntlShape, which is not possible in PropTypes
-  intl: PropTypes.object.isRequired,
-  padding: PropTypes.number.isRequired,
-  maxwidth: PropTypes.number.isRequired,
-  recommendations: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired })
-      .isRequired
-  ),
-};
-
 Repos.defaultProps = {
   padding: 20,
   maxwidth: 500,
 };
 
-export default compose(injectIntl, memo)(Repos) as ReactComponentLike;
+export default compose(injectIntl, memo)(Repos);

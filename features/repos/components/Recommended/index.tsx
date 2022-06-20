@@ -6,7 +6,6 @@
 
 import React from "react";
 import { Row, Col } from "antd";
-import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import { ClickableTags } from "@common";
 import { Recommendation } from "@features/repos/types";
@@ -28,12 +27,6 @@ const Recommended: React.FC<RecommendedProps> = ({ recommendations }) => {
         ))}
     </Row>
   );
-};
-
-Recommended.propTypes = {
-  recommendations: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired }).isRequired
-  ),
 };
 
 export default Recommended;
