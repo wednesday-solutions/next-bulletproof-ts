@@ -1,13 +1,13 @@
 import { RepoInfoTypes as RepoInfoResponse } from "@features/info/types";
 import { convertObjectToCamelCase } from "@utils";
-import { emptySplitApi } from "@utils/baseApi";
+import { githubApiService } from "@utils/apiUtils";
 
 type Params = {
   username: string;
   repo: string;
 };
 
-export const repoInfoApi = emptySplitApi.injectEndpoints({
+export const repoInfoApi = githubApiService.injectEndpoints({
   endpoints: builder => ({
     fetchRepoInfo: builder.query<RepoInfoResponse, object>({
       query: (params: Params) => {

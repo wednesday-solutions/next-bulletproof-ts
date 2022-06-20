@@ -52,10 +52,11 @@ describe("Tests for mapKeysDeep method", () => {
 
 describe("Tests for convertObjectToCamelCase", () => {
   it("should throw an error if incorrect type is provided", () => {
-    // @ts-expect-error this is an error case which ts identifies but check for just in case
-    expect(convertObjectToCamelCase(["hey"])).toThrow(
-      "The type of value passed in must be an object's reference"
-    );
+    expect(() => {
+      // @ts-expect-error we are checking if it throws an error if an array is passed instead of an object
+      // this causes TypeScript to throw an error since it can't take an array
+      convertObjectToCamelCase(["hey"]);
+    }).toThrowError();
   });
 
   it("should convert the object's keys into camelCase", () => {

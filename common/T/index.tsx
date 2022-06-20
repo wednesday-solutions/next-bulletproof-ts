@@ -5,7 +5,6 @@
  */
 
 import React, { CSSProperties, memo } from "react";
-import PropTypes from "prop-types";
 import styled, { FlattenSimpleInterpolation } from "styled-components";
 import { FormattedMessage } from "react-intl";
 import { If } from "@common";
@@ -37,14 +36,6 @@ export const T = ({ type, text, id, marginBottom, values, ...otherProps }: Props
     </If>
   </StyledText>
 );
-
-T.propTypes = {
-  id: PropTypes.string,
-  marginBottom: PropTypes.number,
-  values: PropTypes.object,
-  text: PropTypes.string,
-  type: PropTypes.oneOf(Object.keys(fonts.style)),
-};
 
 T.defaultProps = {
   values: {},

@@ -1,5 +1,5 @@
 import { convertObjectToCamelCase } from "@utils";
-import { emptySplitApi } from "@utils/baseApi";
+import { githubApiService } from "@utils/apiUtils";
 
 export interface ResponseItem {
   name: string;
@@ -16,7 +16,7 @@ export type IResponse = {
   totalCount: number;
 };
 
-export const recommendationsApi = emptySplitApi.injectEndpoints({
+export const recommendationsApi = githubApiService.injectEndpoints({
   endpoints: builder => ({
     fetchRecommendation: builder.query<IResponse, string>({
       query: repo => `search/repositories?q=${repo}`,

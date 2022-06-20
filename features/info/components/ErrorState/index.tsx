@@ -1,19 +1,19 @@
-import React from "react";
+import { colors } from "@themes";
+import { AlignCenter } from "common/styled";
+import { FormattedMessage } from "react-intl";
 import styled from "styled-components";
-import { Card } from "antd";
-import { T } from "@common";
 
 const Error = styled.div`
-  color: "red";
+  color: ${colors.error};
 `;
 
 const ErrorState = () => {
   return (
-    <Error>
-      <Card>
-        <T text="Something went wrong" />
-      </Card>
-    </Error>
+    <AlignCenter>
+      <Error>
+        <FormattedMessage id="something_went_wrong" />
+      </Error>
+    </AlignCenter>
   );
 };
 

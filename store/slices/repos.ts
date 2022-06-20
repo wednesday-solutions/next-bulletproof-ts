@@ -1,23 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ResponseItem } from "@features/repos/api/getRecommendations";
 
 export interface RepoState {
   reposCount: number;
-  repos: object[];
-  error: string | null;
+  repos: ResponseItem[];
+  error?: string;
 }
 
 const initialState: RepoState = {
   reposCount: 0,
   repos: [],
-  error: null,
+  error: undefined,
 };
 
 export const repoSlice = createSlice({
   name: "github",
   initialState,
   reducers: {
-    successGetRepos: (state: RepoState, action: PayloadAction<object>) => {
-      state.repos = [action.payload];
+    successGetRepos: (state: RepoState, action: PayloadAction<ResponseItem[]>) => {
+      state.repos = action.payload;
       state.reposCount = 0;
     },
   },

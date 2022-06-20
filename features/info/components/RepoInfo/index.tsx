@@ -1,13 +1,14 @@
 import { If, T } from "@common";
 import { RepoInfoTypes } from "@features/info/types";
+import { colors } from "@themes";
 import { Button, Card, Tag } from "antd";
+import isEmpty from "lodash/isEmpty";
 import { useRouter } from "next/router";
 import { ReactComponentLike } from "prop-types";
 import React, { memo } from "react";
 import { injectIntl, IntlShape } from "react-intl";
 import { compose } from "redux";
 import { TextGrid } from "../styled";
-import { colors } from "@themes";
 
 interface RepoInfoProps {
   intl: IntlShape;
@@ -25,32 +26,32 @@ const RepoInfo: React.FC<RepoInfoProps> = ({ intl, repoinfo }) => {
         {intl.formatMessage({ id: "back_to_home_button" })}
       </Button>
 
-      <If condition={name}>
+      <If condition={!isEmpty(name)}>
         <T text={name} type="heading" />
       </If>
 
-      <If condition={owner.login}>
+      <If condition={!isEmpty(owner.login)}>
         <T text={owner.login} type="subText" />
       </If>
 
-      <If condition={description}>
+      <If condition={!isEmpty(description)}>
         <T text={description} />
       </If>
 
       <TextGrid>
-        <If condition={forks}>
+        <If condition={isEmpty(forks)}>
           <Tag color={colors.primary}>
             {intl.formatMessage({ id: "repo_fork_count" })}: {forks}
           </Tag>
         </If>
 
-        <If condition={watchers}>
+        <If condition={isEmpty(watchers)}>
           <Tag color={colors.primary}>
             {intl.formatMessage({ id: "repo_watchers_count" })}: {watchers}
           </Tag>
         </If>
 
-        <If condition={stargazersCount}>
+        <If condition={isEmpty(stargazersCount)}>
           <Tag color={colors.primary}>
             {intl.formatMessage({ id: "repo_stars_count" })}: {stargazersCount}
           </Tag>
