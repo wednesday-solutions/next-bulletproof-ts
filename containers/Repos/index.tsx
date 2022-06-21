@@ -40,11 +40,11 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
   }, 500);
 
   useEffect(() => {
-    if (get(router, "isReady", false)) {
-      setRepoName(get(router, "query.search", ""));
-      setPage(get(router, "query.page", 1));
+    if (router?.isReady) {
+      setRepoName(router.query?.search as string);
+      setPage(router.query?.page as unknown as number);
     }
-  }, [get(router, "isReady")]);
+  }, [router.isReady]);
 
   useEffect(() => {
     if (!isEmpty(repoName)) {
@@ -76,7 +76,6 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
         <Search
           data-testid="search-bar"
           type="text"
-          value={repoName}
           onChange={evt => handleOnChange(evt.target.value)}
           onSearch={searchText => handleOnChange(searchText)}
         />
