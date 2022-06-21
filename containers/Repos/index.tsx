@@ -1,13 +1,14 @@
 import { Container, CustomCard, If, T } from "@common";
-import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
+import { Divider, Input, Pagination, Row } from "antd";
 import { ErrorState, Recommended, RepoList, YouAreAwesome } from "@features/repos/components";
 import { IRepoError, Recommendation } from "@features/repos/types";
-import { fonts } from "@themes/index";
-import { Divider, Input, Row, Button } from "antd";
-import { debounce, get, isEmpty } from "lodash-es";
+import { IntlShape, injectIntl } from "react-intl";
 import React, { memo, useEffect, useState } from "react";
-import { injectIntl, IntlShape } from "react-intl";
+import { debounce, get, isEmpty } from "lodash-es";
+
 import { compose } from "redux";
+import { fonts } from "@themes/index";
+import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
 import { useRouter } from "next/router";
 
 const { Search } = Input;
@@ -23,16 +24,9 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
   const router = useRouter();
   const [repoName, setRepoName] = useState<string>("");
   const [page, setPage] = useState<number>(1);
-  const nextPage = () => {
-    setPage(val => val + 1);
-    router.push(`/?search=${repoName}&page=${page + 1}`, undefined, {
-      shallow: true,
-      scroll: true,
-    });
-  };
-  const prevPage = () => {
-    setPage(val => val - 1);
-    router.push(`/?search=${repoName}&page=${page - 1}`, undefined, {
+  const onPageChange = pageNumber => {
+    setPage(pageNumber);
+    router.push(`/?search=${repoName}&page=${pageNumber}`, undefined, {
       shallow: true,
       scroll: true,
     });
@@ -40,13 +34,10 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
 
   const { data, error, isLoading, isFetching } = useFetchRecommendationQuery({ repoName, page });
 
-  const isNextButtonDisable: boolean =
-    get(data, "totalCount", 0) <= 10 || get(data, "totalCount", 0) / 10 === page;
-
   const handleOnChange = debounce((rName: string) => {
     setRepoName(rName);
     setPage(1);
-  }, 200);
+  }, 500);
 
   useEffect(() => {
     if (get(router, "isReady", false)) {
@@ -93,14 +84,12 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
       <RepoList reposData={data} repoName={"test"} loading={isLoading && isFetching} />
       <If condition={data}>
         <Container padding={20} maxwidth={500}>
-          <Row justify="center">
-            <Button disabled={page === 1} loading={isFetching} onClick={prevPage}>
-              prev
-            </Button>
-            <Button loading={isFetching} onClick={nextPage} disabled={isNextButtonDisable}>
-              next
-            </Button>
-          </Row>
+          <Pagination
+            defaultCurrent={1}
+            total={get(data, "totalCount", 0)}
+            showSizeChanger={false}
+            onChange={onPageChange}
+          />
         </Container>
       </If>
       <ErrorState
