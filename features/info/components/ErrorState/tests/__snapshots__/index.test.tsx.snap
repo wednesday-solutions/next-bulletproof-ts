@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorState /> should render and match the snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="ErrorState__Error-sc-h29m64-0 dlXkiD"
+    >
+      Sorry. Something went wrong! Please try again in sometime.
+    </div>
+  </div>
+</body>
+`;

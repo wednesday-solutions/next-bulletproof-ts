@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmptyResult /> should render and match the snapshot 1`] = `
+<body>
+  <div>
+    <p
+      class="T__StyledText-sc-apdcd0-0 fjJkvM"
+      data-testid="t"
+    >
+      No records found
+    </p>
+  </div>
+</body>
+`;
