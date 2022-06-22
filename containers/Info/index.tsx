@@ -1,12 +1,11 @@
-import isEmpty from "lodash/isEmpty";
-import { useRouter } from "next/router";
-import { ReactComponentLike } from "prop-types";
-import React from "react";
-
+import { EmptyResult, RepoInfoError } from "@features/info/components";
 import { If, Loader } from "@common";
-import { useFetchRepoInfoQuery } from "@features/info/api/getRepoInfo";
+import React from "react";
+import { ReactComponentLike } from "prop-types";
 import RepoInfo from "@features/info/components/RepoInfo";
-import { RepoInfoError, EmptyResult } from "@features/info/components";
+import isEmpty from "lodash/isEmpty";
+import { useFetchRepoInfoQuery } from "@features/info/api/getRepoInfo";
+import { useRouter } from "next/router";
 
 const Info: React.FC = () => {
   const router = useRouter();

@@ -5,7 +5,6 @@ import { IRepoError, Recommendation } from "@features/repos/types";
 import { IntlShape, injectIntl } from "react-intl";
 import React, { memo, useEffect, useState } from "react";
 import { debounce, get, isEmpty } from "lodash-es";
-
 import { compose } from "redux";
 import { fonts } from "@themes/index";
 import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
