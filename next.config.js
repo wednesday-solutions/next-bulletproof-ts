@@ -17,4 +17,11 @@ const withPwa = require("next-pwa")({
   },
 });
 
-module.exports = withPlugins([[withPwa], [withBundleAnalyzer]], nextConfig);
+module.exports = withPlugins(
+  [
+    [withPwa],
+    [withBundleAnalyzer],
+    // your other plugins here
+  ],
+  nextConfig
+);
