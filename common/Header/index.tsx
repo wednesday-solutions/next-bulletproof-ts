@@ -1,7 +1,7 @@
 import React from "react";
-import { Layout } from "antd";
+import Layout from "antd/lib/layout";
 import styled from "styled-components";
-import { injectIntl } from "react-intl";
+// import { injectIntl } from "react-intl";
 import Image from "next/image";
 import { fonts, colors } from "@themes";
 import { T } from "@common";
@@ -33,7 +33,7 @@ const Title = styled(T)`
   }
 `;
 
-const Header = props => {
+const Header: React.FC = props => {
   return (
     <StyledHeader {...props} data-testid="header">
       <Logo>
@@ -44,4 +44,4 @@ const Header = props => {
   );
 };
 
-export default injectIntl(Header);
+export default Header;
