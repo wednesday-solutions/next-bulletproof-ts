@@ -21,11 +21,9 @@
     "styled-components": "^5"
   },
   "dependencies": {
+    "@babel/core": "^7.18.5",
     "@next/bundle-analyzer": "^12.1.0",
     "@reduxjs/toolkit": "^1.7.2",
-    "@zeit/next-css": "^1.0.1",
-    "@zeit/next-less": "^1.0.1",
-    "@zeit/next-sass": "^1.0.1",
     "antd": "^4.21.0",
     "apisauce": "^2.1.5",
     "babel-plugin-import": "^1.13.3",
@@ -47,7 +45,6 @@
     "util": "^0.12.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
@@ -72,6 +69,7 @@
     "babel-plugin-react-remove-properties": "^0.3.0",
     "babel-plugin-require-context-hook": "^1.0.0",
     "babel-plugin-transform-dynamic-import": "^2.1.0",
+    "babel-plugin-transform-imports": "^2.0.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-plugin-typescript-to-proptypes": "^2.0.0",
@@ -84,7 +82,7 @@
     "lint-staged": "^12.3.3",
     "next-purgecss": "^4.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^7.7.1",
+    "postcss-preset-env": "^7.7.2",
     "pre-commit": "^1.2.2",
     "prettier": "2.5.1",
     "prop-types": "^15.8.1",
