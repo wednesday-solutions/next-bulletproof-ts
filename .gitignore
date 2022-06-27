@@ -45,3 +45,6 @@ yarn-error.log*
 /public/workbox-*.js.map
 /public/worker-*.js.map
 /public/fallback-*.js
+
+#storybook build
+storybook-static
