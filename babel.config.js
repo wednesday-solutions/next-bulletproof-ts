@@ -29,6 +29,45 @@ module.exports = {
          * if you need console in production use ONLY console.error or console.warn
          */
         ["transform-remove-console", { exclude: ["error", "warn"] }],
+
+        /**
+         * Transforms member style imports into default style imports
+         * (import {x} from 'y') into (import x from 'y/lib/x')
+         */
+        [
+          "babel-plugin-transform-imports",
+          {
+            lodash: {
+              transform: "lodash/${member}",
+              preventFullImport: true,
+            },
+          },
+        ],
+        /**
+         * config for babel-plugin-import plugin.
+         */
+        [
+          "import",
+          {
+            libraryName: "antd",
+          },
+          "antd",
+        ],
+        [
+          "import",
+          {
+            libraryName: "lodash",
+          },
+          "lodash",
+        ],
+        [
+          "import",
+          {
+            libraryName: "@ant-design/icons",
+            libraryDirectory: "es/icons",
+            camel2DashComponentName: false,
+          },
+        ],
       ],
     }),
     development: getPresets({
