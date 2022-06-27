@@ -16,12 +16,16 @@ export type IResponse = {
   totalCount: number;
 };
 
+export interface QueryArg {
+  repoName: string;
+  page: number;
+}
+
 export const repoDataApi = githubApiService.injectEndpoints({
   endpoints: builder => ({
-    fetchRepoData: builder.query<IResponse, string>({
-      query: repo => `search/repositories?q=${repo}`,
+    fetchRepoData: builder.query<IResponse, QueryArg>({
+      query: ({ repoName, page }) => `search/repositories?q=${repoName}&per_page=10&page=${page}`,
       transformResponse: (response: IResponse) => {
-        console.log({ response });
         return convertObjectToCamelCase<IResponse>(response);
       },
     }),

@@ -1,13 +1,14 @@
-import { Container, CustomCard, T } from "@common";
-import { useFetchRepoDataQuery } from "@features/repos/api/getRepoData";
+import { Container, CustomCard, If, T } from "@common";
+import { Divider, Input, Pagination, Row } from "antd";
 import { ErrorState, Recommended, RepoList, YouAreAwesome } from "@features/repos/components";
 import { IRepoError, Recommendation } from "@features/repos/types";
-import { fonts } from "@themes/index";
-import { Divider, Input, Row } from "antd";
-import { debounce } from "lodash-es";
-import React, { memo, useState } from "react";
-import { injectIntl, IntlShape } from "react-intl";
+import { IntlShape, injectIntl } from "react-intl";
+import React, { memo, useEffect, useState } from "react";
+import { debounce, get, isEmpty } from "lodash-es";
 import { compose } from "redux";
+import { fonts } from "@themes/index";
+import { useFetchRepoDataQuery } from "@features/repos/api/getRepoData";
+import { useRouter } from "next/router";
 
 const { Search } = Input;
 
@@ -19,13 +20,36 @@ interface RepoContainerProps {
 }
 
 export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommendations }) => {
+  const router = useRouter();
   const [repoName, setRepoName] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const onPageChange = pageNumber => {
+    setPage(pageNumber);
+    router.push(`/?search=${repoName}&page=${pageNumber}`, undefined, {
+      shallow: true,
+      scroll: true,
+    });
+  };
 
-  const { data, error, isLoading, isFetching } = useFetchRepoDataQuery(repoName);
+  const { data, error, isLoading, isFetching } = useFetchRepoDataQuery({ repoName, page });
 
   const handleOnChange = debounce((rName: string) => {
     setRepoName(rName);
-  }, 200);
+    setPage(1);
+  }, 500);
+
+  useEffect(() => {
+    if (router?.isReady) {
+      setRepoName(router.query?.search as string);
+      setPage(router.query?.page as unknown as number);
+    }
+  }, [router.isReady]);
+
+  useEffect(() => {
+    if (!isEmpty(repoName)) {
+      router.push(`/?search=${repoName}&page=${page}`);
+    }
+  }, [data]);
 
   return (
     <Container
@@ -56,6 +80,16 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
         />
       </CustomCard>
       <RepoList reposData={data} repoName={"test"} loading={isLoading && isFetching} />
+      <If condition={data}>
+        <Container padding={20} maxwidth={500}>
+          <Pagination
+            defaultCurrent={1}
+            total={get(data, "totalCount", 0)}
+            showSizeChanger={false}
+            onChange={onPageChange}
+          />
+        </Container>
+      </If>
       <ErrorState
         reposData={data}
         loading={isLoading && isFetching}
