@@ -7,7 +7,7 @@ import React, { memo, useEffect, useState } from "react";
 import { debounce, get, isEmpty } from "lodash-es";
 import { compose } from "redux";
 import { fonts } from "@themes/index";
-import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
+import { useFetchRepoDataQuery } from "@features/repos/api/getRepoData";
 import { useRouter } from "next/router";
 
 const { Search } = Input;
@@ -31,7 +31,7 @@ export const Repos: React.FC<RepoContainerProps> = ({ intl, maxwidth, recommenda
     });
   };
 
-  const { data, error, isLoading, isFetching } = useFetchRecommendationQuery({ repoName, page });
+  const { data, error, isLoading, isFetching } = useFetchRepoDataQuery({ repoName, page });
 
   const handleOnChange = debounce((rName: string) => {
     setRepoName(rName);
