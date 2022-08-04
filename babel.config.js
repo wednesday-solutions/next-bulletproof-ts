@@ -88,6 +88,11 @@ module.exports = {
                * useless rerenders, potentially saving you extra rerenders.
                */
               importSource: "@welldone-software/why-did-you-render",
+              /**
+               * If runtime is not set to "automatic" then we get following error when running storybook
+               * 'importSource cannot be set when runtime is classic'
+               */
+              runtime: "automatic",
             },
           },
         ],

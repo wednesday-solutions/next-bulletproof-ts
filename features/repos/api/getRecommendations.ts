@@ -1,4 +1,3 @@
-import { convertObjectToCamelCase } from "@utils";
 import { githubApiService } from "@utils/apiUtils";
 
 export interface ResponseItem {
@@ -45,9 +44,6 @@ export const recommendationsApi = githubApiService.injectEndpoints({
           url: "search/repositories",
           params,
         };
-      },
-      transformResponse: (response: IResponse) => {
-        return convertObjectToCamelCase<IResponse>(response);
       },
     }),
   }),
