@@ -1,5 +1,4 @@
 import { RepoInfoTypes as RepoInfoResponse } from "@features/info/types";
-import { convertObjectToCamelCase } from "@utils";
 import { githubApiService } from "@utils/apiUtils";
 
 type Params = {
@@ -16,9 +15,6 @@ export const repoInfoApi = githubApiService.injectEndpoints({
         }
 
         return `repos/${params.username}/${params.repo}`;
-      },
-      transformResponse: (response: RepoInfoResponse) => {
-        return convertObjectToCamelCase<RepoInfoResponse>(response);
       },
     }),
   }),
