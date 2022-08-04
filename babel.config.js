@@ -4,10 +4,6 @@ const getPresets = (options = {}) => {
    */
   const plugins = [["styled-components", { ssr: true }], ...(options.plugins || [])];
 
-  if (process.env.NODE_ENV !== "production") {
-    plugins.push("babel-plugin-typescript-to-proptypes");
-  }
-
   return {
     presets: options.presets || ["next/babel"],
     plugins,
@@ -66,6 +62,17 @@ module.exports = {
             libraryName: "@ant-design/icons",
             libraryDirectory: "es/icons",
             camel2DashComponentName: false,
+          },
+        ],
+        /*  
+        Process string messages for translation from modules that use react-intl
+        https://formatjs.io/docs/tooling/babel-plugin/
+        */
+        [
+          "formatjs",
+          {
+            idInterpolationPattern: "[sha512:contenthash:base64:6]",
+            ast: true,
           },
         ],
       ],
