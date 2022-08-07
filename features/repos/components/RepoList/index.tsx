@@ -9,7 +9,7 @@ import get from "lodash/get";
 import { Skeleton } from "antd";
 import { useRouter } from "next/router";
 import { T, CustomCard, If } from "@common";
-import { IResponse, ResponseItem } from "@features/repos/api/getRecommendations";
+import { IResponse, ResponseItem } from "@features/repos/api/getRepoData";
 
 interface RepoListProps {
   reposData?: IResponse;

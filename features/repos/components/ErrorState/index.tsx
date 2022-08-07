@@ -9,13 +9,13 @@ import get from "lodash/get";
 import { compose } from "redux";
 import { injectIntl, IntlShape } from "react-intl";
 import { T, CustomCard } from "@common";
-import { IResponse } from "@features/repos/api/getRecommendations";
+import { IResponse } from "@features/repos/api/getRepoData";
 
 interface ErrorStateProps {
   intl: IntlShape;
   loading: boolean;
   reposData: IResponse | undefined;
-  reposError: string | undefined;
+  reposError?: string;
 }
 
 const ErrorState: React.FC<ErrorStateProps> = ({ intl, reposData, reposError, loading }) => {

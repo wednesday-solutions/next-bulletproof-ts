@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ResponseItem } from "@features/repos/api/getRecommendations";
+import { ResponseItem } from "@features/repos/api/getRepoData";
 
 export interface RepoState {
   reposCount: number;

@@ -1,6 +1,6 @@
-import { repoInfoApi } from "@features/info";
-import { recommendationsApi } from "@features/repos";
+import { repoInfoApi } from "@features/info/api/getRepoInfo";
+import { repoDataApi } from "@features/repos/api/getRepoData";
 
-const middlewares = [recommendationsApi.middleware, repoInfoApi.middleware];
+const middlewares = [repoInfoApi.middleware, repoDataApi.middleware];
 
 export default middlewares;
