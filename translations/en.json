@@ -21,5 +21,7 @@
   "respo_search_default": "Search Default",
   "not_found": "No records found",
   "test": "test",
-  "offline_message": "You are Offline!"
+  "offline_message": "You are Offline!",
+  "i_am_clickable": "I am clickable",
+  "hello_world": "Hello World!"
 }

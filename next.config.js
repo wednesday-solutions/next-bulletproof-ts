@@ -16,9 +16,12 @@ const withPwa = require("next-pwa")({
     disable: process.env.NODE_ENV === "development",
   },
 });
-module.exports = withPlugins([
-  [withBundleAnalyzer],
-  [withPwa],
-  nextConfig,
-  // your other plugins here
-]);
+
+module.exports = withPlugins(
+  [
+    [withPwa],
+    [withBundleAnalyzer],
+    // your other plugins here
+  ],
+  nextConfig
+);

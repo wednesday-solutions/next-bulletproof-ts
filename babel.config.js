@@ -4,10 +4,6 @@ const getPresets = (options = {}) => {
    */
   const plugins = [["styled-components", { ssr: true }], ...(options.plugins || [])];
 
-  if (process.env.NODE_ENV !== "production") {
-    plugins.push("babel-plugin-typescript-to-proptypes");
-  }
-
   return {
     presets: options.presets || ["next/babel"],
     plugins,
@@ -29,6 +25,56 @@ module.exports = {
          * if you need console in production use ONLY console.error or console.warn
          */
         ["transform-remove-console", { exclude: ["error", "warn"] }],
+
+        /**
+         * Transforms member style imports into default style imports
+         * (import {x} from 'y') into (import x from 'y/lib/x')
+         */
+        [
+          "babel-plugin-transform-imports",
+          {
+            lodash: {
+              transform: "lodash/${member}",
+              preventFullImport: true,
+            },
+          },
+        ],
+        /**
+         * config for babel-plugin-import plugin.
+         */
+        [
+          "import",
+          {
+            libraryName: "antd",
+          },
+          "antd",
+        ],
+        [
+          "import",
+          {
+            libraryName: "lodash",
+          },
+          "lodash",
+        ],
+        [
+          "import",
+          {
+            libraryName: "@ant-design/icons",
+            libraryDirectory: "es/icons",
+            camel2DashComponentName: false,
+          },
+        ],
+        /*  
+        Process string messages for translation from modules that use react-intl
+        https://formatjs.io/docs/tooling/babel-plugin/
+        */
+        [
+          "formatjs",
+          {
+            idInterpolationPattern: "[sha512:contenthash:base64:6]",
+            ast: true,
+          },
+        ],
       ],
     }),
     development: getPresets({
@@ -42,6 +88,11 @@ module.exports = {
                * useless rerenders, potentially saving you extra rerenders.
                */
               importSource: "@welldone-software/why-did-you-render",
+              /**
+               * If runtime is not set to "automatic" then we get following error when running storybook
+               * 'importSource cannot be set when runtime is classic'
+               */
+              runtime: "automatic",
             },
           },
         ],

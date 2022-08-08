@@ -1,4 +1,3 @@
-import { convertObjectToCamelCase } from "@utils";
 import { githubApiService } from "@utils/apiUtils";
 
 export interface ResponseItem {
@@ -24,9 +23,27 @@ export interface QueryArg {
 export const recommendationsApi = githubApiService.injectEndpoints({
   endpoints: builder => ({
     fetchRecommendation: builder.query<IResponse, QueryArg>({
-      query: ({ repoName, page }) => `search/repositories?q=${repoName}&per_page=10&page=${page}`,
-      transformResponse: (response: IResponse) => {
-        return convertObjectToCamelCase<IResponse>(response);
+      query: ({ repoName: q, page }) => {
+        let params: {
+          q?: string;
+          page?: number;
+          per_page: number;
+        } = {
+          per_page: 10,
+        };
+
+        if (q) {
+          params = { ...params, q };
+        }
+
+        if (page) {
+          params = { ...params, page };
+        }
+
+        return {
+          url: "search/repositories",
+          params,
+        };
       },
     }),
   }),

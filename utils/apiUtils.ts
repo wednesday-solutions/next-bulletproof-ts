@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { FetchArgs, createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { BaseQueryApi } from "@reduxjs/toolkit/dist/query/baseQueryTypes";
 import { ApisauceInstance, create } from "apisauce";
 import camelCase from "lodash/camelCase";
 import snakeCase from "lodash/snakeCase";
@@ -45,15 +46,25 @@ export const createApiClientWithTransForm = (baseURL: string) => {
   return api;
 };
 
+const baseQueryWithCamelize = (baseUrl: string) => {
+  const baseQuery = fetchBaseQuery({ baseUrl: baseUrl, fetchFn: isomorphicFetch });
+
+  return async (args: string | FetchArgs, api: BaseQueryApi, extraOptions = {}) => {
+      const result = await baseQuery(args, api, extraOptions);
+      const { data } = result;
+      if (result.data) {
+        result.data = mapKeysDeep(data, (keys: string) => camelCase(keys));
+      }
+      return result;
+    };
+};
+
 /**
  * @desc Here we initialize an empty api service that we'll inject endpoints into later as needed
  */
 export const githubApiService = createApi({
   reducerPath: "github",
-  baseQuery: fetchBaseQuery({
-    baseUrl: process.env.NEXT_PUBLIC_GITHUB_URL,
-    fetchFn: isomorphicFetch,
-  }),
+  baseQuery: baseQueryWithCamelize(process.env.NEXT_PUBLIC_GITHUB_URL),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
       return action.payload[reducerPath];
