@@ -14,7 +14,13 @@ interface SongContainerProps {
   intl: IntlShape;
 }
 
+const { Search } = Input;
+
 export const Songs: React.FC<SongContainerProps> = ({ intl }) => {
+  const handleSearch = (value: string) => {
+    console.log(value);
+  };
+
   return (
     <Container
       padding={20}
@@ -24,7 +30,7 @@ export const Songs: React.FC<SongContainerProps> = ({ intl }) => {
         alignSelf: "center",
       }}
     >
-      Songs grid
+      <Search placeholder="Search for songs" onSearch={handleSearch} />
     </Container>
   );
 };

@@ -3,19 +3,18 @@ import { convertObjectToCamelCase } from "@utils";
 import { itunesApiService } from "@utils/apiUtils";
 
 type Params = {
-  username: string;
-  repo: string;
+  searchTerm: string;
 };
 
-export const repoInfoApi = itunesApiService.injectEndpoints({
+export const songsApi = itunesApiService.injectEndpoints({
   endpoints: builder => ({
-    fetchRepoInfo: builder.query<RepoInfoResponse, object>({
+    fetchSongs: builder.query<RepoInfoResponse, object>({
       query: (params: Params) => {
-        if (!params.username || !params.repo) {
+        if (!params.searchTerm) {
           throw new Error("Invalid params");
         }
 
-        return `repos/${params.username}/${params.repo}`;
+        return `search?term=${params.searchTerm}`;
       },
       transformResponse: (response: RepoInfoResponse) => {
         return convertObjectToCamelCase<RepoInfoResponse>(response);
@@ -25,4 +24,4 @@ export const repoInfoApi = itunesApiService.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useFetchRepoInfoQuery } = repoInfoApi;
+export const { useFetchSongsQuery } = songsApi;

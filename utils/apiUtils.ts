@@ -7,17 +7,17 @@ import { HYDRATE } from "next-redux-wrapper";
 import { mapKeysDeep } from "./index";
 
 const apiClients: Record<string, ApisauceInstance | null> = {
-  github: null,
+  itunes: null,
   default: null,
 };
-export const getApiClient = (type = "github") => apiClients[type];
-export const generateApiClient = (type = "github") => {
+export const getApiClient = (type = "itunes") => apiClients[type];
+export const generateApiClient = (type = "itunes") => {
   switch (type) {
-    case "github":
-      apiClients[type] = createApiClientWithTransForm(process.env.NEXT_PUBLIC_GITHUB_URL);
+    case "itunes":
+      apiClients[type] = createApiClientWithTransForm(process.env.NEXT_PUBLIC_ITUNES_URL);
       return apiClients[type];
     default:
-      apiClients.default = createApiClientWithTransForm(process.env.NEXT_PUBLIC_GITHUB_URL);
+      apiClients.default = createApiClientWithTransForm(process.env.NEXT_PUBLIC_ITUNES_URL);
       return apiClients.default;
   }
 };
@@ -48,10 +48,10 @@ export const createApiClientWithTransForm = (baseURL: string) => {
 /**
  * @desc Here we initialize an empty api service that we'll inject endpoints into later as needed
  */
-export const githubApiService = createApi({
-  reducerPath: "github",
+export const itunesApiService = createApi({
+  reducerPath: "itunes",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.NEXT_PUBLIC_GITHUB_URL,
+    baseUrl: process.env.NEXT_PUBLIC_ITUNES_URL,
     fetchFn: isomorphicFetch,
   }),
   extractRehydrationInfo(action, { reducerPath }) {
