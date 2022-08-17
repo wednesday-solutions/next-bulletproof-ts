@@ -1,10 +1,10 @@
-import { Repos } from "@features/repos";
+import { Songs } from "@features/songs";
 import React, { memo } from "react";
 import { injectIntl } from "react-intl";
 import { compose } from "redux";
 
-export const ReposPage = ({ recommendations }) => {
-  return <Repos recommendations={recommendations} />;
+export const SongsPage = () => {
+  return <Songs />;
 };
 
 export async function getStaticProps() {
@@ -16,4 +16,4 @@ export async function getStaticProps() {
   };
 }
 
-export default compose(injectIntl, memo)(ReposPage);
+export default compose(injectIntl, memo)(SongsPage);
