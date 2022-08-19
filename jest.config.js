@@ -29,6 +29,7 @@ module.exports = {
     "@styles(.*)": "<rootDir>/styles",
     "@store(.*)": "<rootDir>/store/$1",
     "@app(.*)": "<rootDir>/$1",
+    // "common(.*)": "<rootDir>/common",
     "^common(.*)": "<rootDir>/common",
     "@logger(.*)": "<rootDir>/logger",
     "@constants(.*)": "<rootDir>/constants",
