@@ -1,18 +1,24 @@
-import { css } from "styled-components";
+import { css } from "@emotion/react";
 import { media } from "@themes";
 
 // sizes
 
 export const dynamicFontSize = (font, desktopDelta = 0, tabletDelta = 0) => css`
   ${font()}
-  ${media.greaterThan("tablet")`font-size: ${
-    tabletDelta +
-    parseInt(font()[0].replace("font-size:", "").replace("rem;", "").replace(/\s+/g, ""))
-  }rem;`}
-${media.greaterThan("desktop")`font-size: ${
-    desktopDelta +
-    parseInt(font()[0].replace("font-size:", "").replace("rem;", "").replace(/\s+/g, ""))
-  }rem;`}
+  ${`@media (min-width: ${media.tablet}) {
+    font-size: ${
+      /* eslint-disable-next-line */
+      tabletDelta +
+      parseInt(font()["styles"].replace("font-size:", "").replace("rem;", "").replace(/\s+/g, ""))
+    }rem;
+  }`}
+    ${`@media (min-width: ${media.desktop}) {
+    font-size: ${
+      /* eslint-disable-next-line */
+      desktopDelta +
+      parseInt(font()["styles"].replace("font-size:", "").replace("rem;", "").replace(/\s+/g, ""))
+    }rem;
+  }`}
 `;
 const regular = () => css`
   font-size: 1rem;

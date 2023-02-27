@@ -5,7 +5,7 @@
  */
 
 import React, { CSSProperties, memo } from "react";
-import styled, { FlattenSimpleInterpolation } from "styled-components";
+import styled from "@emotion/styled";
 import { FormattedMessage } from "react-intl";
 import { If } from "@common";
 import { fonts } from "@themes";
@@ -15,7 +15,7 @@ interface Props {
   text?: string;
   id?: string;
   values?: any;
-  styles?: CSSProperties | FlattenSimpleInterpolation;
+  styles?: CSSProperties;
   marginBottom?: CSSProperties["marginBottom"];
 }
 

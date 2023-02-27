@@ -1,7 +1,7 @@
 import { colors } from "@themes";
 import { AlignCenter } from "common/styled";
 import { FormattedMessage } from "react-intl";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 const Error = styled.div`
   color: ${colors.error};
