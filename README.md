@@ -39,7 +39,7 @@ An enterprise Next.js template application based on bulletproof architecture sho
 - Global state management using `redux-toolkit`
 - Side Effects using `RTK Query`
 - API calls using `api-sauce`
-- Styling using `styled-components`
+- Styling using `emotion`
 - Reusing components from Ant design
 - Translations using `react-intl`
 
@@ -78,9 +78,9 @@ An enterprise Next.js template application based on bulletproof architecture sho
   - [features/repos/api/getRecommendations.ts](features/repos/api/getRecommendations.ts)
   - [features/info/api/getRepoInfo.ts](features/info/api/getRepoInfo.ts)
 
-## Styling using styled-components
+## Styling using emotion
 
-- Styling components using [Styled Components](https://styled-components.com)
+- Styling components using [Emotion](https://emotion.sh/)
 
   Take a look at the following files
 

@@ -1,6 +1,6 @@
 import pickBy from "lodash-es/pickBy";
 import camelCase from "lodash-es/camelCase";
-import { screenBreakPoints } from "@themes/media";
+import { screenBreakPoints } from "../utils/constants";
 
 export const mapKeysDeep = (obj, fn) =>
   Array.isArray(obj)

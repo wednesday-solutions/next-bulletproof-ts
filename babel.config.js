@@ -1,8 +1,5 @@
 const getPresets = (options = {}) => {
-  /**
-   * Styled-component prop to SSR so as to prevent className mismatch
-   */
-  const plugins = [["styled-components", { ssr: true }], ...(options.plugins || [])];
+  const plugins = [...(options.plugins || [])];
 
   if (process.env.NODE_ENV !== "production") {
     plugins.push("babel-plugin-typescript-to-proptypes");
@@ -86,6 +83,26 @@ module.exports = {
           "@utils": "./utils",
           "@containers": "./containers",
         },
+      },
+    ],
+    [
+      "@emotion",
+      {
+        importMap: {
+          "@mui/system": {
+            styled: {
+              canonicalImport: ["@emotion/styled", "default"],
+              styledBaseImport: ["@mui/system", "styled"],
+            },
+          },
+          "@mui/material/styles": {
+            styled: {
+              canonicalImport: ["@emotion/styled", "default"],
+              styledBaseImport: ["@mui/material/styles", "styled"],
+            },
+          },
+        },
+        autoLabel: "never",
       },
     ],
   ],

@@ -1,5 +1,5 @@
 import { colors } from "@themes";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export const YouAreAwesome = styled.a`
   text-align: right;

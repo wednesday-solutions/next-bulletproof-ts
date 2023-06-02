@@ -1,10 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ErrorState /> should render and match the snapshot 1`] = `
+.emotion-0.emotion-0 {
+  margin: 20px 0;
+  color: grey;
+  color: grey;
+}
+
+.emotion-2.emotion-2 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered styled__CustomCard-sc-15gkald-1 kUFFUB"
+      class="ant-card ant-card-bordered emotion-0 emotion-1"
       color="grey"
       data-testid="error-state"
     >
@@ -25,7 +36,7 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
         class="ant-card-body"
       >
         <p
-          class="T__StyledText-sc-apdcd0-0 fjJkvM"
+          class="emotion-2 emotion-3"
           data-testid="t"
         >
           Search Default

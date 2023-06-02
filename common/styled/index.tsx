@@ -1,4 +1,5 @@
-import styled, { CSSProperties } from "styled-components";
+import { CSSProperties } from "react";
+import styled from "@emotion/styled";
 import { Card, Tag } from "antd";
 import { colors, styles } from "@themes";
 

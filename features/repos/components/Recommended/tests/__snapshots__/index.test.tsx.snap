@@ -1,6 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Recommended /> should render and match the snapshot 1`] = `
+.emotion-0 {
+  cursor: pointer;
+}
+
+.emotion-0:hover {
+  border: 1px solid #26547C;
+}
+
 <body>
   <div>
     <div
@@ -11,7 +19,7 @@ exports[`<Recommended /> should render and match the snapshot 1`] = `
         class="ant-col"
       >
         <span
-          class="ant-tag styled__ClickableTags-sc-15gkald-2 kHFdpo"
+          class="ant-tag emotion-0 emotion-1"
         >
           test repo name
         </span>

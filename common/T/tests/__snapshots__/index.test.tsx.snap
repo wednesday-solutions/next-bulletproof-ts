@@ -1,10 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<T /> should render and match the snapshot 1`] = `
+.emotion-0.emotion-0 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
 <body>
   <div>
     <p
-      class="T__StyledText-sc-apdcd0-0 fjJkvM"
+      class="emotion-0 emotion-1"
       data-testid="t"
     />
   </div>

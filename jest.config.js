@@ -61,6 +61,7 @@ module.exports = {
     "/node_modules/(?!lodash-es/*)",
   ],
   passWithNoTests: true,
+  snapshotSerializers: ["@emotion/jest/serializer"],
   globals: {
     "ts-jest": {
       tsconfig: "tsconfig.json",
