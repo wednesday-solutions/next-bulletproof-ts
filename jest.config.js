@@ -32,6 +32,7 @@ module.exports = {
     "@constants(.*)": "<rootDir>/constants",
     "services(.*)": "<rootDir>/services",
     "^@features(.*)": "<rootDir>/features/$1",
+    "^@containers(.*)": "<rootDir>/containers/$1",
     "^@hooks(.*)": "<rootDir>/hooks/$1",
     "^@shared(.*)": "<rootDir>/features/sharedComponents/$1",
     "^@themes(.*)": "<rootDir>/themes/$1",

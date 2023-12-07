@@ -1,13 +1,13 @@
-import React, { PropsWithChildren, ReactNode } from "react";
+import { ReactNode } from "react";
 
-interface Props {
+interface IfProps {
+  children: React.ReactNode;
   otherwise?: ReactNode;
   condition: any;
 }
 
-const If = (props: PropsWithChildren<Props>) => {
-  if (props.condition) return <>{props.children}</>;
-  return <>{props.otherwise || null}</>;
+const If: React.FC<IfProps> = props => {
+  return <>{props.condition ? props.children : props.otherwise}</>;
 };
 
 export default If;
