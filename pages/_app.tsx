@@ -6,6 +6,8 @@ import { IntlProvider } from "react-intl";
 import { Provider as ReduxProvider } from "react-redux";
 import messages from "../translations/en.json";
 import { store } from "@store";
+import { StyleSheetManager } from "styled-components";
+import { shouldForwardProp } from "@app/utils";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -19,7 +21,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <IntlProvider messages={messages} locale="en" defaultLocale="en">
         <ReduxProvider store={store}>
           <ErrorBoundary>
-            <Component {...pageProps} />
+            <StyleSheetManager shouldForwardProp={shouldForwardProp}>
+              <Component {...pageProps} />
+            </StyleSheetManager>
           </ErrorBoundary>
         </ReduxProvider>
       </IntlProvider>

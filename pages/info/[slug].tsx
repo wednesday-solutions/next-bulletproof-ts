@@ -17,7 +17,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     })
   );
 
-  await Promise.all(repoInfoApi.util.getRunningOperationPromises());
+  await Promise.all(store.dispatch(repoInfoApi.util.getRunningQueriesThunk()));
 
   return {
     props: {},
