@@ -4,6 +4,7 @@ import { IntlProvider } from "react-intl";
 import { Provider as ReduxProvider } from "react-redux";
 import { store } from "../store";
 import messages from "../translations/en.json";
+import { RuleSet } from "styled-components";
 
 /**
  * Renders the passed in components or tree with all the providers.
@@ -51,6 +52,10 @@ export function apiResponseGenerator<T>(ok: boolean, data: T) {
     data,
   };
 }
+
+export const normalizeStyledCss = (styledCss: RuleSet) => {
+  return styledCss.toString().trim().replace(/\s+/g, " ");
+};
 
 export * from "@testing-library/react";
 export { renderForTesting as render };

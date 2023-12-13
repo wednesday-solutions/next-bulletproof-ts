@@ -4,14 +4,14 @@ exports[`<RepoList /> should render and match the snapshot 1`] = `
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered styled__CustomCard-sc-15gkald-1 kmxBSK"
+      class="ant-card ant-card-bordered hDCLWP css-dev-only-do-not-override-6j9yrn"
       data-testid="repo-list"
     >
       <div
         class="ant-card-body"
       >
         <div
-          class="ant-skeleton ant-skeleton-active"
+          class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-6j9yrn"
         >
           <div
             class="ant-skeleton-content"

@@ -29,13 +29,6 @@
       "@containers/*": ["containers/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "next.config.js",
-    "global.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "commitlint.config.js"
-  ],
+  "include": ["next-env.d.ts", "global.d.ts", "**/*.ts", "**/*.tsx", "commitlint.config.js"],
   "exclude": ["node_modules", "**/*.stories.tsx"]
 }

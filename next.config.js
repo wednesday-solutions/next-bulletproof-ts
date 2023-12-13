@@ -1,21 +1,28 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const withPlugins = require("next-compose-plugins");
+const nextPwa = require("next-pwa");
+const nextBundleAnalyzer = require("@next/bundle-analyzer");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  compiler: {
+    styledComponents: true,
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
 };
-const withPlugins = require("next-compose-plugins");
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
+
+const withBundleAnalyzer = nextBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
-const withPwa = require("next-pwa")({
-  pwa: {
-    dest: "public",
-    disable: process.env.NODE_ENV === "development",
-  },
+
+const withPwa = nextPwa({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
 });
+
 module.exports = withPlugins([
   [withBundleAnalyzer],
   [withPwa],

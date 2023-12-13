@@ -4,7 +4,7 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered styled__CustomCard-sc-15gkald-1 kUFFUB"
+      class="ant-card ant-card-bordered iGnYzQ css-dev-only-do-not-override-6j9yrn"
       color="grey"
       data-testid="error-state"
     >
@@ -25,7 +25,7 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
         class="ant-card-body"
       >
         <p
-          class="T__StyledText-sc-apdcd0-0 fjJkvM"
+          class="ipTudd"
           data-testid="t"
         >
           Search Default
