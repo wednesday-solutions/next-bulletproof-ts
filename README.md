@@ -41,7 +41,7 @@ An enterprise Next.js template application based on bulletproof architecture sho
 - API calls using `api-sauce`
 - Styling using `styled-components`
 - Reusing components from Ant design
-- Translations using `react-intl`
+- Translations using `lingui`
 
 ## Global state management using @redux/toolkit
 
@@ -98,14 +98,13 @@ An enterprise Next.js template application based on bulletproof architecture sho
   - [containers/Repos/index.tsx](containers/Repos/index.tsx)
   - [features/repos/components/RepoList/index.tsx](features/repos/components/RepoList/index.tsx)
 
-## Localization using react-intl
+## Localization using lingui
 
-- Translations using [React Intl](https://github.com/formatjs/react-intl)
+- Translations using [Lingui](https://lingui.dev/)
 
   Take a look at the following files
 
   - [translations/en.json](translations/en.json)
-  - [common/IntlGlobalProvider/index.tsx](common/IntlGlobalProvider/index.tsx)
   - [common/T/index.tsx](common/T/index.tsx)
   - [features/info/components/RepoInfo/index.tsx](features/info/components/RepoInfo/index.tsx)
 

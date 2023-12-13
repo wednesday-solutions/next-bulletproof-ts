@@ -1,4 +1,10 @@
-module.exports = {
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const nextJest = require("next/jest");
+
+const createJestConfig = nextJest({ dir: "./" });
+
+/** @type {import('jest').Config} */
+const jestConfig = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
   collectCoverageFrom: [
@@ -27,7 +33,6 @@ module.exports = {
     "^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$": `<rootDir>/__mocks__/fileMock.js`,
     "^store(.*)": "<rootDir>/store/$1",
     "@styles(.*)": "<rootDir>/styles",
-    "common(.*)": "<rootDir>/common",
     "@logger(.*)": "<rootDir>/logger",
     "@constants(.*)": "<rootDir>/constants",
     "services(.*)": "<rootDir>/services",
@@ -38,6 +43,7 @@ module.exports = {
     "^@themes(.*)": "<rootDir>/themes/$1",
     "^@utils(.*)": "<rootDir>/utils/$1",
     "^@slices(.*)": "<rootDir>/store/slices/$1",
+    "^@app(.*)": "<rootDir>/$1",
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testPathIgnorePatterns: [
@@ -45,6 +51,7 @@ module.exports = {
     "<rootDir>/.next/",
     "<rootDir>/coverage/",
     "<rootDir>/babel.config.js",
+    "<rootDir>/lingui.config.js",
     "<rootDir>/jest.config.js",
     "<rootDir>/jest.setup.js",
     "<rootDir>/next-env.d.ts",
@@ -54,7 +61,10 @@ module.exports = {
     "node_modules/lodash-es/.+\\.(j|t)sx?$": "ts-jest",
     // Use babel-jest to transpile tests with the next/babel preset
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
-    "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
+    "^.+\\.(js|jsx|ts|tsx)$": [
+      "babel-jest",
+      { presets: ["next/babel", "@babel/preset-typescript"] },
+    ],
   },
   transformIgnorePatterns: [
     "/node_modules/",
@@ -68,3 +78,5 @@ module.exports = {
     },
   },
 };
+
+module.exports = createJestConfig(jestConfig);
