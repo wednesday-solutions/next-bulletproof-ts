@@ -31,12 +31,12 @@ const jestConfig = {
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets
     "^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$": `<rootDir>/__mocks__/fileMock.js`,
-    "^store(.*)": "<rootDir>/store/$1",
     "@styles(.*)": "<rootDir>/styles",
     "@logger(.*)": "<rootDir>/logger",
     "@constants(.*)": "<rootDir>/constants",
     "services(.*)": "<rootDir>/services",
     "^@features(.*)": "<rootDir>/features/$1",
+    "^@store(.*)": "<rootDir>/store/$1",
     "^@containers(.*)": "<rootDir>/containers/$1",
     "^@hooks(.*)": "<rootDir>/hooks/$1",
     "^@shared(.*)": "<rootDir>/features/sharedComponents/$1",
