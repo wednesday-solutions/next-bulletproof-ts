@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 interface IfProps {
   children: React.ReactNode;
   otherwise?: ReactNode;
-  condition: any;
+  condition: unknown;
 }
 
 const If: React.FC<IfProps> = props => {

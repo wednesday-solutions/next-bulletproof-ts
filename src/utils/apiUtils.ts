@@ -1,49 +1,12 @@
+import { RootState } from "@app/store";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ApisauceInstance, create } from "apisauce";
-import camelCase from "lodash/camelCase";
-import snakeCase from "lodash/snakeCase";
 import isomorphicFetch from "isomorphic-fetch";
 import { HYDRATE } from "next-redux-wrapper";
-import { mapKeysDeep } from "./index";
+import { Action, PayloadAction } from "@reduxjs/toolkit";
 
-const apiClients: Record<string, ApisauceInstance | null> = {
-  github: null,
-  default: null,
-};
-export const getApiClient = (type = "github") => apiClients[type];
-export const generateApiClient = (type = "github") => {
-  switch (type) {
-    case "github":
-      apiClients[type] = createApiClientWithTransForm(process.env.NEXT_PUBLIC_GITHUB_URL);
-      return apiClients[type];
-    default:
-      apiClients.default = createApiClientWithTransForm(process.env.NEXT_PUBLIC_GITHUB_URL);
-      return apiClients.default;
-  }
-};
-
-export const createApiClientWithTransForm = (baseURL: string) => {
-  const api = create({
-    baseURL,
-    headers: { "Content-Type": "application/json" },
-  });
-  api.addResponseTransform(response => {
-    const { ok, data } = response;
-    if (ok && data) {
-      response.data = mapKeysDeep(data, keys => camelCase(keys));
-    }
-    return response;
-  });
-
-  api.addRequestTransform(request => {
-    const { data } = request;
-    if (data) {
-      request.data = mapKeysDeep(data, keys => snakeCase(keys));
-    }
-    return request;
-  });
-  return api;
-};
+function isHydrateAction(action: Action): action is PayloadAction<RootState> {
+  return action.type === HYDRATE;
+}
 
 /**
  * @desc Here we initialize an empty api service that we'll inject endpoints into later as needed
@@ -54,8 +17,10 @@ export const githubApiService = createApi({
     baseUrl: process.env.NEXT_PUBLIC_GITHUB_URL,
     fetchFn: isomorphicFetch,
   }),
-  extractRehydrationInfo(action, { reducerPath }) {
-    if (action.type === HYDRATE) {
+  // to fix the error: "Type alias 'RootState' circularly references itself". return type is set to any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  extractRehydrationInfo(action, { reducerPath }): any {
+    if (isHydrateAction(action)) {
       return action.payload[reducerPath];
     }
   },

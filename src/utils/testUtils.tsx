@@ -1,7 +1,7 @@
 import { act, render, RenderOptions } from "@testing-library/react";
-import React from "react";
+import React, { useRef } from "react";
 import { Provider as ReduxProvider } from "react-redux";
-import { store } from "../store";
+import { AppStore, makeStore } from "../store";
 import { RuleSet } from "styled-components";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
@@ -14,8 +14,13 @@ import { messages } from "@app/translations/en";
  * @returns React.FC, renders the DOM with all the providers
  */
 export const WithAllProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const storeRef = useRef<AppStore>();
+  if (!storeRef.current) {
+    // Create the store instance the first time this renders
+    storeRef.current = makeStore();
+  }
   return (
-    <ReduxProvider store={store}>
+    <ReduxProvider store={storeRef.current}>
       <I18nProvider i18n={i18n}>{children}</I18nProvider>
     </ReduxProvider>
   );

@@ -31,5 +31,5 @@
     }
   },
   "include": ["src", "next-env.d.ts", "module.d.ts", "commitlint.config.js"],
-  "exclude": ["node_modules", "**/*.stories.tsx"]
+  "exclude": ["node_modules"]
 }

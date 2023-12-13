@@ -19,20 +19,17 @@ const nextConfig = {
   },
 };
 
+const withAnalyzer = nextBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+const withPwa = nextPwa({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
+});
+
 module.exports = withPlugins([
-  [
-    nextBundleAnalyzer,
-    {
-      enabled: process.env.ANALYZE === "true",
-    },
-  ],
-  [
-    nextPwa,
-    {
-      dest: "public",
-      disable: process.env.NODE_ENV === "development",
-    },
-  ],
+  [withAnalyzer, withPwa],
   nextConfig,
   // your other plugins here
 ]);

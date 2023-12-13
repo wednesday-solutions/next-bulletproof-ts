@@ -3,14 +3,21 @@ import type { AppProps } from "next/app";
 import { ErrorBoundary } from "@common";
 import Head from "next/head";
 import { Provider as ReduxProvider } from "react-redux";
-import { store } from "@store";
+import { AppStore, makeStore } from "@store";
 import { StyleSheetManager } from "styled-components";
 import { shouldForwardProp } from "@utils";
 import { I18nProvider } from "@lingui/react";
 import { useLinguiInit } from "@utils/linguiUtils";
+import { useRef } from "react";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const i18n = useLinguiInit(pageProps.translation);
+
+  const storeRef = useRef<AppStore>();
+  if (!storeRef.current) {
+    // Create the store instance the first time this renders
+    storeRef.current = makeStore();
+  }
 
   return (
     <>
@@ -21,7 +28,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         />
       </Head>
       <I18nProvider i18n={i18n}>
-        <ReduxProvider store={store}>
+        <ReduxProvider store={storeRef.current}>
           <ErrorBoundary>
             <StyleSheetManager shouldForwardProp={shouldForwardProp}>
               <Component {...pageProps} />
