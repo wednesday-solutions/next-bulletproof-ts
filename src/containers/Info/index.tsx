@@ -5,7 +5,6 @@ import RepoInfo from "@features/info/components/RepoInfo";
 import isEmpty from "lodash/isEmpty";
 import { useFetchRepoInfoQuery } from "@features/info/api/getRepoInfo";
 import { useRouter } from "next/router";
-import { nextReduxWrapper } from "@app/store";
 
 const Info: React.FC = () => {
   const router = useRouter();
