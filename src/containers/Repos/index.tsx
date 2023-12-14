@@ -7,6 +7,7 @@ import { debounce, get, isEmpty } from "lodash-es";
 import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
 import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
+import { skipToken } from "@reduxjs/toolkit/query";
 
 const { Search } = Input;
 
@@ -16,10 +17,20 @@ interface RepoContainerProps {
   recommendations?: Recommendation[];
 }
 
-export const Repos: React.FC<RepoContainerProps> = ({ maxwidth, recommendations }) => {
+const Repos: React.FC<RepoContainerProps> = ({ maxwidth, recommendations }) => {
   const router = useRouter();
   const [repoName, setRepoName] = useState<string>("wednesday-solutions");
   const [page, setPage] = useState<number>(1);
+
+  const { data, error, isLoading, isFetching } = useFetchRecommendationQuery(
+    isEmpty(repoName)
+      ? skipToken
+      : {
+          repoName,
+          page: Number(page),
+        },
+    { skip: router.isFallback }
+  );
 
   const handlePageChange = (pageNumber: number) => {
     setPage(pageNumber);
@@ -28,11 +39,6 @@ export const Repos: React.FC<RepoContainerProps> = ({ maxwidth, recommendations 
       scroll: true,
     });
   };
-
-  const { data, error, isLoading, isFetching } = useFetchRecommendationQuery({
-    repoName,
-    page: Number(page),
-  });
 
   const handleRepoSearch = debounce((repoName: string) => {
     setRepoName(repoName);
@@ -54,15 +60,13 @@ export const Repos: React.FC<RepoContainerProps> = ({ maxwidth, recommendations 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
+  const containerStyle = {
+    height: "100vh",
+    alignSelf: "center",
+  };
+
   return (
-    <Container
-      padding={20}
-      maxwidth={500}
-      style={{
-        height: "100vh",
-        alignSelf: "center",
-      }}
-    >
+    <Container padding={20} maxwidth={500} style={containerStyle}>
       <Row>
         <T type="subheading">Recommendation</T>
       </Row>
@@ -82,7 +86,6 @@ export const Repos: React.FC<RepoContainerProps> = ({ maxwidth, recommendations 
         <Search
           data-testid="search-bar"
           type="text"
-          defaultValue="wednesday-solutions"
           onChange={evt => handleRepoSearch(evt.target.value)}
           onSearch={searchText => handleRepoSearch(searchText)}
         />

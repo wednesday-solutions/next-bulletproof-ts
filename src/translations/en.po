@@ -13,62 +13,71 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: features/info/components/RepoInfo/index.tsx:23
+#: src/features/info/components/RepoInfo/index.tsx:23
 msgid "Back to Search"
 msgstr "Back to Search"
 
-#: features/info/components/RepoInfo/index.tsx:41
+#: src/features/info/components/RepoInfo/index.tsx:41
 msgid "Forks"
 msgstr "Forks"
 
-#: containers/Repos/index.tsx:80
+#: src/containers/Repos/index.tsx:80
 msgid "Get details of repositories"
 msgstr "Get details of repositories"
 
-#: features/info/components/EmptyResult/index.tsx:8
+#: src/features/info/components/EmptyResult/index.tsx:8
 msgid "No records found"
 msgstr "No records found"
 
-#: features/repos/components/RepoList/index.tsx:46
+#: src/features/repos/components/RepoItem/index.tsx:24
 msgid "Repository full name: {0}"
 msgstr "Repository full name: {0}"
 
-#: features/repos/components/ErrorState/index.tsx:30
+#: src/features/repos/components/ErrorState/index.tsx:30
 msgid "Repository List"
 msgstr "Repository List"
 
-#: features/repos/components/RepoList/index.tsx:43
+#: src/features/repos/components/RepoItem/index.tsx:21
 msgid "Repository Name: {0}"
 msgstr "Repository Name: {0}"
 
-#: containers/Repos/index.tsx:78
+#: src/containers/Repos/index.tsx:78
 msgid "Repository Search"
 msgstr "Repository Search"
 
-#: features/repos/components/RepoList/index.tsx:49
+#: src/features/repos/components/RepoItem/index.tsx:27
 msgid "Repository stars: {0}"
 msgstr "Repository stars: {0}"
 
-#: features/repos/components/ErrorState/index.tsx:24
+#: src/features/repos/components/ErrorState/index.tsx:24
 msgid "Search Default"
 msgstr "Search Default"
 
-#: features/info/components/ErrorState/index.tsx:14
+#: src/features/repos/components/RepoList/index.tsx:35
+msgid "Search query: {repoName}"
+msgstr "Search query: {repoName}"
+
+#: src/common/ErrorBoundary/index.tsx:33
+#: src/features/info/components/ErrorState/index.tsx:14
 msgid "Something Went Wrong"
 msgstr "Something Went Wrong"
 
-#: features/info/components/RepoInfo/index.tsx:53
+#: src/features/info/components/RepoInfo/index.tsx:53
 msgid "Stars"
 msgstr "Stars"
 
-#: features/info/components/RepoInfo/index.tsx:47
+#: src/features/repos/components/RepoList/index.tsx:40
+msgid "Total number of matching repos: {totalCount}"
+msgstr "Total number of matching repos: {totalCount}"
+
+#: src/features/info/components/RepoInfo/index.tsx:47
 msgid "Watchers"
 msgstr "Watchers"
 
-#: containers/Repos/index.tsx:73
+#: src/containers/Repos/index.tsx:73
 msgid "You Are Awesome"
 msgstr "You Are Awesome"
 
-#: pages/_offline.tsx:7
+#: src/pages/_offline.tsx:7
 msgid "You are Offline!"
 msgstr "You are Offline!"

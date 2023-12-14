@@ -1,7 +1,7 @@
-import { If, T } from "@common";
+import { CustomCard, If, T } from "@common";
 import { RepoInfoTypes } from "@features/info/types";
 import { colors } from "@themes";
-import { Button, Card, Tag } from "antd";
+import { Button, Tag } from "antd";
 import isEmpty from "lodash/isEmpty";
 import { useRouter } from "next/router";
 import React, { memo } from "react";
@@ -18,7 +18,7 @@ const RepoInfo: React.FC<RepoInfoProps> = ({ repoinfo }) => {
   const router = useRouter();
 
   return (
-    <Card>
+    <CustomCard>
       <Button type="primary" size="small" onClick={() => router.push("/")}>
         <Trans>Back to Search</Trans>
       </Button>
@@ -54,7 +54,7 @@ const RepoInfo: React.FC<RepoInfoProps> = ({ repoinfo }) => {
           </Tag>
         </If>
       </TextGrid>
-    </Card>
+    </CustomCard>
   );
 };
 

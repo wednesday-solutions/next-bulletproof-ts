@@ -4,13 +4,13 @@ import { IRepoItem } from "@features/repos/api/getRecommendations";
 export interface RepoState {
   reposCount: number;
   repos: IRepoItem[];
-  error?: string;
+  error: string | null;
 }
 
 const initialState: RepoState = {
   reposCount: 0,
   repos: [],
-  error: undefined,
+  error: null,
 };
 
 export const repoSlice = createSlice({

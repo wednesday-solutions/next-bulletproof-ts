@@ -1,11 +1,11 @@
 import { EmptyResult, RepoInfoError } from "@features/info/components";
 import { If, Loader } from "@common";
 import React from "react";
-import { ReactComponentLike } from "prop-types";
 import RepoInfo from "@features/info/components/RepoInfo";
 import isEmpty from "lodash/isEmpty";
 import { useFetchRepoInfoQuery } from "@features/info/api/getRepoInfo";
 import { useRouter } from "next/router";
+import { nextReduxWrapper } from "@app/store";
 
 const Info: React.FC = () => {
   const router = useRouter();
@@ -26,4 +26,4 @@ const Info: React.FC = () => {
   );
 };
 
-export default Info as ReactComponentLike;
+export default Info;

@@ -28,19 +28,21 @@ const RepoList: React.FC<RepoListProps> = props => {
     <If condition={items.length !== 0 || loading}>
       <CustomCard data-testid="repo-list">
         <Skeleton loading={loading} active>
-          {repoName && (
-            <T>
-              <Trans>Search query: {repoName}</Trans>
-            </T>
-          )}
-          {totalCount !== 0 && (
-            <T>
-              <Trans>Total number of matching repos: {totalCount}</Trans>
-            </T>
-          )}
-          {items.map(item => (
-            <RepoItem key={item.id} item={item} />
-          ))}
+          <div>
+            {repoName && (
+              <T>
+                <Trans>Search query: {repoName}</Trans>
+              </T>
+            )}
+            {totalCount !== 0 && (
+              <T>
+                <Trans>Total number of matching repos: {totalCount}</Trans>
+              </T>
+            )}
+            {items.map(item => (
+              <RepoItem key={item.id} item={item} />
+            ))}
+          </div>
         </Skeleton>
       </CustomCard>
     </If>
