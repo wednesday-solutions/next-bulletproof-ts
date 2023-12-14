@@ -1,7 +1,7 @@
 import { convertObjectToCamelCase } from "@utils";
 import { githubApiService } from "@utils/apiUtils";
 
-export interface RepoItem {
+export interface IRepoItem {
   id: number;
   name: string;
   fullName: string;
@@ -13,7 +13,7 @@ export interface RepoItem {
 
 export type IResponse = {
   incompleteResults: boolean;
-  items: RepoItem[];
+  items: IRepoItem[];
   totalCount: number;
 };
 

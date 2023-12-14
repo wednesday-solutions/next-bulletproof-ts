@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RepoItem } from "@features/repos/api/getRecommendations";
+import { IRepoItem } from "@features/repos/api/getRecommendations";
 
 export interface RepoState {
   reposCount: number;
-  repos: RepoItem[];
+  repos: IRepoItem[];
   error?: string;
 }
 
@@ -17,7 +17,7 @@ export const repoSlice = createSlice({
   name: "github",
   initialState,
   reducers: {
-    successGetRepos: (state: RepoState, action: PayloadAction<RepoItem[]>) => {
+    successGetRepos: (state: RepoState, action: PayloadAction<IRepoItem[]>) => {
       state.repos = action.payload;
       state.reposCount = 0;
     },

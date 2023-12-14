@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withPlugins = require("next-compose-plugins");
-const nextPwa = require("next-pwa");
+const nextPwa = require("@ducanh2912/next-pwa").default;
 const nextBundleAnalyzer = require("@next/bundle-analyzer");
 const linguiConfig = require("./lingui.config");
 
@@ -26,10 +26,11 @@ const withAnalyzer = nextBundleAnalyzer({
 const withPwa = nextPwa({
   dest: "public",
   disable: process.env.NODE_ENV === "development",
+  swcMinify: true,
 });
 
-module.exports = withPlugins([
-  [withAnalyzer, withPwa],
-  nextConfig,
+module.exports = withPlugins(
+  [withPwa, withAnalyzer],
+  nextConfig
   // your other plugins here
-]);
+);
