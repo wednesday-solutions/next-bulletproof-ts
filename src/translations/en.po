@@ -21,7 +21,7 @@ msgstr "Back to Search"
 msgid "Forks"
 msgstr "Forks"
 
-#: src/containers/Repos/index.tsx:80
+#: src/containers/Repos/index.tsx:84
 msgid "Get details of repositories"
 msgstr "Get details of repositories"
 
@@ -41,7 +41,7 @@ msgstr "Repository List"
 msgid "Repository Name: {0}"
 msgstr "Repository Name: {0}"
 
-#: src/containers/Repos/index.tsx:78
+#: src/containers/Repos/index.tsx:82
 msgid "Repository Search"
 msgstr "Repository Search"
 
@@ -53,7 +53,7 @@ msgstr "Repository stars: {0}"
 msgid "Search Default"
 msgstr "Search Default"
 
-#: src/features/repos/components/RepoList/index.tsx:35
+#: src/features/repos/components/RepoList/index.tsx:34
 msgid "Search query: {repoName}"
 msgstr "Search query: {repoName}"
 
@@ -66,7 +66,7 @@ msgstr "Something Went Wrong"
 msgid "Stars"
 msgstr "Stars"
 
-#: src/features/repos/components/RepoList/index.tsx:40
+#: src/features/repos/components/RepoList/index.tsx:39
 msgid "Total number of matching repos: {totalCount}"
 msgstr "Total number of matching repos: {totalCount}"
 
@@ -74,7 +74,7 @@ msgstr "Total number of matching repos: {totalCount}"
 msgid "Watchers"
 msgstr "Watchers"
 
-#: src/containers/Repos/index.tsx:73
+#: src/containers/Repos/index.tsx:77
 msgid "You Are Awesome"
 msgstr "You Are Awesome"
 

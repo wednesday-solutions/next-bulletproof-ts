@@ -4,7 +4,7 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered kyjGnq css-dev-only-do-not-override-6j9yrn"
+      class="ant-card ant-card-bordered kyjGnq css-dev-only-do-not-override-p7e5j5"
       color="grey"
       data-testid="error-state"
     >
