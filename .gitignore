@@ -11,6 +11,9 @@
 # next.js
 /.next/
 /out/
+/.swc/
+/analyze/
+
 
 # production
 /build
