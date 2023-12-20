@@ -1,13 +1,13 @@
-import styled, { CSSProperties } from "styled-components";
-import { Card, Tag } from "antd";
-import { colors, styles } from "@themes";
+import { styled } from "@mui/material/styles";
+import { Card, Chip } from "@mui/material";
+import { styles } from "@themes";
 
 interface Props {
-  maxwidth: CSSProperties["maxWidth"];
-  padding: CSSProperties["padding"];
+  maxwidth: React.CSSProperties["maxWidth"];
+  padding: React.CSSProperties["padding"];
 }
 
-export const Container = styled.div<Props>`
+export const Container = styled("div")<Props>`
   && {
     display: flex;
     flex-direction: column;
@@ -18,23 +18,28 @@ export const Container = styled.div<Props>`
   }
 `;
 
-export const CustomCard = styled(Card)<{ maxwidth?: CSSProperties["maxWidth"] }>`
+export const CustomCard = styled(Card)<{ maxwidth?: React.CSSProperties["maxWidth"] }>`
   && {
     margin: 20px 0;
-    max-width: ${props => props.maxwidth};
+    padding: 1rem;
+    max-width: ${props => props.maxwidth}px;
     color: ${props => props.color};
     ${props => props.color && `color: ${props.color}`};
   }
 `;
 
-export const ClickableTags = styled(Tag)`
-  cursor: pointer;
-  :hover {
-    border: 1px solid ${colors.primary};
-  }
-`;
+CustomCard.defaultProps = {
+  variant: "outlined",
+};
 
-export const AlignCenter = styled.div`
+export const ClickableTags = styled(Chip)(({ theme }) => ({
+  cursor: "pointer",
+  "&:hover": {
+    border: `1px solid ${theme.palette.primary.main}`,
+  },
+}));
+
+export const AlignCenter = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;

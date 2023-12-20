@@ -4,7 +4,7 @@ import { I18nProvider } from "@lingui/react";
 import { act, render, RenderOptions } from "@testing-library/react";
 import React from "react";
 import { Provider as ReduxProvider } from "react-redux";
-import { RuleSet } from "styled-components";
+import { SerializedStyles } from "@emotion/react";
 import { store } from "../store";
 
 /**
@@ -59,7 +59,7 @@ export function apiResponseGenerator<T>(ok: boolean, data: T) {
   };
 }
 
-export const normalizeStyledCss = (styledCss: RuleSet) => {
+export const normalizeStyledCss = (styledCss: SerializedStyles) => {
   return styledCss.toString().trim().replace(/\s+/g, " ");
 };
 

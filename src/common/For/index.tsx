@@ -5,9 +5,9 @@
  */
 
 import React from "react";
-import styled from "styled-components";
+import { styled } from "@mui/material/styles";
 
-const FlexContainer = styled.div<{ orientation: "row" | "column" }>`
+const FlexContainer = styled("div")<{ orientation: "row" | "column" }>`
   display: flex;
   flex-direction: ${props => props.orientation};
 `;

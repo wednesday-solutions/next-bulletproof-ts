@@ -1,6 +1,4 @@
-import React from "react";
 import "@testing-library/jest-dom";
-import "jest-styled-components";
 
 jest.mock("next/image", () => ({ __esModule: true, default: () => <></> }));
 

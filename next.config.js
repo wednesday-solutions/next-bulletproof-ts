@@ -7,9 +7,6 @@ const linguiConfig = require("./lingui.config");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  compiler: {
-    styledComponents: true,
-  },
   experimental: {
     swcPlugins: [["@lingui/swc-plugin", {}]],
   },
@@ -30,7 +27,7 @@ const withPwa = nextPwa({
 });
 
 module.exports = withPlugins(
-  [withPwa, withAnalyzer],
+  [withAnalyzer, withPwa],
   nextConfig
   // your other plugins here
 );

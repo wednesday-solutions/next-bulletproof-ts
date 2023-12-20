@@ -1,16 +1,13 @@
-import { colors } from "@themes";
-import styled from "styled-components";
+import { styled } from "@mui/material/styles";
+import { Link } from "@mui/material";
 
-export const YouAreAwesome = styled.a`
-  text-align: right;
-
-  && {
-    span {
-      color: ${colors.primary};
-      text-decoration: underline;
-      :hover {
-        opacity: 0.8;
-      }
-    }
-  }
-`;
+export const YouAreAwesomeLink = styled(Link)(({ theme }) => ({
+  textAlign: "right",
+  span: {
+    color: theme.palette.primary.main,
+    textDecoration: "underline",
+    "&:hover": {
+      opacity: 0.8,
+    },
+  },
+}));

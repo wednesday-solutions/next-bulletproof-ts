@@ -4,15 +4,15 @@
  *
  */
 
+import { styled } from "@mui/material/styles";
 import React from "react";
-import styled from "styled-components";
 
 interface Props {
   onClick: React.MouseEventHandler<HTMLDivElement>;
   children: React.ReactNode;
 }
 
-const StyledClickable = styled.div`
+const StyledClickable = styled("div")`
   color: #1890ff;
   &:hover {
     cursor: pointer;

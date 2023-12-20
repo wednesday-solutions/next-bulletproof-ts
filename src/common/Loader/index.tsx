@@ -1,12 +1,12 @@
-import { Space, Spin } from "antd";
+import { Stack, CircularProgress } from "@mui/material";
 import React from "react";
 import { AlignCenter } from "../styled";
 
 const Loader: React.FC = () => (
   <AlignCenter>
-    <Space size="middle">
-      <Spin size="large" />
-    </Space>
+    <Stack>
+      <CircularProgress size="large" />
+    </Stack>
   </AlignCenter>
 );
 

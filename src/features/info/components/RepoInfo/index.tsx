@@ -1,12 +1,9 @@
-import { CustomCard, If, T } from "@common";
+import { CustomCard, T } from "@common";
 import { RepoInfoTypes } from "@features/info/types";
-import { colors } from "@themes";
-import { Button, Tag } from "antd";
-import isEmpty from "lodash/isEmpty";
 import { useRouter } from "next/router";
 import React, { memo } from "react";
-import { TextGrid } from "../styled";
 import { Trans } from "@lingui/macro";
+import { Stack, Button, Chip } from "@mui/material";
 
 interface RepoInfoProps {
   repoinfo: RepoInfoTypes;
@@ -19,41 +16,24 @@ const RepoInfo: React.FC<RepoInfoProps> = ({ repoinfo }) => {
 
   return (
     <CustomCard>
-      <Button type="primary" size="small" onClick={() => router.push("/")}>
+      <Button color="primary" size="small" onClick={() => router.push("/")}>
         <Trans>Back to Search</Trans>
       </Button>
+      {name ? <T variant="subtitle1">{name}</T> : null}
 
-      <If condition={!isEmpty(name)}>
-        <T type="heading">{name}</T>
-      </If>
+      {owner.login ? <T variant="subtitle2">{owner.login}</T> : null}
 
-      <If condition={!isEmpty(owner.login)}>
-        <T type="subText">{owner.login}</T>
-      </If>
+      {description ? <T>{description}</T> : null}
 
-      <If condition={!isEmpty(description)}>
-        <T>{description}</T>
-      </If>
+      <Stack direction="row" justifyContent="space-between" alignItems="center" textAlign="center">
+        {forks ? <Chip label={<Trans>Forks: {forks}</Trans>} color="primary" /> : null}
 
-      <TextGrid>
-        <If condition={isEmpty(forks)}>
-          <Tag color={colors.primary}>
-            <Trans>Forks</Trans>: {forks}
-          </Tag>
-        </If>
+        {watchers ? <Chip label={<Trans>Watchers: {watchers}</Trans>} color="primary" /> : null}
 
-        <If condition={isEmpty(watchers)}>
-          <Tag color={colors.primary}>
-            <Trans>Watchers</Trans>: {watchers}
-          </Tag>
-        </If>
-
-        <If condition={isEmpty(stargazersCount)}>
-          <Tag color={colors.primary}>
-            <Trans>Stars</Trans>: {stargazersCount}
-          </Tag>
-        </If>
-      </TextGrid>
+        {stargazersCount ? (
+          <Chip label={<Trans>Stars: {stargazersCount}</Trans>} color="primary" />
+        ) : null}
+      </Stack>
     </CustomCard>
   );
 };

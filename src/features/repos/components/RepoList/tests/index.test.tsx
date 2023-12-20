@@ -6,10 +6,10 @@
 
 import React from "react";
 import { render } from "@utils/testUtils";
-import RepoList from "../index";
+import RepoList, { RepoListProps } from "../index";
 
 describe("<RepoList />", () => {
-  const repoListProps = {
+  const repoListProps: RepoListProps = {
     loading: true,
     repoName: "Nextjs Bulletproof Template",
     reposData: {
@@ -21,6 +21,7 @@ describe("<RepoList />", () => {
           fullName: "Nextjs Bulletproof Template",
           stargazersCount: 100,
           owner: { login: "Wednesday Solutions" },
+          id: 1,
         },
       ],
     },

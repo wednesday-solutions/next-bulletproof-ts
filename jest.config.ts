@@ -1,10 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const nextJest = require("next/jest");
+import { Config } from "jest";
+import nextJest from "next/jest";
 
 const createJestConfig = nextJest({ dir: "./" });
 
-/** @type {import('jest').Config} */
-const jestConfig = {
+const jestConfig: Config = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
   collectCoverageFrom: [
@@ -77,6 +76,7 @@ const jestConfig = {
       tsconfig: "tsconfig.json",
     },
   },
+  snapshotSerializers: ["@emotion/jest/serializer"],
 };
 
-module.exports = createJestConfig(jestConfig);
+export default createJestConfig(jestConfig);

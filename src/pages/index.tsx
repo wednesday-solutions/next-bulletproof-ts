@@ -1,6 +1,7 @@
+import { loadCatalog } from "@app/utils/linguiUtils";
 import { Meta } from "@common";
 import { Repos } from "@features/repos";
-import { Metadata, NextPage } from "next";
+import { GetStaticProps, Metadata, NextPage } from "next";
 import React from "react";
 
 const metadata: Metadata = {
@@ -16,6 +17,16 @@ export const ReposPage: NextPage = () => {
       <Repos />
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ctx => {
+  const translation = await loadCatalog(ctx.locale!);
+
+  return {
+    props: {
+      translation,
+    },
+  };
 };
 
 export default ReposPage;

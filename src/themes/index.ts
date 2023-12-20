@@ -1,6 +1,6 @@
-import colors from './colors';
-import fonts from './fonts';
-import media from './media';
-import styles from './styles';
+import styles from "./styles";
+import { theme, font, palette } from "./mui";
 
-export { colors, fonts, media, styles };
+export { styles, font, palette };
+
+export default theme;

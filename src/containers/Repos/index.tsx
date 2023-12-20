@@ -1,7 +1,7 @@
 import { Container, CustomCard, If, T } from "@common";
-import { Divider, Input, Pagination, Row } from "antd";
-import { ErrorState, Recommended, RepoList, YouAreAwesome } from "@features/repos/components";
-import { IRepoError, Recommendation } from "@features/repos/types";
+import { Box, Divider, Link, OutlinedInput, Pagination } from "@mui/material";
+import { ErrorState, RepoList } from "@features/repos/components";
+import { IRepoError } from "@features/repos/types";
 import React, { memo, useEffect, useState } from "react";
 import { debounce, get, isEmpty } from "lodash-es";
 import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
@@ -9,17 +9,14 @@ import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
 import { skipToken } from "@reduxjs/toolkit/query";
 
-const { Search } = Input;
-
 interface RepoContainerProps {
   padding?: number;
   maxwidth?: number;
-  recommendations?: Recommendation[];
 }
 
-const Repos: React.FC<RepoContainerProps> = ({ maxwidth, recommendations }) => {
+const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
   const router = useRouter();
-  const [repoName, setRepoName] = useState<string>("wednesday-solutions");
+  const [repoName, setRepoName] = useState<string>("react");
   const [page, setPage] = useState<number>(1);
 
   const { data, error, isLoading, isFetching } = useFetchRecommendationQuery(
@@ -32,7 +29,7 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth, recommendations }) => {
     { skip: router.isFallback }
   );
 
-  const handlePageChange = (pageNumber: number) => {
+  const handlePageChange = (_: React.ChangeEvent<unknown>, pageNumber: number) => {
     setPage(pageNumber);
     router.push(`/?search=${repoName}&page=${pageNumber}`, undefined, {
       shallow: true,
@@ -60,43 +57,41 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth, recommendations }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
-  const containerStyle = {
-    height: "100vh",
-    alignSelf: "center",
-  };
-
   return (
-    <Container padding={20} maxwidth={500} style={containerStyle}>
-      <Row>
-        <T type="subheading">Recommendation</T>
-      </Row>
-      <Row justify="space-between">
-        <Recommended recommendations={recommendations} />
-        <YouAreAwesome href="https://www.iamawesome.com/">
+    <Container padding={20} maxwidth={500}>
+      <Box>
+        <T variant="h5">
+          <Trans>Recommendation</Trans>
+        </T>
+      </Box>
+      <Box justifyContent="space-between">
+        <Link href="https://www.iamawesome.com/">
           <T>
             <Trans>You Are Awesome</Trans>
           </T>
-        </YouAreAwesome>
-      </Row>
+        </Link>
+      </Box>
       <Divider />
-      <CustomCard title={<Trans>Repository Search</Trans>} maxwidth={maxwidth}>
-        <T marginBottom={10}>
+      <CustomCard maxwidth={maxwidth}>
+        <T variant="h6">
+          <Trans>Repository Search</Trans>
+        </T>
+        <T marginBottom={1}>
           <Trans>Get details of repositories</Trans>
         </T>
-        <Search
+        <OutlinedInput
           data-testid="search-bar"
-          type="text"
+          type="search"
+          fullWidth
           onChange={evt => handleRepoSearch(evt.target.value)}
-          onSearch={searchText => handleRepoSearch(searchText)}
         />
       </CustomCard>
       <RepoList reposData={data} repoName={repoName} loading={isLoading && isFetching} />
       <If condition={data}>
         <Container padding={20} maxwidth={500}>
           <Pagination
-            defaultCurrent={1}
-            total={get(data, "totalCount", 0)}
-            showSizeChanger={false}
+            defaultValue={1}
+            count={get(data, "totalCount", 0)}
             onChange={handlePageChange}
           />
         </Container>

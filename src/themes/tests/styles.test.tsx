@@ -1,10 +1,10 @@
-import { RuleSet, css } from "styled-components";
-import colors from "../colors";
+import { SerializedStyles, css } from "@emotion/react";
 import styles, { configureFlex } from "../styles";
 import { normalizeStyledCss } from "@utils/testUtils";
+import theme from "../index";
 
 describe("Tests for styles", () => {
-  let expectedResult: RuleSet;
+  let expectedResult: SerializedStyles;
   it("should return height stylings with passed value", () => {
     const height = styles.height;
     const value = 4;
@@ -39,7 +39,7 @@ describe("Tests for styles", () => {
 
   it("should return primaryBackgroundColor styling", () => {
     expectedResult = css`
-      background-color: ${colors.primary};
+      background-color: ${theme.palette.primary.main};
     `;
     expect(normalizeStyledCss(styles.primaryBackgroundColor())).toEqual(
       normalizeStyledCss(expectedResult)
@@ -51,7 +51,7 @@ describe("Tests for styles", () => {
     const vOffset = 1;
     const blur = 4.3;
     const spread = 2;
-    const color = colors.primary;
+    const color = theme.palette.primary.main;
     expectedResult = css`
       box-shadow: ${hOffset}px ${vOffset}px ${blur}px ${spread}px ${color};
     `;
@@ -81,7 +81,7 @@ describe("Tests for styles", () => {
   it("should return the borderWithRadius stylings according to values passed", () => {
     const width = 2;
     const type = "dashed";
-    const color = colors.success;
+    const color = theme.palette.success.main;
     const radius = 12;
     expectedResult = css`
       border: ${width}px ${type} ${color};
@@ -354,7 +354,7 @@ describe("Tests for ConfigureFlex method", () => {
   let flexBasis: number;
   let flexGrow: number;
   let flexShrink: number;
-  let expectedResult: RuleSet;
+  let expectedResult: SerializedStyles;
 
   it("should return the css styling according to the values passed", () => {
     direction = "column";

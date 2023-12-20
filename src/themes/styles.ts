@@ -1,5 +1,5 @@
-import { css } from "styled-components";
-import { colors } from "@themes";
+import { css } from "@mui/material/styles";
+import { theme } from "./mui";
 
 export const configureFlex = (
   direction = "row",
@@ -105,7 +105,7 @@ const boxShadow = (hOffset = 0, vOffset = 0, blur = 0, spread = 0, color = "#ccc
 
 const primaryBackgroundColor = () =>
   css`
-    background-color: ${colors.primary};
+    background-color: ${theme.palette.primary.main};
   `;
 
 const zIndex = (z = 1) => css`

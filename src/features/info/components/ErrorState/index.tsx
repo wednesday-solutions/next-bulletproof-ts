@@ -1,11 +1,10 @@
-import { colors } from "@themes";
 import { AlignCenter } from "@common/styled";
 import { Trans } from "@lingui/macro";
-import styled from "styled-components";
+import { styled } from "@mui/material/styles";
 
-const Error = styled.div`
-  color: ${colors.error};
-`;
+const Error = styled("div")(({ theme }) => ({
+  color: theme.palette.error.main,
+}));
 
 const ErrorState = () => {
   return (

@@ -1,3 +1,4 @@
+import { loadCatalog } from "@app/utils/linguiUtils";
 import { Info } from "@features/info";
 import { repoInfoApi } from "@features/info/api/getRepoInfo";
 import { nextReduxWrapper } from "@store";
@@ -20,8 +21,12 @@ export const getServerSideProps: GetServerSideProps = nextReduxWrapper.getServer
 
     await Promise.all(store.dispatch(repoInfoApi.util.getRunningQueriesThunk()));
 
+    const translation = await loadCatalog(context.locale!);
+
     return {
-      props: {},
+      props: {
+        translation,
+      },
     };
   }
 );

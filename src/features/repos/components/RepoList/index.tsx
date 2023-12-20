@@ -6,13 +6,13 @@
 
 import React from "react";
 import get from "lodash/get";
-import { Skeleton } from "antd";
+import { Divider, Skeleton } from "@mui/material";
 import { T, CustomCard, If } from "@common";
 import { IResponse, IRepoItem } from "@features/repos/api/getRecommendations";
 import { Trans } from "@lingui/macro";
 import RepoItem from "../RepoItem";
 
-interface RepoListProps {
+export interface RepoListProps {
   reposData?: IResponse;
   loading: boolean;
   repoName: string;
@@ -27,23 +27,23 @@ const RepoList: React.FC<RepoListProps> = props => {
   return (
     <If condition={items.length !== 0 || loading}>
       <CustomCard data-testid="repo-list">
-        <Skeleton loading={loading} active>
-          <div>
-            {repoName && (
-              <T>
-                <Trans>Search query: {repoName}</Trans>
-              </T>
-            )}
-            {totalCount !== 0 && (
-              <T>
-                <Trans>Total number of matching repos: {totalCount}</Trans>
-              </T>
-            )}
-            {items.map(item => (
-              <RepoItem key={item.id} item={item} />
-            ))}
-          </div>
-        </Skeleton>
+        {loading && <Skeleton></Skeleton>}
+        <div>
+          {repoName && (
+            <T>
+              <Trans>Search query: {repoName}</Trans>
+            </T>
+          )}
+          {totalCount !== 0 && (
+            <T mb={1}>
+              <Trans>Total number of matching repos: {totalCount}</Trans>
+            </T>
+          )}
+          <Divider />
+          {items.map(item => (
+            <RepoItem key={item.id} item={item} />
+          ))}
+        </div>
       </CustomCard>
     </If>
   );

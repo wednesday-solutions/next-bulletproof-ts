@@ -1,8 +1,5 @@
 import pickBy from "lodash-es/pickBy";
 import camelCase from "lodash-es/camelCase";
-import isPropValid from "@emotion/is-prop-valid";
-import { screenBreakPoints } from "@themes/media";
-import { ShouldForwardProp } from "styled-components";
 
 export const mapKeysDeep = (obj, fn) =>
   Array.isArray(obj)
@@ -47,16 +44,6 @@ export function getQueryStringValue(keys) {
   }
 }
 
-export const setDeviceType = (width = document.body.clientWidth) => {
-  if (width >= screenBreakPoints.MOBILE && width < screenBreakPoints.TABLET) {
-    return "mobile";
-  } else if (width >= screenBreakPoints.TABLET && width < screenBreakPoints.DESKTOP) {
-    return "tablet";
-  } else {
-    return "desktop";
-  }
-};
-
 /**
  * Converts an object's keys to camelCase, takes reference to the object
  * @param obj the object whose keys to convert
@@ -78,16 +65,4 @@ export const convertObjectToCamelCase = <T>(obj: Record<string, unknown>): T => 
   }
 
   return obj as T;
-};
-
-export const getDeviceType = device => (device || setDeviceType()).toUpperCase();
-
-// This implements the default behavior from styled-components v5
-export const shouldForwardProp: ShouldForwardProp<"web"> = (propName, target) => {
-  if (typeof target === "string") {
-    // For HTML elements, forward the prop if it is a valid HTML attribute
-    return isPropValid(propName);
-  }
-  // For other elements, forward all props
-  return true;
 };

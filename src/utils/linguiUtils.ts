@@ -7,12 +7,10 @@ export async function loadCatalog(locale: string) {
   return catalog.messages;
 }
 
-export function useLinguiInit(translations?: Messages) {
+export function useLinguiInit(messages: Messages) {
   const router = useRouter();
   const locale = router.locale || router.defaultLocale!;
   const isClient = typeof window !== "undefined";
-
-  const messages = translations ?? require(`@app/translations/${locale}.js`);
 
   if (!isClient && locale !== i18n.locale) {
     // there is single instance of i18n on the server

@@ -10,7 +10,7 @@ import Meta from "../index";
 
 describe("<Meta />", () => {
   it("should render and match the snapshot", () => {
-    const { baseElement } = render(<Meta />);
+    const { baseElement } = render(<Meta title="Hello World" description="Basic Programming" />);
     expect(baseElement).toMatchSnapshot();
   });
 });
