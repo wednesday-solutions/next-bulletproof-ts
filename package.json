@@ -8,7 +8,7 @@
     "lint": "next lint",
     "lint:staged": "lint-staged",
     "prepare": "husky install",
-    "test": "cross-env NODE_ENV=test jest",
+    "test": "cross-env NODE_ENV=test jest --coverage",
     "test:watch": "jest --env=jsdom --watch",
     "test:coverage": "jest --env=jsdom --coverage",
     "prettify": "prettier --write ./**/*.ts",
