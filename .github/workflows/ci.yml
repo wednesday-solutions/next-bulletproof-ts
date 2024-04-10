@@ -2,9 +2,6 @@ name: Next Bulletproof Template CI
 on:
   pull_request_target:
     branches: [main]
-  push:
-      branches: 
-        - "feat/add-sonar"
 jobs:
   build-lint-test-lhci:
     name: Build & Lint
