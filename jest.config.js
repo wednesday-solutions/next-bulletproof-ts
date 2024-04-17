@@ -11,6 +11,18 @@ module.exports = {
     "./themes/**/*.{js,jsx,ts,tsx}",
     "./utils/**/*.{js,jsx,ts,tsx}",
   ],
+  reporters: [
+    "default",
+    [
+      "jest-sonar",
+      {
+        outputDirectory: "reports",
+        outputName: "test-report.xml",
+        relativeRootDir: "./",
+        reportedFilePath: "relative",
+      },
+    ],
+  ],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
     // https://jestjs.io/docs/webpack#mocking-css-modules
