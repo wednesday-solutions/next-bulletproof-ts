@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -32,11 +32,14 @@ jobs:
       - name: Build Project
         run: yarn build
       
-      - run: npm install -g @lhci/cli@0.8.x
-      - run: lhci collect
-      - run: lhci upload
+      - name: Lighthouse CI
+        run: |
+          yarn global add @lhci/cli
+          lhci collect
+          lhci upload
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
           
       - uses: sonarsource/sonarqube-scan-action@master
         env:
