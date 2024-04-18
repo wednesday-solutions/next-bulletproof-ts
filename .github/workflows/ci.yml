@@ -31,14 +31,6 @@ jobs:
 
       - name: Build Project
         run: yarn build
-      
-      - name: Lighthouse CI
-        run: |
-          yarn global add @lhci/cli
-          lhci collect
-          lhci upload
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
           
       # - uses: sonarsource/sonarqube-scan-action@master
