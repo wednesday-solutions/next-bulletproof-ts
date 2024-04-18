@@ -32,14 +32,11 @@ jobs:
       - name: Build Project
         run: yarn build
       
-        # commenting for now to make CI green , will try this 
-        # - name: run Lighthouse CI
-        #   run: |
-        #     yarn global add @lhci/cli@0.8.x
-        #     lhci autorun --collect.staticDistDir
-        
+      - run: npm install -g @lhci/cli@0.8.x
+      - run: lhci collect
+      - run: lhci upload
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           
       - uses: sonarsource/sonarqube-scan-action@master
         env:
