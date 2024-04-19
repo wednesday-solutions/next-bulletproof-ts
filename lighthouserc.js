@@ -2,12 +2,12 @@ module.exports = {
   ci: {
     collect: {
       startServerCommand: "yarn start",
-      startServerReadyPattern: "ready on",
       url: ["http://localhost:3000"],
       numberOfRuns: 3,
-      settings: {
-        preset: "desktop",
-      },
+      // default value is mobile
+      // settings: {
+        // preset: "desktop",
+      // },
     },
     assert: {
       preset: "lighthouse:recommended",
