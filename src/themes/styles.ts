@@ -1,15 +1,15 @@
 import { css } from "@mui/material/styles";
 import { theme } from "./mui";
 
-export const configureFlex = (
+export const configureFlex = ({
   direction = "row",
   justifyContent = "center",
   alignItems = "center",
   alignContent = "center",
   flexBasis = 0,
   flexGrow = 1,
-  flexShrink = 0
-) => css`
+  flexShrink = 0,
+}) => css`
   ${direction === "row" ? row() : column()}
   flex-direction: ${direction};
   justify-content: ${justifyContent};
@@ -32,19 +32,32 @@ const column = () => css`
 `;
 
 const rowCenter = () => css`
-  ${configureFlex("row", "center", "center", "center")};
+  ${configureFlex({
+    direction: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
+  })};
 `;
 
 const unequalColumns = () => css`
-  ${configureFlex("column", "", "", "", 0, 0, 0)};
+  ${configureFlex({
+    direction: "column",
+    justifyContent: "",
+    alignContent: "",
+    alignItems: "",
+    flexBasis: 0,
+    flexGrow: 0,
+    flexShrink: 0,
+  })};
 `;
 
-const height = (height = 4) => css`
-  height: ${height}rem;
+const height = (value = 4) => css`
+  height: ${value}rem;
 `;
 
-const viewHeight = (height = 0) => css`
-  height: ${height}vh;
+const viewHeight = (value = 0) => css`
+  height: ${value}vh;
 `;
 
 const top = (marginTop = 0) =>
@@ -88,22 +101,21 @@ const borderRadiusTop = (topRadius = 0) => css`
 `;
 
 const borderRadius = (radius: string | number) => {
-  const unit = typeof radius === 'string' ? '' : 'px';
+  const unit = typeof radius === "string" ? "" : "px";
   return css`
     border-radius: ${radius}${unit};
   `;
 };
 
-const borderWithRadius = (width = 1, type = "solid", color = "#ccc", radius = 0) =>
+const borderWithRadius = ({ width = 1, type = "solid", color = "#ccc", radius = 0 }= {}) =>
   css`
     border: ${width}px ${type} ${color};
     ${borderRadius(radius)}
   `;
 
-const boxShadow = (hOffset = 0, vOffset = 0, blur = 0, spread = 0, color = "#ccc") =>
-  css`
-    box-shadow: ${hOffset}px ${vOffset}px ${blur}px ${spread}px ${color};
-  `;
+const boxShadow = ({ hOffset = 0, vOffset = 0, blur = 0, spread = 0, color = "#ccc" } = {}) => css`
+  box-shadow: ${hOffset}px ${vOffset}px ${blur}px ${spread}px ${color};
+`;
 
 const primaryBackgroundColor = () =>
   css`

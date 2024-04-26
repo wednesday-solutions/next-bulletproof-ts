@@ -1,3 +1,6 @@
+/* eslint-disable max-lines */
+/* eslint-disable no-shadow */
+/* eslint-disable max-lines-per-function */
 import { SerializedStyles, css } from "@emotion/react";
 import styles, { configureFlex } from "../styles";
 import { normalizeStyledCss } from "@utils/testUtils";
@@ -55,7 +58,7 @@ describe("Tests for styles", () => {
     expectedResult = css`
       box-shadow: ${hOffset}px ${vOffset}px ${blur}px ${spread}px ${color};
     `;
-    expect(normalizeStyledCss(styles.boxShadow(hOffset, vOffset, blur, spread, color))).toEqual(
+    expect(normalizeStyledCss(styles.boxShadow({ hOffset, vOffset, blur, spread, color }))).toEqual(
       normalizeStyledCss(expectedResult)
     );
   });
@@ -87,7 +90,7 @@ describe("Tests for styles", () => {
       border: ${width}px ${type} ${color};
       ${styles.borderRadius(radius)}
     `;
-    expect(normalizeStyledCss(styles.borderWithRadius(width, type, color, radius))).toEqual(
+    expect(normalizeStyledCss(styles.borderWithRadius({ width, type, color, radius }))).toEqual(
       normalizeStyledCss(expectedResult)
     );
   });
@@ -187,7 +190,12 @@ describe("Tests for styles", () => {
 
   it("should return the rowCenter stylings", () => {
     expectedResult = css`
-      ${configureFlex("row", "center", "center", "center")};
+      ${configureFlex({
+        direction: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        alignContent: "center",
+      })};
     `;
     expect(normalizeStyledCss(styles.flexConfig.rowCenter())).toEqual(
       normalizeStyledCss(expectedResult)
@@ -207,7 +215,15 @@ describe("Tests for styles", () => {
 
   it("should return the unequalColumns stylings", () => {
     expectedResult = css`
-      ${configureFlex("column", "", "", "", 0, 0, 0)};
+      ${configureFlex({
+        direction: "column",
+        justifyContent: "",
+        alignItems: "",
+        alignContent: "",
+        flexBasis: 0,
+        flexGrow: 0,
+        flexShrink: 0,
+      })};
     `;
     expect(normalizeStyledCss(styles.flexConfig.unequalColumns())).toEqual(
       normalizeStyledCss(expectedResult)
@@ -308,7 +324,7 @@ describe("Tests for styles", () => {
       border: ${width}px ${type} ${color};
       ${styles.borderRadius(radius)}
     `;
-    expect(normalizeStyledCss(styles.borderWithRadius())).toEqual(
+    expect(normalizeStyledCss(styles.borderWithRadius({}))).toEqual(
       normalizeStyledCss(expectedResult)
     );
   });
@@ -323,7 +339,7 @@ describe("Tests for styles", () => {
     expectedResult = css`
       box-shadow: ${hOffset}px ${vOffset}px ${blur}px ${spread}px ${color};
     `;
-    expect(normalizeStyledCss(styles.boxShadow())).toEqual(normalizeStyledCss(expectedResult));
+    expect(normalizeStyledCss(styles.boxShadow({}))).toEqual(normalizeStyledCss(expectedResult));
   });
 
   it("should return default z-index stylings", () => {
@@ -376,15 +392,15 @@ describe("Tests for ConfigureFlex method", () => {
     `;
     expect(
       normalizeStyledCss(
-        configureFlex(
+        configureFlex({
           direction,
           justifyContent,
           alignItems,
           alignContent,
           flexBasis,
           flexGrow,
-          flexShrink
-        )
+          flexShrink,
+        })
       )
     ).toEqual(normalizeStyledCss(expectedResult));
   });
@@ -406,6 +422,6 @@ describe("Tests for ConfigureFlex method", () => {
       flex-grow: ${flexGrow};
       flex-shrink: ${flexShrink};
     `;
-    expect(normalizeStyledCss(configureFlex())).toEqual(normalizeStyledCss(expectedResult));
+    expect(normalizeStyledCss(configureFlex({}))).toEqual(normalizeStyledCss(expectedResult));
   });
 });

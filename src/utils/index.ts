@@ -11,9 +11,8 @@ export const mapKeysDeep = (obj, fn) => {
       acc[key] = val !== null && typeof val === "object" ? mapKeysDeep(val, fn) : val;
       return acc;
     }, {});
-  } else {
-    return obj;
   }
+  return obj;
 };
 
 export const isLocal = () => {
@@ -26,6 +25,11 @@ export const isLocal = () => {
   return false;
 };
 
+/**
+ * Retrieves query string values for specified keys from the URL.
+ * @param {string[]} keys - An array of keys to retrieve from the query string.
+ * @returns {Object|null} An object containing query string values for specified keys, or null if an error occurs.
+ */
 export function getQueryStringValue(keys) {
   const queryString = {};
   try {

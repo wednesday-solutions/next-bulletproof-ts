@@ -4,6 +4,11 @@ import isomorphicFetch from "isomorphic-fetch";
 import { HYDRATE } from "next-redux-wrapper";
 import { Action, PayloadAction } from "@reduxjs/toolkit";
 
+/**
+ * Checks if the provided action is a hydration action.
+ * @param {Action} action - The action to be checked.
+ * @returns {boolean} True if the action is a hydration action, otherwise false.
+ */
 function isHydrateAction(action: Action): action is PayloadAction<RootState> {
   return action.type === HYDRATE;
 }

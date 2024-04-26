@@ -11,8 +11,8 @@ interface RepoInfoProps {
 
 const RepoInfo: React.FC<RepoInfoProps> = ({ repoinfo }) => {
   const { name, description, forks, watchers, owner, stargazersCount } = repoinfo;
-
   const router = useRouter();
+  const renderChip = (label, value) => (value ? <Chip label={label} color="primary" /> : null);
 
   return (
     <CustomCard>
@@ -20,19 +20,13 @@ const RepoInfo: React.FC<RepoInfoProps> = ({ repoinfo }) => {
         <Trans>Back to Search</Trans>
       </Button>
       {name ? <T variant="subtitle1">{name}</T> : null}
-
       {owner.login ? <T variant="subtitle2">{owner.login}</T> : null}
-
       {description ? <T>{description}</T> : null}
 
       <Stack direction="row" justifyContent="space-between" alignItems="center" textAlign="center">
-        {forks ? <Chip label={<Trans>Forks: {forks}</Trans>} color="primary" /> : null}
-
-        {watchers ? <Chip label={<Trans>Watchers: {watchers}</Trans>} color="primary" /> : null}
-
-        {stargazersCount ? (
-          <Chip label={<Trans>Stars: {stargazersCount}</Trans>} color="primary" />
-        ) : null}
+        {renderChip(<Trans>Forks: {forks}</Trans>, forks)}
+        {renderChip(<Trans>Watchers: {watchers}</Trans>, watchers)}
+        {renderChip(<Trans>Stars: {stargazersCount}</Trans>, stargazersCount)}
       </Stack>
     </CustomCard>
   );

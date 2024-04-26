@@ -16,6 +16,7 @@ interface ErrorStateProps {
   reposError: string | undefined;
 }
 
+// eslint-disable-next-line complexity
 const ErrorState: React.FC<ErrorStateProps> = ({ reposData, reposError, loading }) => {
   let repoError: string | undefined;
   if (reposError) {

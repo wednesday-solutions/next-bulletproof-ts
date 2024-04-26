@@ -28,16 +28,21 @@ const For = ({
   renderItem,
   noParent,
 }: ForProps<typeof of[0], typeof ParentComponent>) => {
-  const list = () => of.map((item, index) => ({ ...renderItem(item, index), key: index }));
-  const children = () => (
+  const renderList = () => of.map((item, index) => ({ ...renderItem(item, index), key: index }));
+
+  const renderChildren = () => (
     <ParentComponent {...parentProps} data-testid="for">
-      {list()}
+      {renderList()}
     </ParentComponent>
   );
+
+  const renderWithoutParent = () => (of || []).length ? renderList() : null;
+
   if (noParent) {
-    return (of || []).length ? list() : null;
+    return renderWithoutParent();
   }
-  return (of || []).length ? children() : null;
+
+  return renderChildren();
 };
 
 For.defaultProps = {

@@ -37,8 +37,8 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
     });
   };
 
-  const handleRepoSearch = debounce((repoName: string) => {
-    setRepoName(repoName);
+  const handleRepoSearch = debounce((repoNameValue: string) => {
+    setRepoName(repoNameValue);
     setPage(1);
   }, 500);
 
