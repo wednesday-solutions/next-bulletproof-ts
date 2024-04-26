@@ -87,10 +87,12 @@ const borderRadiusTop = (topRadius = 0) => css`
   border-top-right-radius: ${topRadius}px;
 `;
 
-const borderRadius = radius =>
-  css`
-    border-radius: ${radius + `${typeof radius === `string` ? `;` : `px`}`};
+const borderRadius = (radius: string | number) => {
+  const unit = typeof radius === 'string' ? '' : 'px';
+  return css`
+    border-radius: ${radius}${unit};
   `;
+};
 
 const borderWithRadius = (width = 1, type = "solid", color = "#ccc", radius = 0) =>
   css`
