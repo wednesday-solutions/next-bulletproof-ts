@@ -23,9 +23,9 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@lingui/react": "^4.6.0",
     "@lingui/macro": "^4.6.0",
-    "@mui/material": "^5.15.0",
+    "@lingui/react": "^4.6.0",
+    "@mui/material": "^5.15.15",
     "@mui/material-nextjs": "^5.15.0",
     "@next/bundle-analyzer": "^14.0.4",
     "@reduxjs/toolkit": "^2.0.1",
