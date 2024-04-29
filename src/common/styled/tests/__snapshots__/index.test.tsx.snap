@@ -1,12 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Container/> should ensure it match the snapshot 1`] = `
+.emotion-0.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 10px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
 <body>
   <div>
     <div
-      class="liIaQA"
-      maxwidth="10"
-      padding="10"
+      class="emotion-0"
     />
   </div>
 </body>
