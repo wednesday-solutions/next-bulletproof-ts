@@ -24,7 +24,7 @@ const StyledLink = styled(Link)`
 `;
 const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
   const router = useRouter();
-  const [repoName, setRepoName] = useState<string>("react");
+  const [repoName, setRepoName] = useState<string>("");
   const [page, setPage] = useState<number>(1);
 
   const { data, error, isLoading, isFetching } = useFetchRecommendationQuery(
@@ -32,7 +32,7 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
       ? skipToken
       : {
           repoName,
-          page: Number(page),
+          page,
         },
     { skip: router.isFallback }
   );
@@ -52,8 +52,8 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
 
   useEffect(() => {
     if (router.isReady) {
-      setRepoName(router.query?.search as string);
-      setPage(router.query?.page as unknown as number);
+      setRepoName((router.query?.search as string) || "");
+      setPage(Number(router.query?.page) || 1);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady]);
@@ -68,7 +68,7 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
   return (
     <Container padding={20} maxwidth={500}>
       <Box>
-        <T variant="h5">
+        <T>
           <Trans>Recommendation</Trans>
         </T>
       </Box>
