@@ -1,5 +1,5 @@
 import { Container, CustomCard, If, T } from "@common";
-import { Box, Divider, Link, OutlinedInput, Pagination } from "@mui/material";
+import { Box, Divider, Link, OutlinedInput, Pagination, FormControl, InputLabel } from "@mui/material";
 import { ErrorState, RepoList } from "@features/repos/components";
 import { IRepoError } from "@features/repos/types";
 import React, { memo, useEffect, useState } from "react";
@@ -8,12 +8,20 @@ import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendati
 import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
 import { skipToken } from "@reduxjs/toolkit/query";
+import styled from "@emotion/styled";
 
 interface RepoContainerProps {
   padding?: number;
   maxwidth?: number;
 }
 
+const StyledSpan = styled.span`
+  color: darkblue;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
   const router = useRouter();
   const [repoName, setRepoName] = useState<string>("react");
@@ -65,11 +73,13 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
         </T>
       </Box>
       <Box justifyContent="space-between">
-        <Link href="https://www.iamawesome.com/">
+        <StyledLink href="https://www.iamawesome.com/">
           <T>
-            <Trans>You Are Awesome</Trans>
+            <Trans>
+              <StyledSpan>You Are Awesome</StyledSpan>
+            </Trans>
           </T>
-        </Link>
+        </StyledLink>
       </Box>
       <Divider />
       <CustomCard maxwidth={maxwidth}>
@@ -79,12 +89,17 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
         <T marginBottom={1}>
           <Trans>Get details of repositories</Trans>
         </T>
-        <OutlinedInput
-          data-testid="search-bar"
-          type="search"
-          fullWidth
-          onChange={evt => handleRepoSearch(evt.target.value)}
-        />
+        <FormControl fullWidth>
+          <InputLabel htmlFor="repo-search">Search</InputLabel>
+          <OutlinedInput
+            id="repo-search"
+            data-testid="search-bar"
+            type="search"
+            fullWidth
+            onChange={evt => handleRepoSearch(evt.target.value)}
+            label="Search"
+          />
+        </FormControl>
       </CustomCard>
       <RepoList reposData={data} repoName={repoName} loading={isLoading && isFetching} />
       <If condition={data}>
