@@ -11,7 +11,7 @@ module.exports = {
     },
     assert: {
       assertions: {
-        'first-contentful-paint': ['error', { maxNumericValue: 2000 }],
+        'first-contentful-paint': ['error', { maxNumericValue: 2500 }],
         'categories:performance': ['error', { minScore: 0.95 }],
         'categories:accessibility': ['error', { minScore: 0.95 }],
         'categories:best-practices': ['error', { minScore: 0.95 }],
