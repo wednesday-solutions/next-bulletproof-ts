@@ -17,18 +17,19 @@
     "baseUrl": ".",
     "noImplicitAny": false,
     "paths": {
-      "@app/*": ["./*"],
-      "@features/*": ["features/*"],
-      "@slices/*": ["store/slices/*"],
-      "@store": ["store"],
-      "@common": ["common"],
-      "@themes/*": ["themes/*"],
-      "@themes": ["themes"],
-      "@utils": ["utils"],
-      "@utils/*": ["utils/*"],
-      "@containers/*": ["containers/*"]
+      "@app/*": ["./src/*"],
+      "@features/*": ["src/features/*"],
+      "@slices/*": ["src/store/slices/*"],
+      "@store": ["src/store"],
+      "@common": ["src/common"],
+      "@common/*": ["src/common/*"],
+      "@themes/*": ["src/themes/*"],
+      "@themes": ["src/themes"],
+      "@utils": ["src/utils"],
+      "@utils/*": ["src/utils/*"],
+      "@containers/*": ["src/containers/*"]
     }
   },
-  "include": ["next-env.d.ts", "global.d.ts", "**/*.ts", "**/*.tsx", "commitlint.config.js"],
-  "exclude": ["node_modules", "**/*.stories.tsx"]
+  "include": ["src", "next-env.d.ts", "module.d.ts", "commitlint.config.js"],
+  "exclude": ["node_modules"]
 }

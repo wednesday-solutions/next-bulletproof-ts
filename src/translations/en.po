@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-04-29 11:46+0530\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/features/info/components/RepoInfo/index.tsx:20
+msgid "Back to Search"
+msgstr "Back to Search"
+
+#: src/features/info/components/RepoInfo/index.tsx:29
+msgid "Forks: {forks}"
+msgstr "Forks: {forks}"
+
+#: src/containers/Repos/index.tsx:80
+msgid "Get details of repositories"
+msgstr "Get details of repositories"
+
+#: src/features/info/components/EmptyResult/index.tsx:8
+msgid "No records found"
+msgstr "No records found"
+
+#: src/containers/Repos/index.tsx:64
+msgid "Recommendation"
+msgstr "Recommendation"
+
+#: src/features/repos/components/RepoItem/index.tsx:24
+msgid "Repository full name: {0}"
+msgstr "Repository full name: {0}"
+
+#: src/features/repos/components/ErrorState/index.tsx:30
+msgid "Repository List"
+msgstr "Repository List"
+
+#: src/features/repos/components/RepoItem/index.tsx:21
+msgid "Repository Name: {0}"
+msgstr "Repository Name: {0}"
+
+#: src/containers/Repos/index.tsx:77
+msgid "Repository Search"
+msgstr "Repository Search"
+
+#: src/features/repos/components/RepoItem/index.tsx:27
+msgid "Repository stars: {0}"
+msgstr "Repository stars: {0}"
+
+#: src/features/repos/components/ErrorState/index.tsx:24
+msgid "Search Default"
+msgstr "Search Default"
+
+#: src/features/repos/components/RepoList/index.tsx:34
+msgid "Search query: {repoName}"
+msgstr "Search query: {repoName}"
+
+#: src/common/ErrorBoundary/index.tsx:33
+#: src/features/info/components/ErrorState/index.tsx:13
+msgid "Something Went Wrong"
+msgstr "Something Went Wrong"
+
+#: src/features/info/components/RepoInfo/index.tsx:34
+msgid "Stars: {stargazersCount}"
+msgstr "Stars: {stargazersCount}"
+
+#: src/features/repos/components/RepoList/index.tsx:39
+msgid "Total number of matching repos: {totalCount}"
+msgstr "Total number of matching repos: {totalCount}"
+
+#: src/features/info/components/RepoInfo/index.tsx:31
+msgid "Watchers: {watchers}"
+msgstr "Watchers: {watchers}"
+
+#: src/containers/Repos/index.tsx:70
+msgid "You Are Awesome"
+msgstr "You Are Awesome"
+
+#: src/pages/_offline.tsx:7
+msgid "You are Offline!"
+msgstr "You are Offline!"

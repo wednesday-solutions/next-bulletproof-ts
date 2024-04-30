@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorState /> should render and match the snapshot 1`] = `
+.emotion-0 {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.emotion-0.emotion-0 {
+  margin: 20px 0;
+  padding: 1rem;
+  max-width: px;
+  color: grey;
+  color: grey;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.57;
+  letter-spacing: 0.00714em;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+
+<body>
+  <div>
+    <div
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root emotion-0"
+      color="grey"
+      data-testid="error-state"
+    >
+      <h6
+        class="MuiTypography-root MuiTypography-subtitle2 emotion-1"
+        data-testid="t"
+      >
+        Repository List
+      </h6>
+      <p
+        class="MuiTypography-root MuiTypography-body1 emotion-2"
+        data-testid="t"
+      >
+        Search Default
+      </p>
+    </div>
+  </div>
+</body>
+`;
