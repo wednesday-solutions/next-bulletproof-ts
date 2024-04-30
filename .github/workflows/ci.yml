@@ -1,9 +1,11 @@
 name: Next Bulletproof Template CI
+
 on:
   pull_request:
     branches: [main]
   push:
     branches: [main]
+
 jobs:
   build-lint-test-lhci:
     name: Build & Lint
@@ -16,6 +18,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 
+               
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -39,8 +42,15 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
-      # commenting for now to make CI green , will try this
+      # Commenting out SonarQube Quality Gate action for now
       # - uses: sonarsource/sonarqube-quality-gate-action@master
       #   timeout-minutes: 5
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Lighthouse CI
+        run: |
+          yarn global add @lhci/cli
+          lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
