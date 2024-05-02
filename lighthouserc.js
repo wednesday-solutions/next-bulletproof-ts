@@ -3,7 +3,7 @@ module.exports = {
     collect: {
       startServerCommand: "yarn start",
       url: ["http://localhost:3000"],
-      numberOfRuns: 3,
+      numberOfRuns: 5,
       // default value is mobile
       // settings: {
       //   preset: "desktop",
