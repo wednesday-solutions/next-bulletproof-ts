@@ -1,5 +1,5 @@
 import { Container, CustomCard, If, T } from "@common";
-import { Box, Divider, Link, OutlinedInput, Pagination, FormControl, InputLabel } from "@mui/material";
+import { Box, Divider, OutlinedInput, Pagination, FormControl, InputLabel } from "@mui/material";
 import { ErrorState, RepoList } from "@features/repos/components";
 import { IRepoError } from "@features/repos/types";
 import React, { memo, useEffect, useState } from "react";
@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
 import { skipToken } from "@reduxjs/toolkit/query";
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 interface RepoContainerProps {
   padding?: number;
