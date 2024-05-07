@@ -13,9 +13,9 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/containers/Repos/index.tsx:78
+#: src/containers/Repos/index.tsx:84
 msgid "<0>You Are Awesome</0>"
-msgstr "<0>आप अद्भुत हैं</0>"
+msgstr ""
 
 #: src/features/info/components/RepoInfo/index.tsx:20
 msgid "Back to Search"
@@ -25,17 +25,17 @@ msgstr "खोज में वापस"
 msgid "Forks: {forks}"
 msgstr "फोर्क्स: {forks}"
 
-#: src/containers/Repos/index.tsx:90
+#: src/containers/Repos/index.tsx:96
 msgid "Get details of repositories"
-msgstr "रिपॉज़िटरी का विवरण प्राप्त करें"
+msgstr ""
 
 #: src/features/info/components/EmptyResult/index.tsx:8
 msgid "No records found"
 msgstr "कोई रिकॉर्ड नहीं मिला"
 
-#: src/containers/Repos/index.tsx:72
+#: src/containers/Repos/index.tsx:78
 msgid "Recommendation"
-msgstr "सिफारिश"
+msgstr ""
 
 #: src/features/repos/components/RepoItem/index.tsx:24
 msgid "Repository full name: {0}"
@@ -49,9 +49,9 @@ msgstr "रिपॉज़िटरी सूची"
 msgid "Repository Name: {0}"
 msgstr "रिपॉज़िटरी का नाम: {0}"
 
-#: src/containers/Repos/index.tsx:87
+#: src/containers/Repos/index.tsx:93
 msgid "Repository Search"
-msgstr "रिपॉज़िटरी खोज"
+msgstr ""
 
 #: src/features/repos/components/RepoItem/index.tsx:27
 msgid "Repository stars: {0}"

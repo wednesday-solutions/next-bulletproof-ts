@@ -1,5 +1,5 @@
 import { Container, CustomCard, If, T } from "@common";
-import { Box, Divider, OutlinedInput, Pagination, FormControl, InputLabel } from "@mui/material";
+import { Box, Divider, OutlinedInput, Pagination } from "@mui/material";
 import { ErrorState, RepoList } from "@features/repos/components";
 import { IRepoError } from "@features/repos/types";
 import React, { memo, useEffect, useState } from "react";
@@ -32,38 +32,43 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
     isEmpty(repoName)
       ? skipToken
       : {
-          repoName,
-          page,
-        },
+        repoName,
+        page,
+      },
     { skip: router.isFallback }
   );
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, pageNumber: number) => {
     setPage(pageNumber);
+    updateUrlParams(repoName, pageNumber);
+  };
+
+  const handleRepoSearch = debounce((repoName: string) => {
+    setRepoName(repoName);
+    setPage(1);
+    updateUrlParams(repoName, 1); // Update URL params immediately
+  }, 500);
+  const updateUrlParams = (repoName: string, pageNumber: number) => {
     router.push(`/?search=${repoName}&page=${pageNumber}`, undefined, {
       shallow: true,
       scroll: true,
     });
   };
 
-  const handleRepoSearch = debounce((repoName: string) => {
-    setRepoName(repoName);
-    setPage(1);
-  }, 500);
-
   useEffect(() => {
     if (router.isReady) {
-      setRepoName((router.query?.search as string) || "");
+      const searchParam = router.query?.search as string;
+      setRepoName(searchParam || "");
       setPage(Number(router.query?.page) || 1);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady]);
 
   useEffect(() => {
     if (!isEmpty(repoName)) {
-      router.push(`/?search=${repoName}&page=${page}`);
+      updateUrlParams(repoName, page);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (
@@ -90,17 +95,23 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
         <T marginBottom={1}>
           <Trans>Get details of repositories</Trans>
         </T>
-        <FormControl fullWidth>
+        <OutlinedInput
+          data-testid="search-bar"
+          type="search"
+          fullWidth
+          onChange={evt => handleRepoSearch(evt.target.value)}
+        />
+        {/* <FormControl fullWidth>
           <InputLabel htmlFor="repo-search">Search</InputLabel>
           <OutlinedInput
             id="repo-search"
             data-testid="search-bar"
             type="search"
             fullWidth
-            onChange={evt => handleRepoSearch(evt.target.value)}
+            onChange={(evt) => handleRepoSearch(evt.target.value)}
             label="Search"
           />
-        </FormControl>
+        </FormControl> */}
       </CustomCard>
       <RepoList reposData={data} repoName={repoName} loading={isLoading && isFetching} />
       <If condition={data}>
