@@ -41,7 +41,7 @@ msgstr "सिफारिश"
 msgid "Repository full name: {0}"
 msgstr "रिपॉज़िटरी पूरा नाम: {0}"
 
-#: src/features/repos/components/ErrorState/index.tsx:34
+#: src/features/repos/components/ErrorState/index.tsx:30
 msgid "Repository List"
 msgstr "रिपॉज़िटरी सूची"
 
@@ -57,7 +57,7 @@ msgstr "रिपॉज़िटरी खोज"
 msgid "Repository stars: {0}"
 msgstr "रिपॉज़िटरी तारे: {0}"
 
-#: src/features/repos/components/ErrorState/index.tsx:26
+#: src/features/repos/components/ErrorState/index.tsx:25
 msgid "Search Default"
 msgstr "डिफ़ॉल्ट खोज"
 

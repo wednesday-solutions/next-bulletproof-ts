@@ -9,7 +9,7 @@ import get from "lodash/get";
 import { T, CustomCard } from "@common";
 import { IResponse } from "@features/repos/api/getRecommendations";
 import { Trans, t } from "@lingui/macro";
-import { useTheme } from '@mui/material/styles';
+import theme from "@app/themes";
 
 interface ErrorStateProps {
   loading: boolean;
@@ -18,7 +18,6 @@ interface ErrorStateProps {
 }
 
 const ErrorState: React.FC<ErrorStateProps> = ({ reposData, reposError, loading }) => {
-  const theme = useTheme();
   let repoError: string | undefined;
   if (reposError) {
     repoError = reposError;
@@ -26,10 +25,7 @@ const ErrorState: React.FC<ErrorStateProps> = ({ reposData, reposError, loading 
     repoError = t`Search Default`;
   }
   return !loading && repoError ? (
-    <CustomCard
-      color={reposError ? `${theme.palette.error.main}` : `${theme.palette.primary.dark}`}
-      data-testid="error-state"
-    >
+    <CustomCard color={reposError ? `${theme.palette.error.main}` : `${theme.palette.customColor.main[500]}`} data-testid="error-state">
       <T variant="subtitle2">
         <Trans>Repository List</Trans>
       </T>

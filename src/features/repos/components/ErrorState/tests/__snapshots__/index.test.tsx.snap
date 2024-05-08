@@ -15,7 +15,7 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
   margin: 20px 0;
   padding: 1rem;
   max-width: px;
-  color: #1565c0;
+  color: undefined;
 }
 
 .emotion-1 {
@@ -40,7 +40,7 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
   <div>
     <div
       class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root emotion-0"
-      color="#1565c0"
+      color="undefined"
       data-testid="error-state"
     >
       <h6
