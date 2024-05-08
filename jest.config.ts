@@ -6,16 +6,7 @@ const createJestConfig = nextJest({ dir: "./" });
 const jestConfig: Config = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  collectCoverageFrom: [
-    "src/common/**/*.{js,jsx,ts,tsx}",
-    "src/containers/**/*.{js,jsx,ts,tsx}",
-    "src/features/**/*.{js,jsx,ts,tsx}",
-    "src/pages/**/*.{js,jsx,ts,tsx}",
-    "src/store/**/*.{js,jsx,ts,tsx}",
-    "src/styles/**/*.{js,jsx,ts,tsx}",
-    "src/themes/**/*.{js,jsx,ts,tsx}",
-    "src/utils/**/*.{js,jsx,ts,tsx}",
-  ],
+  collectCoverageFrom: ["src/**/**/*.{js,jsx,ts,tsx}"],
   reporters: [
     "default",
     [
@@ -45,7 +36,7 @@ const jestConfig: Config = {
     "@styles(.*)": "<rootDir>/src/styles",
     "@logger(.*)": "<rootDir>/src/logger",
     "@constants(.*)": "<rootDir>/src/constants",
-    "services(.*)": "<rootDir>/src/services",
+    "@services(.*)": "<rootDir>/src/services",
     "^@features(.*)": "<rootDir>/src/features/$1",
     "^@store(.*)": "<rootDir>/src/store/$1",
     "^@containers(.*)": "<rootDir>/src/containers/$1",
