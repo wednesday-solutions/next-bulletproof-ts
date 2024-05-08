@@ -15,32 +15,30 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
   margin: 20px 0;
   padding: 1rem;
   max-width: px;
-  color: undefined;
+  color: #f44336;
 }
 
 .emotion-1 {
   margin: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: fontFamily;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.57;
-  letter-spacing: 0.00714em;
 }
 
 .emotion-2 {
   margin: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: fontFamily;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0.00938em;
 }
 
 <body>
   <div>
     <div
       class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root emotion-0"
-      color="undefined"
+      color="#f44336"
       data-testid="error-state"
     >
       <h6
@@ -53,7 +51,7 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
         class="MuiTypography-root MuiTypography-body1 emotion-2"
         data-testid="t"
       >
-        Search Default
+        Internal Service Error
       </p>
     </div>
   </div>

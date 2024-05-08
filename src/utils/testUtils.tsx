@@ -6,6 +6,8 @@ import React from "react";
 import { Provider as ReduxProvider } from "react-redux";
 import { SerializedStyles } from "@emotion/react";
 import { store } from "../store";
+import { ThemeProvider } from "@mui/material";
+import theme from "@themes";
 
 /**
  * Renders the passed in components or tree with all the providers.
@@ -16,7 +18,11 @@ import { store } from "../store";
 export const WithAllProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <ReduxProvider store={store}>
-      <I18nProvider i18n={i18n}>{children}</I18nProvider>
+      <I18nProvider i18n={i18n}>
+        <ThemeProvider theme={theme}>
+          {children}
+        </ThemeProvider>
+      </I18nProvider>
     </ReduxProvider>
   );
 };
