@@ -9,6 +9,7 @@ import get from "lodash/get";
 import { T, CustomCard } from "@common";
 import { IResponse } from "@features/repos/api/getRecommendations";
 import { Trans, t } from "@lingui/macro";
+import theme from "@app/themes";
 
 interface ErrorStateProps {
   loading: boolean;
@@ -25,10 +26,10 @@ const ErrorState: React.FC<ErrorStateProps> = ({ reposData, reposError, loading 
   }
 
   return !loading && repoError ? (
-    <CustomCard color={reposError ? "red" : "grey"} data-testid="error-state">
+    <CustomCard color={reposError ? `${theme.palette.error.main}` :`${theme.palette.grey}`} data-testid="error-state">
       <T variant="subtitle2">
         <Trans>Repository List</Trans>
-      </T>
+</T>
       <T>{repoError}</T>
     </CustomCard>
   ) : null;
