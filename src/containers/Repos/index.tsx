@@ -61,14 +61,12 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
       setRepoName(searchParam || "");
       setPage(Number(router.query?.page) || 1);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady]);
 
   useEffect(() => {
     if (!isEmpty(repoName)) {
       updateUrlParams(repoName, page);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (

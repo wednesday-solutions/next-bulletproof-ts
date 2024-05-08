@@ -1,6 +1,6 @@
 import { PaletteOptions } from "@mui/material/styles";
 import { blue, purple, green, red, amber } from "@mui/material/colors";
-import { Color } from "@mui/material";
+
 
 /**
  * @desc Refer documentation for clarity
@@ -12,7 +12,4 @@ export const palette: PaletteOptions = {
   success: green,
   error: red,
   warning: amber,
-  grey: {
-    main: "#141414"
-} as Partial<Color>,
 };
