@@ -10,7 +10,6 @@ export async function loadCatalog(locale: string) {
 export function useLinguiInit(messages: Messages) {
   const router = useRouter();
   const locale = router.locale || router.defaultLocale!;
-  console.log("locale",locale)
   const isClient = typeof window !== "undefined";
 
   if (!isClient && locale !== i18n.locale) {

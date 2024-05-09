@@ -1,6 +1,10 @@
 import styles from "./styles";
-import { theme, font, palette } from "./mui";
+import { theme, CustomPalette, font, palette } from "./mui";
 
 export { styles, font, palette };
 
-export default theme;
+const customTheme = theme as Omit<typeof theme, "palette"> & {
+    palette: typeof theme.palette & CustomPalette
+}
+
+export default customTheme;
