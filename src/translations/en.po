@@ -13,10 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/containers/Repos/index.tsx:82
-msgid "<0>You Are Awesome</0>"
-msgstr "<0>You Are Awesome</0>"
-
 #: src/features/info/components/RepoInfo/index.tsx:20
 msgid "Back to Search"
 msgstr "Back to Search"
@@ -25,7 +21,7 @@ msgstr "Back to Search"
 msgid "Forks: {forks}"
 msgstr "Forks: {forks}"
 
-#: src/containers/Repos/index.tsx:94
+#: src/containers/Repos/index.tsx:80
 msgid "Get details of repositories"
 msgstr "Get details of repositories"
 
@@ -33,7 +29,7 @@ msgstr "Get details of repositories"
 msgid "No records found"
 msgstr "No records found"
 
-#: src/containers/Repos/index.tsx:76
+#: src/containers/Repos/index.tsx:64
 msgid "Recommendation"
 msgstr "Recommendation"
 
@@ -49,7 +45,7 @@ msgstr "Repository List"
 msgid "Repository Name: {0}"
 msgstr "Repository Name: {0}"
 
-#: src/containers/Repos/index.tsx:91
+#: src/containers/Repos/index.tsx:77
 msgid "Repository Search"
 msgstr "Repository Search"
 
@@ -57,7 +53,7 @@ msgstr "Repository Search"
 msgid "Repository stars: {0}"
 msgstr "Repository stars: {0}"
 
-#: src/features/repos/components/ErrorState/index.tsx:25
+#: src/features/repos/components/ErrorState/index.tsx:24
 msgid "Search Default"
 msgstr "Search Default"
 
@@ -81,6 +77,10 @@ msgstr "Total number of matching repos: {totalCount}"
 #: src/features/info/components/RepoInfo/index.tsx:31
 msgid "Watchers: {watchers}"
 msgstr "Watchers: {watchers}"
+
+#: src/containers/Repos/index.tsx:70
+msgid "You Are Awesome"
+msgstr "You Are Awesome"
 
 #: src/pages/_offline.tsx:7
 msgid "You are Offline!"

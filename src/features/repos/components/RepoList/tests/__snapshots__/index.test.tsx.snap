@@ -53,18 +53,20 @@ exports[`<RepoList /> should render and match the snapshot 1`] = `
 
 .emotion-2 {
   margin: 0;
-  font-family: fontFamily;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0.00938em;
 }
 
 .emotion-3 {
   margin: 0;
-  font-family: fontFamily;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0.00938em;
   margin-bottom: 8px;
 }
 

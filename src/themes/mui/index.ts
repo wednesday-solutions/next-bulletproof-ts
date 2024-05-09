@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { palette, CustomPalette } from "./palette";
+import { palette } from "./palette";
 import { typography, font } from "./typography";
 import { breakpoints } from "./breakpoints";
 
@@ -10,4 +10,3 @@ const theme = createTheme({
 });
 
 export { font, theme, palette };
-export type {CustomPalette}

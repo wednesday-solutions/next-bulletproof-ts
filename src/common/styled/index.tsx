@@ -24,6 +24,7 @@ export const CustomCard = styled(Card)<{ maxwidth?: React.CSSProperties["maxWidt
     padding: 1rem;
     max-width: ${props => props.maxwidth}px;
     color: ${props => props.color};
+    ${props => props.color && `color: ${props.color}`};
   }
 `;
 

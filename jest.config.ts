@@ -6,6 +6,16 @@ const createJestConfig = nextJest({ dir: "./" });
 const jestConfig: Config = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
+  // uncomment later after adding tests 
+  // coverageThreshold: {
+  //   global: {
+  //     statements: 90,
+  //     branches: 90,
+  //     functions: 90,
+  //     lines: 90,
+  //   },
+  // },
+  coverageReporters: ["json-summary", "text", "lcov"],
   collectCoverageFrom: ["src/**/**/*.{js,jsx,ts,tsx}"],
   reporters: [
     "default",

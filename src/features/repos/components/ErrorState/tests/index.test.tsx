@@ -13,7 +13,7 @@ describe("<ErrorState />", () => {
     intl: {},
     loading: false,
     reposData: undefined,
-    reposError: "Internal Service Error",
+    reposError: undefined,
   };
 
   it("should render and match the snapshot", () => {
