@@ -30,7 +30,7 @@ class ErrorBoundary extends React.Component<
       // handle gracefully
       return (
         <h1>
-          <Trans>Something Went Wrong</Trans>
+          <Trans id="repo.error.message">Something Went Wrong</Trans>
         </h1>
       );
     }

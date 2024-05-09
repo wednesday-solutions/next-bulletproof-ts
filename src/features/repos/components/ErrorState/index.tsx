@@ -22,12 +22,15 @@ const ErrorState: React.FC<ErrorStateProps> = ({ reposData, reposError, loading 
   if (reposError) {
     repoError = reposError;
   } else if (!get(reposData, "totalCount", 0)) {
-    repoError = t`Search Default`;
+    repoError = t({
+      id: "repo.repoList.error.noResults",
+      message: "Search Default"
+    });
   }
   return !loading && repoError ? (
     <CustomCard color={reposError ? `${theme.palette.error.main}` : `${theme.palette.customColor.main[500]}`} data-testid="error-state">
       <T variant="subtitle2">
-        <Trans>Repository List</Trans>
+        <Trans id="repo.repoList">Repository List</Trans>
       </T>
       <T>{repoError}</T>
     </CustomCard>

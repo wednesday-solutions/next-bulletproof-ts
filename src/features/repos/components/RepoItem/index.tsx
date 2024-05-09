@@ -18,13 +18,13 @@ const RepoItem: React.FC<RepoItemProps> = ({ item }) => {
     <CustomCard key={item.id} onClick={handleRedirect}>
       {item.name}
       <T>
-        <Trans> Repository Name: {item.name}</Trans>
+        <Trans id="repo.repoItem.name"> Repository Name: {item.name}</Trans>
       </T>
       <T>
-        <Trans> Repository full name: {item.fullName}</Trans>
+        <Trans id="repo.repoItem.fullName"> Repository full name: {item.fullName}</Trans>
       </T>
       <T>
-        <Trans> Repository stars: {item.stargazersCount}</Trans>
+        <Trans id="repo.repoItem.stars"> Repository stars: {item.stargazersCount}</Trans>
       </T>
     </CustomCard>
   );

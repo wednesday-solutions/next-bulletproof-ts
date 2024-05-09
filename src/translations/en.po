@@ -13,75 +13,97 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
 #: src/containers/Repos/index.tsx:82
-msgid "<0>You Are Awesome</0>"
+msgid "repo.link.awesome"
 msgstr "<0>You Are Awesome</0>"
 
+#. js-lingui-explicit-id
 #: src/features/info/components/RepoInfo/index.tsx:20
-msgid "Back to Search"
+msgid "repo.repoInfo.back"
 msgstr "Back to Search"
 
+#. js-lingui-explicit-id
 #: src/features/info/components/RepoInfo/index.tsx:29
-msgid "Forks: {forks}"
+msgid "repo.repoInfo.forks"
 msgstr "Forks: {forks}"
 
+#. js-lingui-explicit-id
 #: src/containers/Repos/index.tsx:94
-msgid "Get details of repositories"
+msgid "repo.details"
 msgstr "Get details of repositories"
 
+#. js-lingui-explicit-id
 #: src/features/info/components/EmptyResult/index.tsx:8
-msgid "No records found"
+msgid "repo.empty.results"
 msgstr "No records found"
 
+#. js-lingui-explicit-id
 #: src/containers/Repos/index.tsx:76
-msgid "Recommendation"
+msgid "repo.recommendation"
 msgstr "Recommendation"
 
+#. js-lingui-explicit-id
 #: src/features/repos/components/RepoItem/index.tsx:24
-msgid "Repository full name: {0}"
+msgid "repo.repoItem.fullName"
 msgstr "Repository full name: {0}"
 
-#: src/features/repos/components/ErrorState/index.tsx:30
-msgid "Repository List"
+#. js-lingui-explicit-id
+#: src/features/repos/components/ErrorState/index.tsx:33
+msgid "repo.repoList"
 msgstr "Repository List"
 
+#. js-lingui-explicit-id
 #: src/features/repos/components/RepoItem/index.tsx:21
-msgid "Repository Name: {0}"
+msgid "repo.repoItem.name"
 msgstr "Repository Name: {0}"
 
+#. js-lingui-explicit-id
 #: src/containers/Repos/index.tsx:91
-msgid "Repository Search"
+msgid "repo.search"
 msgstr "Repository Search"
 
+#. js-lingui-explicit-id
 #: src/features/repos/components/RepoItem/index.tsx:27
-msgid "Repository stars: {0}"
+msgid "repo.repoItem.stars"
 msgstr "Repository stars: {0}"
 
+#. js-lingui-explicit-id
 #: src/features/repos/components/ErrorState/index.tsx:25
-msgid "Search Default"
+msgid "repo.repoList.error.noResults"
 msgstr "Search Default"
 
+#. js-lingui-explicit-id
 #: src/features/repos/components/RepoList/index.tsx:34
-msgid "Search query: {repoName}"
+msgid "repo.repoList.search.query"
 msgstr "Search query: {repoName}"
 
+#. js-lingui-explicit-id
 #: src/common/ErrorBoundary/index.tsx:33
-#: src/features/info/components/ErrorState/index.tsx:13
-msgid "Something Went Wrong"
+msgid "repo.error.message"
 msgstr "Something Went Wrong"
 
+#. js-lingui-explicit-id
+#: src/features/info/components/ErrorState/index.tsx:13
+msgid "repo.error.state"
+msgstr "Something Went Wrong"
+
+#. js-lingui-explicit-id
 #: src/features/info/components/RepoInfo/index.tsx:34
-msgid "Stars: {stargazersCount}"
+msgid "repo.repoInfo.stars"
 msgstr "Stars: {stargazersCount}"
 
+#. js-lingui-explicit-id
 #: src/features/repos/components/RepoList/index.tsx:39
-msgid "Total number of matching repos: {totalCount}"
+msgid "repo.repoList.count"
 msgstr "Total number of matching repos: {totalCount}"
 
+#. js-lingui-explicit-id
 #: src/features/info/components/RepoInfo/index.tsx:31
-msgid "Watchers: {watchers}"
+msgid "repo.repoInfo.watchers"
 msgstr "Watchers: {watchers}"
 
+#. js-lingui-explicit-id
 #: src/pages/_offline.tsx:7
-msgid "You are Offline!"
+msgid "offline"
 msgstr "You are Offline!"

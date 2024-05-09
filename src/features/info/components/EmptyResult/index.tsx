@@ -5,7 +5,7 @@ import React from "react";
 const EmptyResult = () => {
   return (
     <T>
-      <Trans>No records found</Trans>
+      <Trans id="repo.empty.results">No records found</Trans>
     </T>
   );
 };

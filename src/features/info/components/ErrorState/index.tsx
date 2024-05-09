@@ -10,7 +10,7 @@ const ErrorState = () => {
   return (
     <AlignCenter>
       <Error>
-        <Trans>Something Went Wrong</Trans>
+        <Trans id="repo.error.state">Something Went Wrong</Trans>
       </Error>
     </AlignCenter>
   );

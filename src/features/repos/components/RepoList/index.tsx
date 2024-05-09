@@ -31,12 +31,12 @@ const RepoList: React.FC<RepoListProps> = props => {
         <div>
           {repoName && (
             <T>
-              <Trans>Search query: {repoName}</Trans>
+              <Trans id="repo.repoList.search.query">Search query: {repoName}</Trans>
             </T>
           )}
           {totalCount !== 0 && (
             <T mb={1}>
-              <Trans>Total number of matching repos: {totalCount}</Trans>
+              <Trans id="repo.repoList.count">Total number of matching repos: {totalCount}</Trans>
             </T>
           )}
           <Divider />

@@ -17,7 +17,7 @@ const RepoInfo: React.FC<RepoInfoProps> = ({ repoinfo }) => {
   return (
     <CustomCard>
       <Button color="primary" size="small" onClick={() => router.push("/")}>
-        <Trans>Back to Search</Trans>
+        <Trans id="repo.repoInfo.back">Back to Search</Trans>
       </Button>
       {name ? <T variant="subtitle1">{name}</T> : null}
 
@@ -26,16 +26,16 @@ const RepoInfo: React.FC<RepoInfoProps> = ({ repoinfo }) => {
       {description ? <T>{description}</T> : null}
 
       <Stack direction="row" justifyContent="space-between" alignItems="center" textAlign="center">
-        {forks ? <Chip label={<Trans>Forks: {forks}</Trans>} color="primary" /> : null}
+        {forks ? <Chip label={<Trans id="repo.repoInfo.forks">Forks: {forks}</Trans>} color="primary" /> : null}
 
-        {watchers ? <Chip label={<Trans>Watchers: {watchers}</Trans>} color="primary" /> : null}
+        {watchers ? <Chip label={<Trans id="repo.repoInfo.watchers">Watchers: {watchers}</Trans>} color="primary" /> : null}
 
         {stargazersCount ? (
-          <Chip label={<Trans>Stars: {stargazersCount}</Trans>} color="primary" />
+          <Chip label={<Trans id="repo.repoInfo.stars">Stars: {stargazersCount}</Trans>} color="primary" />
         ) : null}
       </Stack>
     </CustomCard>
   );
-};
+}; 
 
 export default memo(RepoInfo);

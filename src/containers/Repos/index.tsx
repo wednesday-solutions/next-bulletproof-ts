@@ -73,13 +73,13 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
     <Container padding={20} maxwidth={500}>
       <Box>
         <T>
-          <Trans>Recommendation</Trans>
+          <Trans id="repo.recommendation">Recommendation</Trans>
         </T>
       </Box>
       <Box justifyContent="space-between">
         <StyledLink href="https://www.iamawesome.com/">
           <T>
-            <Trans>
+            <Trans id="repo.link.awesome">
               <StyledSpan>You Are Awesome</StyledSpan>
             </Trans>
           </T>
@@ -88,10 +88,10 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
       <Divider />
       <CustomCard maxwidth={maxwidth}>
         <T variant="h6">
-          <Trans>Repository Search</Trans>
+          <Trans id="repo.search">Repository Search</Trans>
         </T>
         <T marginBottom={1}>
-          <Trans>Get details of repositories</Trans>
+          <Trans id="repo.details">Get details of repositories</Trans>
         </T>
         <OutlinedInput
           data-testid="search-bar"

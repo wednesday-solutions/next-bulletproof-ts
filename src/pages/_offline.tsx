@@ -4,7 +4,7 @@ import { Trans } from "@lingui/macro";
 const Fallback = () => (
   <Container padding={20} maxwidth={500}>
     <T>
-      <Trans>You are Offline!</Trans>
+      <Trans id="offline">You are Offline!</Trans>
     </T>
   </Container>
 );
