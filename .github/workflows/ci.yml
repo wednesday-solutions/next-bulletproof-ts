@@ -36,6 +36,15 @@ jobs:
 
       - name: Build Project
         run: yarn build
+      
+      - name: Test and generate coverage report
+        uses: artiomtr/jest-coverage-report-action@v2.3.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          package-manager: yarn
+          skip-step: install
+          test-script: yarn test
+          custom-title: Jest Coverage Report
                 
       - uses: sonarsource/sonarqube-scan-action@master
         env:
@@ -54,10 +63,3 @@ jobs:
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-
-      - name: Test and generate coverage report
-        uses: artiomtr/jest-coverage-report-action@v2.0-rc.4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          package-manager: yarn
-          custom-title: Jest Coverage Report
