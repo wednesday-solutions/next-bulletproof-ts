@@ -1,21 +1,24 @@
 name: Next Bulletproof Template CI
+
 on:
   pull_request:
     branches: [main]
   push:
     branches: [main]
+
 jobs:
   build-lint-test-lhci:
     name: Build & Lint
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
 
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 
+               
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -33,7 +36,7 @@ jobs:
 
       - name: Build Project
         run: yarn build
-          
+                
       - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -45,3 +48,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           package-manager: yarn
           custom-title: Jest Coverage Report
+
+      - name: Run Lighthouse CI
+        run: |
+          yarn global add @lhci/cli@0.13.0
+          lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
