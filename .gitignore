@@ -49,3 +49,4 @@ yarn-error.log*
 /public/worker-*.js.map
 /public/fallback-*.js
 reports
+.lighthouseci/*
