@@ -2,8 +2,8 @@ import { CustomCard, T } from "@common";
 import { RepoInfoTypes } from "@features/info/types";
 import { useRouter } from "next/router";
 import React, { memo } from "react";
-import { Trans } from "@lingui/macro";
 import { Stack, Button, Chip } from "@mui/material";
+import { i18n } from "@lingui/core";
 
 interface RepoInfoProps {
   repoinfo: RepoInfoTypes;
@@ -17,7 +17,7 @@ const RepoInfo: React.FC<RepoInfoProps> = ({ repoinfo }) => {
   return (
     <CustomCard>
       <Button color="primary" size="small" onClick={() => router.push("/")}>
-        <Trans id="repo.repoInfo.back">Back to Search</Trans>
+        {i18n._("repo.repoInfo.back")}
       </Button>
       {name ? <T variant="subtitle1">{name}</T> : null}
 
@@ -26,12 +26,10 @@ const RepoInfo: React.FC<RepoInfoProps> = ({ repoinfo }) => {
       {description ? <T>{description}</T> : null}
 
       <Stack direction="row" justifyContent="space-between" alignItems="center" textAlign="center">
-        {forks ? <Chip label={<Trans id="repo.repoInfo.forks">Forks: {forks}</Trans>} color="primary" /> : null}
-
-        {watchers ? <Chip label={<Trans id="repo.repoInfo.watchers">Watchers: {watchers}</Trans>} color="primary" /> : null}
-
+        {forks ? <Chip label={i18n._('repo.repoInfo.forks', { forks })} color="primary" /> : null}
+        {watchers ? <Chip label={i18n._("repo.repoInfo.watchers", { watchers })} color="primary" /> : null}
         {stargazersCount ? (
-          <Chip label={<Trans id="repo.repoInfo.stars">Stars: {stargazersCount}</Trans>} color="primary" />
+          <Chip label={i18n._("repo.repoInfo.stars", { stargazersCount })} color="primary" />
         ) : null}
       </Stack>
     </CustomCard>

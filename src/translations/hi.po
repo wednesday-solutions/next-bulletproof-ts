@@ -14,9 +14,39 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/containers/Repos/index.tsx:82
+#: src/common/ErrorBoundary/index.tsx:33
+msgid "repo.error.message"
+msgstr "कुछ गलत हो गया"
+
+#. js-lingui-explicit-id
+#: src/containers/Repos/index.tsx:77
+msgid "repo.recommendation"
+msgstr "सिफारिश"
+
+#. js-lingui-explicit-id
+#: src/containers/Repos/index.tsx:83
 msgid "repo.link.awesome"
-msgstr "<0>आप अद्भुत हैं</0>"
+msgstr "आप अद्भुत हैं"
+
+#. js-lingui-explicit-id
+#: src/containers/Repos/index.tsx:89
+msgid "repo.search"
+msgstr "रिपॉज़िटरी खोज"
+
+#. js-lingui-explicit-id
+#: src/containers/Repos/index.tsx:92
+msgid "repo.details"
+msgstr "रिपॉज़िटरी का विवरण प्राप्त करें"
+
+#. js-lingui-explicit-id
+#: src/features/info/components/EmptyResult/index.tsx:8
+msgid "repo.empty.results"
+msgstr "कोई रिकॉर्ड नहीं मिला"
+
+#. js-lingui-explicit-id
+#: src/features/info/components/ErrorState/index.tsx:13
+msgid "repo.error.state"
+msgstr "कुछ गलत हो गया"
 
 #. js-lingui-explicit-id
 #: src/features/info/components/RepoInfo/index.tsx:20
@@ -29,27 +59,22 @@ msgid "repo.repoInfo.forks"
 msgstr "फोर्क्स: {forks}"
 
 #. js-lingui-explicit-id
-#: src/containers/Repos/index.tsx:94
-msgid "repo.details"
-msgstr "रिपॉज़िटरी का विवरण प्राप्त करें"
+#: src/features/info/components/RepoInfo/index.tsx:30
+msgid "repo.repoInfo.watchers"
+msgstr "नजरदार: {watchers}"
 
 #. js-lingui-explicit-id
-#: src/features/info/components/EmptyResult/index.tsx:8
-msgid "repo.empty.results"
+#: src/features/info/components/RepoInfo/index.tsx:32
+msgid "repo.repoInfo.stars"
+msgstr "तारे: {stargazersCount}"
+
+#. js-lingui-explicit-id
+#: src/features/repos/components/ErrorState/index.tsx:25
+msgid "repo.repoList.error.noResults"
 msgstr "कोई रिकॉर्ड नहीं मिला"
 
 #. js-lingui-explicit-id
-#: src/containers/Repos/index.tsx:76
-msgid "repo.recommendation"
-msgstr "सिफारिश"
-
-#. js-lingui-explicit-id
-#: src/features/repos/components/RepoItem/index.tsx:24
-msgid "repo.repoItem.fullName"
-msgstr "रिपॉज़िटरी पूरा नाम: {0}"
-
-#. js-lingui-explicit-id
-#: src/features/repos/components/ErrorState/index.tsx:33
+#: src/features/repos/components/ErrorState/index.tsx:30
 msgid "repo.repoList"
 msgstr "रिपॉज़िटरी सूची"
 
@@ -59,9 +84,9 @@ msgid "repo.repoItem.name"
 msgstr "रिपॉज़िटरी का नाम: {0}"
 
 #. js-lingui-explicit-id
-#: src/containers/Repos/index.tsx:91
-msgid "repo.search"
-msgstr "रिपॉज़िटरी खोज"
+#: src/features/repos/components/RepoItem/index.tsx:24
+msgid "repo.repoItem.fullName"
+msgstr "रिपॉज़िटरी पूरा नाम: {0}"
 
 #. js-lingui-explicit-id
 #: src/features/repos/components/RepoItem/index.tsx:27
@@ -69,39 +94,14 @@ msgid "repo.repoItem.stars"
 msgstr "रिपॉज़िटरी तारे: {0}"
 
 #. js-lingui-explicit-id
-#: src/features/repos/components/ErrorState/index.tsx:25
-msgid "repo.repoList.error.noResults"
-msgstr "कोई रिकॉर्ड नहीं मिला"
-
-#. js-lingui-explicit-id
 #: src/features/repos/components/RepoList/index.tsx:34
 msgid "repo.repoList.search.query"
 msgstr "खोज क्वेरी: {repoName}"
 
 #. js-lingui-explicit-id
-#: src/features/info/components/ErrorState/index.tsx:13
-msgid "repo.error.state"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/common/ErrorBoundary/index.tsx:33
-msgid "repo.error.message"
-msgstr "कुछ गलत हो गया"
-
-#. js-lingui-explicit-id
-#: src/features/info/components/RepoInfo/index.tsx:34
-msgid "repo.repoInfo.stars"
-msgstr "तारे: {stargazersCount}"
-
-#. js-lingui-explicit-id
 #: src/features/repos/components/RepoList/index.tsx:39
 msgid "repo.repoList.count"
 msgstr "मिलती रिपॉज़िटरी की कुल संख्या: {totalCount}"
-
-#. js-lingui-explicit-id
-#: src/features/info/components/RepoInfo/index.tsx:31
-msgid "repo.repoInfo.watchers"
-msgstr "नजरदार: {watchers}"
 
 #. js-lingui-explicit-id
 #: src/pages/_offline.tsx:7

@@ -4,7 +4,7 @@
  *
  */
 
-import { Trans } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 import React, { ReactElement } from "react";
 
 class ErrorBoundary extends React.Component<
@@ -30,7 +30,7 @@ class ErrorBoundary extends React.Component<
       // handle gracefully
       return (
         <h1>
-          <Trans id="repo.error.message">Something Went Wrong</Trans>
+          {i18n._("repo.error.message")}
         </h1>
       );
     }

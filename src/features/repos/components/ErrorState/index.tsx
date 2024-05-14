@@ -8,7 +8,7 @@ import React from "react";
 import get from "lodash/get";
 import { T, CustomCard } from "@common";
 import { IResponse } from "@features/repos/api/getRecommendations";
-import { Trans, t } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 import theme from "@app/themes";
 
 interface ErrorStateProps {
@@ -22,15 +22,12 @@ const ErrorState: React.FC<ErrorStateProps> = ({ reposData, reposError, loading 
   if (reposError) {
     repoError = reposError;
   } else if (!get(reposData, "totalCount", 0)) {
-    repoError = t({
-      id: "repo.repoList.error.noResults",
-      message: "Search Default"
-    });
+    repoError = i18n._("repo.repoList.error.noResults", { message: "Search Default" });
   }
   return !loading && repoError ? (
     <CustomCard color={reposError ? `${theme.palette.error.main}` : `${theme.palette.customColor.main[500]}`} data-testid="error-state">
       <T variant="subtitle2">
-        <Trans id="repo.repoList">Repository List</Trans>
+        {i18n._("repo.repoList")}
       </T>
       <T>{repoError}</T>
     </CustomCard>

@@ -1,5 +1,5 @@
 import { CustomCard, T } from "@app/common";
-import { Trans } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 import { useRouter } from "next/router";
 import { IRepoItem } from "../../api/getRecommendations";
 
@@ -18,13 +18,13 @@ const RepoItem: React.FC<RepoItemProps> = ({ item }) => {
     <CustomCard key={item.id} onClick={handleRedirect}>
       {item.name}
       <T>
-        <Trans id="repo.repoItem.name"> Repository Name: {item.name}</Trans>
+        {i18n._("repo.repoItem.name", { name: item.name })}
       </T>
       <T>
-        <Trans id="repo.repoItem.fullName"> Repository full name: {item.fullName}</Trans>
+        {i18n._("repo.repoItem.fullName", { fullName: item.fullName })}
       </T>
       <T>
-        <Trans id="repo.repoItem.stars"> Repository stars: {item.stargazersCount}</Trans>
+        {i18n._("repo.repoItem.stars", { stargazersCount: item.stargazersCount })}
       </T>
     </CustomCard>
   );

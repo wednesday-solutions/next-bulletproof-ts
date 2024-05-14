@@ -1,11 +1,11 @@
 import { T } from "@common";
-import { Trans } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 import React from "react";
 
 const EmptyResult = () => {
   return (
     <T>
-      <Trans id="repo.empty.results">No records found</Trans>
+      {i18n._("repo.empty.results")}
     </T>
   );
 };

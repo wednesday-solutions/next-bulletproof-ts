@@ -1,10 +1,10 @@
 import { Container, T } from "@common";
-import { Trans } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 
 const Fallback = () => (
   <Container padding={20} maxwidth={500}>
     <T>
-      <Trans id="offline">You are Offline!</Trans>
+      {i18n._("offline")}
     </T>
   </Container>
 );

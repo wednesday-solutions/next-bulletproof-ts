@@ -6,10 +6,11 @@ import React, { memo, useEffect, useState } from "react";
 import { debounce, get, isEmpty } from "lodash-es";
 import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
 import { useRouter } from "next/router";
-import { Trans } from "@lingui/macro";
 import { skipToken } from "@reduxjs/toolkit/query";
 import styled from "@emotion/styled";
 import Link from "next/link";
+import { i18n } from "@lingui/core";
+
 
 interface RepoContainerProps {
   padding?: number;
@@ -73,25 +74,22 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
     <Container padding={20} maxwidth={500}>
       <Box>
         <T>
-          <Trans id="repo.recommendation">Recommendation</Trans>
+          {i18n._("repo.recommendation")}
         </T>
       </Box>
       <Box justifyContent="space-between">
         <StyledLink href="https://www.iamawesome.com/">
           <T>
-            <Trans id="repo.link.awesome">
-              <StyledSpan>You Are Awesome</StyledSpan>
-            </Trans>
-          </T>
+            <StyledSpan>{i18n._("repo.link.awesome")}</StyledSpan></T>
         </StyledLink>
       </Box>
       <Divider />
       <CustomCard maxwidth={maxwidth}>
         <T variant="h6">
-          <Trans id="repo.search">Repository Search</Trans>
+          {i18n._('repo.search')}
         </T>
         <T marginBottom={1}>
-          <Trans id="repo.details">Get details of repositories</Trans>
+          {i18n._('repo.details')}
         </T>
         <OutlinedInput
           data-testid="search-bar"

@@ -9,7 +9,7 @@ import get from "lodash/get";
 import { Divider, Skeleton } from "@mui/material";
 import { T, CustomCard, If } from "@common";
 import { IResponse, IRepoItem } from "@features/repos/api/getRecommendations";
-import { Trans } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 import RepoItem from "../RepoItem";
 
 export interface RepoListProps {
@@ -31,12 +31,12 @@ const RepoList: React.FC<RepoListProps> = props => {
         <div>
           {repoName && (
             <T>
-              <Trans id="repo.repoList.search.query">Search query: {repoName}</Trans>
+              {i18n._("repo.repoList.search.query", { repoName })}
             </T>
           )}
           {totalCount !== 0 && (
             <T mb={1}>
-              <Trans id="repo.repoList.count">Total number of matching repos: {totalCount}</Trans>
+              {i18n._("repo.repoList.count", { totalCount })}
             </T>
           )}
           <Divider />

@@ -1,5 +1,5 @@
 import { AlignCenter } from "@common/styled";
-import { Trans } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 import { styled } from "@mui/material/styles";
 
 const Error = styled("div")(({ theme }) => ({
@@ -10,7 +10,7 @@ const ErrorState = () => {
   return (
     <AlignCenter>
       <Error>
-        <Trans id="repo.error.state">Something Went Wrong</Trans>
+        {i18n._("repo.error.state")}
       </Error>
     </AlignCenter>
   );
