@@ -6,6 +6,15 @@ const createJestConfig = nextJest({ dir: "./" });
 const jestConfig: Config = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
+  coverageThreshold: {
+    global: {
+      statements: 60,
+      branches: 49,
+      lines: 64,
+      functions: 54,
+    },
+  },
+  coverageReporters: ["json-summary", "text", "lcov"],
   collectCoverageFrom: ["src/**/**/*.{js,jsx,ts,tsx}"],
   reporters: [
     "default",
@@ -54,7 +63,7 @@ const jestConfig: Config = {
     "<rootDir>/coverage/",
     "<rootDir>/babel.config.js",
     "<rootDir>/lingui.config.js",
-    "<rootDir>/jest.config.js",
+    "<rootDir>/jest.config.ts",
     "<rootDir>/jest.setup.js",
     "<rootDir>/next-env.d.ts",
     "<rootDir>/next.config.js",
