@@ -1,6 +1,31 @@
 import camelCase from "lodash/camelCase";
 import { isLocal, mapKeysDeep, convertObjectToCamelCase } from "../index";
 
+
+
+describe("Tests for mapKeysDeep function", () => {
+  let fn;
+  beforeAll(() => {
+    fn = keys => camelCase(keys);
+  });
+  it("should return something objet", () => {
+    const obj = {
+      locationone: "/route1",
+      locationtwo: "/route2",
+      locationthree: { locationone: "/route1", locationtwo: "/route2" },
+    };
+    expect(mapKeysDeep(obj, fn)).toEqual(obj);
+  });
+
+  it("should operate array accordingly", () => {
+    const arr = [{ locationone: "/route1", locationtwo: "/route2" }];
+    expect(mapKeysDeep(arr, fn)).toEqual(arr);
+  });
+
+  it("should return the passed value if its not an array or object", () => {
+    expect(mapKeysDeep("None", fn)).toEqual("None");
+  });
+});
 describe("Tests for isLocal method", () => {
   const OLD_ENV = process.env;
 
@@ -26,37 +51,13 @@ describe("Tests for isLocal method", () => {
   });
 });
 
-describe("Tests for mapKeysDeep method", () => {
-  let fn;
-  beforeAll(() => {
-    fn = keys => camelCase(keys);
-  });
-  it("should return something objet", () => {
-    const obj = {
-      locationone: "/route1",
-      locationtwo: "/route2",
-      locationthree: { locationone: "/route1", locationtwo: "/route2" },
-    };
-    expect(mapKeysDeep(obj, fn)).toEqual(obj);
-  });
-
-  it("should operate array accordingly", () => {
-    const arr = [{ locationone: "/route1", locationtwo: "/route2" }];
-    expect(mapKeysDeep(arr, fn)).toEqual(arr);
-  });
-
-  it("should return the passed value if its not an array or object", () => {
-    expect(mapKeysDeep(10, fn)).toEqual(10);
-  });
-});
-
 describe("Tests for convertObjectToCamelCase", () => {
   it("should throw an error if incorrect type is provided", () => {
     expect(() => {
       // @ts-expect-error we are checking if it throws an error if an array is passed instead of an object
       // this causes TypeScript to throw an error since it can't take an array
       convertObjectToCamelCase(["hey"]);
-    }).toThrowError();
+    }).toThrow();
   });
 
   it("should convert the object's keys into camelCase", () => {
@@ -70,12 +71,13 @@ describe("Tests for convertObjectToCamelCase", () => {
       another_camel: "statement",
     };
 
-    convertObjectToCamelCase(snakeObject);
+    const returnCamelObject = convertObjectToCamelCase<typeof camelObject>(snakeObject);
+
 
     const cKeys = Object.keys(camelObject);
-    const sKeys = Object.keys(snakeObject);
+    const rKeys = Object.keys(returnCamelObject);
 
-    expect(cKeys[0]).toEqual(sKeys[0]);
-    expect(cKeys[1]).toEqual(sKeys[1]);
+    expect(cKeys[0]).toEqual(rKeys[0]);
+    expect(cKeys[1]).toEqual(rKeys[1]);
   });
 });
