@@ -13,75 +13,97 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/containers/Repos/index.tsx:82
-msgid "<0>You Are Awesome</0>"
-msgstr "<0>You Are Awesome</0>"
-
-#: src/features/info/components/RepoInfo/index.tsx:20
-msgid "Back to Search"
-msgstr "Back to Search"
-
-#: src/features/info/components/RepoInfo/index.tsx:29
-msgid "Forks: {forks}"
-msgstr "Forks: {forks}"
-
-#: src/containers/Repos/index.tsx:94
-msgid "Get details of repositories"
-msgstr "Get details of repositories"
-
-#: src/features/info/components/EmptyResult/index.tsx:8
-msgid "No records found"
-msgstr "No records found"
-
-#: src/containers/Repos/index.tsx:76
-msgid "Recommendation"
-msgstr "Recommendation"
-
-#: src/features/repos/components/RepoItem/index.tsx:24
-msgid "Repository full name: {0}"
-msgstr "Repository full name: {0}"
-
-#: src/features/repos/components/ErrorState/index.tsx:30
-msgid "Repository List"
-msgstr "Repository List"
-
-#: src/features/repos/components/RepoItem/index.tsx:21
-msgid "Repository Name: {0}"
-msgstr "Repository Name: {0}"
-
-#: src/containers/Repos/index.tsx:91
-msgid "Repository Search"
-msgstr "Repository Search"
-
-#: src/features/repos/components/RepoItem/index.tsx:27
-msgid "Repository stars: {0}"
-msgstr "Repository stars: {0}"
-
-#: src/features/repos/components/ErrorState/index.tsx:25
-msgid "Search Default"
-msgstr "Search Default"
-
-#: src/features/repos/components/RepoList/index.tsx:34
-msgid "Search query: {repoName}"
-msgstr "Search query: {repoName}"
-
+#. js-lingui-explicit-id
 #: src/common/ErrorBoundary/index.tsx:33
-#: src/features/info/components/ErrorState/index.tsx:13
-msgid "Something Went Wrong"
+msgid "repo.error.message"
 msgstr "Something Went Wrong"
 
-#: src/features/info/components/RepoInfo/index.tsx:34
-msgid "Stars: {stargazersCount}"
-msgstr "Stars: {stargazersCount}"
+#. js-lingui-explicit-id
+#: src/containers/Repos/index.tsx:77
+msgid "repo.recommendation"
+msgstr "Recommendation"
 
-#: src/features/repos/components/RepoList/index.tsx:39
-msgid "Total number of matching repos: {totalCount}"
-msgstr "Total number of matching repos: {totalCount}"
+#. js-lingui-explicit-id
+#: src/containers/Repos/index.tsx:83
+msgid "repo.link.awesome"
+msgstr "You Are Awesome"
 
-#: src/features/info/components/RepoInfo/index.tsx:31
-msgid "Watchers: {watchers}"
+#. js-lingui-explicit-id
+#: src/containers/Repos/index.tsx:89
+msgid "repo.search"
+msgstr "Repository Search"
+
+#. js-lingui-explicit-id
+#: src/containers/Repos/index.tsx:92
+msgid "repo.details"
+msgstr "Get details of repositories"
+
+#. js-lingui-explicit-id
+#: src/features/info/components/EmptyResult/index.tsx:8
+msgid "repo.empty.results"
+msgstr "No records found"
+
+#. js-lingui-explicit-id
+#: src/features/info/components/ErrorState/index.tsx:13
+msgid "repo.error.state"
+msgstr "Something Went Wrong"
+
+#. js-lingui-explicit-id
+#: src/features/info/components/RepoInfo/index.tsx:20
+msgid "repo.repoInfo.back"
+msgstr "Back to Search"
+
+#. js-lingui-explicit-id
+#: src/features/info/components/RepoInfo/index.tsx:29
+msgid "repo.repoInfo.forks"
+msgstr "Forks: {forks}"
+
+#. js-lingui-explicit-id
+#: src/features/info/components/RepoInfo/index.tsx:30
+msgid "repo.repoInfo.watchers"
 msgstr "Watchers: {watchers}"
 
+#. js-lingui-explicit-id
+#: src/features/info/components/RepoInfo/index.tsx:32
+msgid "repo.repoInfo.stars"
+msgstr "Stars: {stargazersCount}"
+
+#. js-lingui-explicit-id
+#: src/features/repos/components/ErrorState/index.tsx:25
+msgid "repo.repoList.error.noResults"
+msgstr "Search Default"
+
+#. js-lingui-explicit-id
+#: src/features/repos/components/ErrorState/index.tsx:30
+msgid "repo.repoList"
+msgstr "Repository List"
+
+#. js-lingui-explicit-id
+#: src/features/repos/components/RepoItem/index.tsx:21
+msgid "repo.repoItem.name"
+msgstr "Repository Name: {0}"
+
+#. js-lingui-explicit-id
+#: src/features/repos/components/RepoItem/index.tsx:24
+msgid "repo.repoItem.fullName"
+msgstr "Repository full name: {0}"
+
+#. js-lingui-explicit-id
+#: src/features/repos/components/RepoItem/index.tsx:27
+msgid "repo.repoItem.stars"
+msgstr "Repository stars: {0}"
+
+#. js-lingui-explicit-id
+#: src/features/repos/components/RepoList/index.tsx:34
+msgid "repo.repoList.search.query"
+msgstr "Search query: {repoName}"
+
+#. js-lingui-explicit-id
+#: src/features/repos/components/RepoList/index.tsx:39
+msgid "repo.repoList.count"
+msgstr "Total number of matching repos: {totalCount}"
+
+#. js-lingui-explicit-id
 #: src/pages/_offline.tsx:7
-msgid "You are Offline!"
+msgid "offline"
 msgstr "You are Offline!"

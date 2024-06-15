@@ -112,19 +112,19 @@ exports[`<RepoList /> should render and match the snapshot 1`] = `
             class="MuiTypography-root MuiTypography-body1 emotion-2"
             data-testid="t"
           >
-            Repository Name: Nextjs Bulletproof
+            Repository Name:
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 emotion-2"
             data-testid="t"
           >
-            Repository full name: Nextjs Bulletproof Template
+            Repository full name:
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 emotion-2"
             data-testid="t"
           >
-            Repository stars: 100
+            Repository stars:
           </p>
         </div>
       </div>
