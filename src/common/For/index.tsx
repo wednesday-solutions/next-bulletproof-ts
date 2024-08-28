@@ -27,7 +27,7 @@ const For = ({
   ParentComponent = FlexContainer,
   renderItem,
   noParent,
-}: ForProps<typeof of[0], typeof ParentComponent>) => {
+}: ForProps<(typeof of)[0], typeof ParentComponent>) => {
   const list = () => of.map((item, index) => ({ ...renderItem(item, index), key: index }));
   const children = () => (
     <ParentComponent {...parentProps} data-testid="for">

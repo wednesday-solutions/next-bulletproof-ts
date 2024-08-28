@@ -32,9 +32,9 @@ const Repos: React.FC<RepoContainerProps> = ({ maxwidth }) => {
     isEmpty(repoName)
       ? skipToken
       : {
-        repoName,
-        page,
-      },
+          repoName,
+          page,
+        },
     { skip: router.isFallback }
   );
 

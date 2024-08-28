@@ -25,7 +25,10 @@ const ErrorState: React.FC<ErrorStateProps> = ({ reposData, reposError, loading 
     repoError = t`Search Default`;
   }
   return !loading && repoError ? (
-    <CustomCard color={reposError ? `${theme.palette.error.main}` : `${theme.palette.customColor.main[500]}`} data-testid="error-state">
+    <CustomCard
+      color={reposError ? `${theme.palette.error.main}` : `${theme.palette.customColor.main[500]}`}
+      data-testid="error-state"
+    >
       <T variant="subtitle2">
         <Trans>Repository List</Trans>
       </T>
