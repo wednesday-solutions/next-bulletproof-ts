@@ -19,9 +19,7 @@ export const WithAllProviders: React.FC<{ children: React.ReactNode }> = ({ chil
   return (
     <ReduxProvider store={store}>
       <I18nProvider i18n={i18n}>
-        <ThemeProvider theme={theme}>
-          {children}
-        </ThemeProvider>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
       </I18nProvider>
     </ReduxProvider>
   );
