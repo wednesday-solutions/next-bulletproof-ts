@@ -6,7 +6,6 @@ import { Stack, Button, Chip } from "@mui/material";
 import { CustomCard, T } from "@common";
 import { RepoInfoTypes } from "@features/info/types";
 
-
 interface RepoInfoProps {
   repoinfo: RepoInfoTypes;
 }

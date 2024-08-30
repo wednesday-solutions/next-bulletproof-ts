@@ -7,7 +7,6 @@ import { If, Loader } from "@common";
 import RepoInfo from "@features/info/components/RepoInfo";
 import { useFetchRepoInfoQuery } from "@features/info/api/getRepoInfo";
 
-
 const Info: React.FC = () => {
   const router = useRouter();
 

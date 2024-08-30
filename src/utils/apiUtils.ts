@@ -4,7 +4,6 @@ import { HYDRATE } from "next-redux-wrapper";
 import { Action, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "@app/store";
 
-
 function isHydrateAction(action: Action): action is PayloadAction<RootState> {
   return action.type === HYDRATE;
 }

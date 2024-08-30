@@ -7,7 +7,7 @@ interface IfProps {
 }
 
 const If: React.FC<IfProps> = props => {
-  return <>{props.condition ? props.children : props.otherwise}</>;
+  return props.condition ? props.children : props.otherwise;
 };
 
 export default If;

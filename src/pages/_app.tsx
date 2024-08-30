@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import React from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { I18nProvider } from "@lingui/react";

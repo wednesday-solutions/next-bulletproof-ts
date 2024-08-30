@@ -1,7 +1,6 @@
 import React from "react";
 import { Trans } from "@lingui/macro";
 
-
 import { T } from "@common";
 
 const EmptyResult = () => {

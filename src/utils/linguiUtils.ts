@@ -28,7 +28,6 @@ export function useLinguiInit(messages: Messages) {
     if (localeDidChange) {
       i18n.loadAndActivate({ locale, messages });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale]);
 
   return i18n;

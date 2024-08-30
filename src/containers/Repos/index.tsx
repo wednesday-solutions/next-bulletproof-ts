@@ -12,7 +12,6 @@ import { ErrorState, RepoList } from "@features/repos/components";
 import { IRepoError } from "@features/repos/types";
 import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
 
-
 interface RepoContainerProps {
   padding?: number;
   maxwidth?: number;

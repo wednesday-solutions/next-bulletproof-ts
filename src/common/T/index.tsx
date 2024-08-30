@@ -3,7 +3,7 @@
  * T
  *
  */
-
+import React from "react";
 import { Typography, TypographyProps } from "@mui/material";
 
 export type TProps = TypographyProps & {

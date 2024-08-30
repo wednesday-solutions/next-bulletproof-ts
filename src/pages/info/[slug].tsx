@@ -1,3 +1,4 @@
+import React from "react";
 import { GetServerSideProps } from "next";
 
 import { loadCatalog } from "@app/utils/linguiUtils";
