@@ -3,9 +3,8 @@
  * ErrorBoundary
  *
  */
-
-import { Trans } from "@lingui/macro";
 import React, { ReactElement } from "react";
+import { Trans } from "@lingui/macro";
 
 class ErrorBoundary extends React.Component<
   { children: ReactElement },

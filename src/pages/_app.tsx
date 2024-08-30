@@ -1,15 +1,16 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { ErrorBoundary } from "@common";
 import Head from "next/head";
 import { I18nProvider } from "@lingui/react";
-import { useLinguiInit } from "@utils/linguiUtils";
-import { nextReduxWrapper } from "@app/store";
 import { Provider as ReduxProvider } from "react-redux";
 import { EmotionCache } from "@emotion/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import theme, { font } from "@themes";
 import { AppCacheProvider } from "@mui/material-nextjs/v13-pagesRouter";
+
+import { useLinguiInit } from "@utils/linguiUtils";
+import { nextReduxWrapper } from "@app/store";
+import theme, { font } from "@themes";
+import { ErrorBoundary } from "@common";
 
 export interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;

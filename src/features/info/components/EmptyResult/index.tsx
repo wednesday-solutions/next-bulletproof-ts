@@ -1,6 +1,8 @@
-import { T } from "@common";
-import { Trans } from "@lingui/macro";
 import React from "react";
+import { Trans } from "@lingui/macro";
+
+
+import { T } from "@common";
 
 const EmptyResult = () => {
   return (

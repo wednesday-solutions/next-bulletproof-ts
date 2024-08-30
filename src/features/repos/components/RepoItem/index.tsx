@@ -1,6 +1,6 @@
-import { CustomCard, T } from "@app/common";
 import { Trans } from "@lingui/macro";
 import { useRouter } from "next/router";
+import { CustomCard, T } from "@app/common";
 import { IRepoItem } from "../../api/getRecommendations";
 
 type RepoItemProps = {

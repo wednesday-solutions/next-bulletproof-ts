@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { createWrapper } from "next-redux-wrapper";
+
 import repoReducer from "@slices/repos";
 import middlewares from "./middlewares";
 import { githubApiService } from "@utils/apiUtils";
-import { createWrapper } from "next-redux-wrapper";
 
 export const makeStore = () =>
   configureStore({

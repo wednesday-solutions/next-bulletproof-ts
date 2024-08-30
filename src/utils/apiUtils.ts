@@ -1,8 +1,9 @@
-import { RootState } from "@app/store";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import isomorphicFetch from "isomorphic-fetch";
 import { HYDRATE } from "next-redux-wrapper";
 import { Action, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "@app/store";
+
 
 function isHydrateAction(action: Action): action is PayloadAction<RootState> {
   return action.type === HYDRATE;

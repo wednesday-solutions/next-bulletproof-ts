@@ -1,5 +1,6 @@
-import { Container, T } from "@common";
 import { Trans } from "@lingui/macro";
+
+import { Container, T } from "@common";
 
 const Fallback = () => (
   <Container padding={20} maxwidth={500}>

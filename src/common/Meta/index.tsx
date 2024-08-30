@@ -3,9 +3,8 @@
  * Meta
  *
  */
-
-import Head from "next/head";
 import React, { memo } from "react";
+import Head from "next/head";
 
 const Meta = ({ title, description }) => {
   return (

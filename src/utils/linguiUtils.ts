@@ -1,5 +1,5 @@
-import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { i18n, Messages } from "@lingui/core";
 
 export async function loadCatalog(locale: string) {
