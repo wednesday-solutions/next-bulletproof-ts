@@ -41,7 +41,7 @@ msgstr "Recommendation"
 msgid "Repository full name: {0}"
 msgstr "Repository full name: {0}"
 
-#: src/features/repos/components/ErrorState/index.tsx:30
+#: src/features/repos/components/ErrorState/index.tsx:33
 msgid "Repository List"
 msgstr "Repository List"
 
@@ -65,7 +65,7 @@ msgstr "Search Default"
 msgid "Search query: {repoName}"
 msgstr "Search query: {repoName}"
 
-#: src/common/ErrorBoundary/index.tsx:33
+#: src/common/ErrorBoundary/index.tsx:32
 #: src/features/info/components/ErrorState/index.tsx:13
 msgid "Something Went Wrong"
 msgstr "Something Went Wrong"
