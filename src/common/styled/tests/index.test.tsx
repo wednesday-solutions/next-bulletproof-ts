@@ -1,6 +1,6 @@
 import React from "react";
-import { Container } from "../index";
 import { render } from "@testing-library/react";
+import { Container } from "../index";
 
 describe("<Container/>", () => {
   const props = {

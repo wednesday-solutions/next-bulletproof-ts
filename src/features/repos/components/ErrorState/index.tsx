@@ -6,9 +6,9 @@
 
 import React from "react";
 import get from "lodash/get";
+import { Trans, t } from "@lingui/macro";
 import { T, CustomCard } from "@common";
 import { IResponse } from "@features/repos/api/getRecommendations";
-import { Trans, t } from "@lingui/macro";
 import theme from "@app/themes";
 
 interface ErrorStateProps {

@@ -1,5 +1,5 @@
-import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { i18n, Messages } from "@lingui/core";
 
 export async function loadCatalog(locale: string) {
@@ -28,7 +28,6 @@ export function useLinguiInit(messages: Messages) {
     if (localeDidChange) {
       i18n.loadAndActivate({ locale, messages });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale]);
 
   return i18n;

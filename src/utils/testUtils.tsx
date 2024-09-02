@@ -1,12 +1,13 @@
+import React from "react";
+import { Provider as ReduxProvider } from "react-redux";
+import { SerializedStyles } from "@emotion/react";
+import { ThemeProvider } from "@mui/material";
 import { messages } from "@app/translations/en";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { act, render, RenderOptions } from "@testing-library/react";
-import React from "react";
-import { Provider as ReduxProvider } from "react-redux";
-import { SerializedStyles } from "@emotion/react";
+
 import { store } from "../store";
-import { ThemeProvider } from "@mui/material";
 import theme from "@themes";
 
 /**

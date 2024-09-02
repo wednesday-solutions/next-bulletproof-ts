@@ -1,9 +1,10 @@
-import { CustomCard, T } from "@common";
-import { RepoInfoTypes } from "@features/info/types";
 import { useRouter } from "next/router";
 import React, { memo } from "react";
 import { Trans } from "@lingui/macro";
 import { Stack, Button, Chip } from "@mui/material";
+
+import { CustomCard, T } from "@common";
+import { RepoInfoTypes } from "@features/info/types";
 
 interface RepoInfoProps {
   repoinfo: RepoInfoTypes;
