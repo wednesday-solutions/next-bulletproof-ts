@@ -30,6 +30,7 @@ export default [
       "*.setup.js",
       "*.config.js",
       "lighthouserc.js",
+      "coverage/**",
     ],
   },
 ];

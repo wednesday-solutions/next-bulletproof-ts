@@ -13,31 +13,31 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/containers/Repos/index.tsx:82
+#: src/containers/Repos/index.tsx:83
 msgid "<0>You Are Awesome</0>"
 msgstr "<0>आप अद्भुत हैं</0>"
 
-#: src/features/info/components/RepoInfo/index.tsx:20
+#: src/features/info/components/RepoInfo/index.tsx:21
 msgid "Back to Search"
 msgstr "खोज में वापस"
 
-#: src/features/info/components/RepoInfo/index.tsx:29
+#: src/features/info/components/RepoInfo/index.tsx:30
 msgid "Forks: {forks}"
 msgstr "फोर्क्स: {forks}"
 
-#: src/containers/Repos/index.tsx:94
+#: src/containers/Repos/index.tsx:95
 msgid "Get details of repositories"
 msgstr "रिपॉज़िटरी का विवरण प्राप्त करें"
 
-#: src/features/info/components/EmptyResult/index.tsx:8
+#: src/features/info/components/EmptyResult/index.tsx:9
 msgid "No records found"
 msgstr "कोई रिकॉर्ड नहीं मिला"
 
-#: src/containers/Repos/index.tsx:76
+#: src/containers/Repos/index.tsx:77
 msgid "Recommendation"
 msgstr "सिफारिश"
 
-#: src/features/repos/components/RepoItem/index.tsx:24
+#: src/features/repos/components/RepoItem/index.tsx:25
 msgid "Repository full name: {0}"
 msgstr "रिपॉज़िटरी पूरा नाम: {0}"
 
@@ -45,15 +45,15 @@ msgstr "रिपॉज़िटरी पूरा नाम: {0}"
 msgid "Repository List"
 msgstr "रिपॉज़िटरी सूची"
 
-#: src/features/repos/components/RepoItem/index.tsx:21
+#: src/features/repos/components/RepoItem/index.tsx:22
 msgid "Repository Name: {0}"
 msgstr "रिपॉज़िटरी का नाम: {0}"
 
-#: src/containers/Repos/index.tsx:91
+#: src/containers/Repos/index.tsx:92
 msgid "Repository Search"
 msgstr "रिपॉज़िटरी खोज"
 
-#: src/features/repos/components/RepoItem/index.tsx:27
+#: src/features/repos/components/RepoItem/index.tsx:28
 msgid "Repository stars: {0}"
 msgstr "रिपॉज़िटरी तारे: {0}"
 
@@ -65,12 +65,12 @@ msgstr "डिफ़ॉल्ट खोज"
 msgid "Search query: {repoName}"
 msgstr "खोज क्वेरी: {repoName}"
 
-#: src/common/ErrorBoundary/index.tsx:32
-#: src/features/info/components/ErrorState/index.tsx:13
+#: src/common/ErrorBoundary/index.tsx:9
+#: src/features/info/components/ErrorState/index.tsx:14
 msgid "Something Went Wrong"
 msgstr "कुछ गलत हो गया"
 
-#: src/features/info/components/RepoInfo/index.tsx:34
+#: src/features/info/components/RepoInfo/index.tsx:35
 msgid "Stars: {stargazersCount}"
 msgstr "तारे: {stargazersCount}"
 
@@ -78,10 +78,10 @@ msgstr "तारे: {stargazersCount}"
 msgid "Total number of matching repos: {totalCount}"
 msgstr "मिलती रिपॉज़िटरी की कुल संख्या: {totalCount}"
 
-#: src/features/info/components/RepoInfo/index.tsx:31
+#: src/features/info/components/RepoInfo/index.tsx:32
 msgid "Watchers: {watchers}"
 msgstr "नजरदार: {watchers}"
 
-#: src/pages/_offline.tsx:7
+#: src/pages/_offline.tsx:9
 msgid "You are Offline!"
 msgstr "आप ऑफ़लाइन हैं!"

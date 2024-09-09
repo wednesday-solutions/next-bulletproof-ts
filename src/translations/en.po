@@ -13,31 +13,31 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/containers/Repos/index.tsx:82
+#: src/containers/Repos/index.tsx:83
 msgid "<0>You Are Awesome</0>"
 msgstr "<0>You Are Awesome</0>"
 
-#: src/features/info/components/RepoInfo/index.tsx:20
+#: src/features/info/components/RepoInfo/index.tsx:21
 msgid "Back to Search"
 msgstr "Back to Search"
 
-#: src/features/info/components/RepoInfo/index.tsx:29
+#: src/features/info/components/RepoInfo/index.tsx:30
 msgid "Forks: {forks}"
 msgstr "Forks: {forks}"
 
-#: src/containers/Repos/index.tsx:94
+#: src/containers/Repos/index.tsx:95
 msgid "Get details of repositories"
 msgstr "Get details of repositories"
 
-#: src/features/info/components/EmptyResult/index.tsx:8
+#: src/features/info/components/EmptyResult/index.tsx:9
 msgid "No records found"
 msgstr "No records found"
 
-#: src/containers/Repos/index.tsx:76
+#: src/containers/Repos/index.tsx:77
 msgid "Recommendation"
 msgstr "Recommendation"
 
-#: src/features/repos/components/RepoItem/index.tsx:24
+#: src/features/repos/components/RepoItem/index.tsx:25
 msgid "Repository full name: {0}"
 msgstr "Repository full name: {0}"
 
@@ -45,15 +45,15 @@ msgstr "Repository full name: {0}"
 msgid "Repository List"
 msgstr "Repository List"
 
-#: src/features/repos/components/RepoItem/index.tsx:21
+#: src/features/repos/components/RepoItem/index.tsx:22
 msgid "Repository Name: {0}"
 msgstr "Repository Name: {0}"
 
-#: src/containers/Repos/index.tsx:91
+#: src/containers/Repos/index.tsx:92
 msgid "Repository Search"
 msgstr "Repository Search"
 
-#: src/features/repos/components/RepoItem/index.tsx:27
+#: src/features/repos/components/RepoItem/index.tsx:28
 msgid "Repository stars: {0}"
 msgstr "Repository stars: {0}"
 
@@ -65,12 +65,12 @@ msgstr "Search Default"
 msgid "Search query: {repoName}"
 msgstr "Search query: {repoName}"
 
-#: src/common/ErrorBoundary/index.tsx:32
-#: src/features/info/components/ErrorState/index.tsx:13
+#: src/common/ErrorBoundary/index.tsx:9
+#: src/features/info/components/ErrorState/index.tsx:14
 msgid "Something Went Wrong"
 msgstr "Something Went Wrong"
 
-#: src/features/info/components/RepoInfo/index.tsx:34
+#: src/features/info/components/RepoInfo/index.tsx:35
 msgid "Stars: {stargazersCount}"
 msgstr "Stars: {stargazersCount}"
 
@@ -78,10 +78,10 @@ msgstr "Stars: {stargazersCount}"
 msgid "Total number of matching repos: {totalCount}"
 msgstr "Total number of matching repos: {totalCount}"
 
-#: src/features/info/components/RepoInfo/index.tsx:31
+#: src/features/info/components/RepoInfo/index.tsx:32
 msgid "Watchers: {watchers}"
 msgstr "Watchers: {watchers}"
 
-#: src/pages/_offline.tsx:7
+#: src/pages/_offline.tsx:9
 msgid "You are Offline!"
 msgstr "You are Offline!"
