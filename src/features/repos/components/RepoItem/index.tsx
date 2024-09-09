@@ -22,10 +22,13 @@ const RepoItem: React.FC<RepoItemProps> = ({ item }) => {
         <Trans> Repository Name: {item.name}</Trans>
       </T>
       <T>
-        <Trans> Repository full name: {item.fullName}</Trans>
+        <Trans> Repository full name: {item.full_name}</Trans>
       </T>
       <T>
-        <Trans> Repository stars: {item.stargazersCount}</Trans>
+        <Trans> Repository stars: {item.stargazers_count}</Trans>
+      </T>
+      <T>
+        <Trans> Repository forks: {item.forks}</Trans>
       </T>
     </CustomCard>
   );
