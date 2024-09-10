@@ -29,7 +29,6 @@
     "@mui/material-nextjs": "^6.0.0",
     "@next/bundle-analyzer": "^14.2.6",
     "@reduxjs/toolkit": "^2.2.7",
-    "axios": "^1.7.7",
     "babel-plugin-import": "^1.13.3",
     "cross-env": "^7.0.3",
     "history": "^5.3.0",

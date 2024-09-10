@@ -37,6 +37,10 @@ msgstr "No records found"
 msgid "Recommendation"
 msgstr "Recommendation"
 
+#: src/features/repos/components/RepoItem/index.tsx:31
+msgid "Repository forks: {0}"
+msgstr "Repository forks: {0}"
+
 #: src/features/repos/components/RepoItem/index.tsx:25
 msgid "Repository full name: {0}"
 msgstr "Repository full name: {0}"

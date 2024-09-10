@@ -37,6 +37,10 @@ msgstr "कोई रिकॉर्ड नहीं मिला"
 msgid "Recommendation"
 msgstr "सिफारिश"
 
+#: src/features/repos/components/RepoItem/index.tsx:31
+msgid "Repository forks: {0}"
+msgstr ""
+
 #: src/features/repos/components/RepoItem/index.tsx:25
 msgid "Repository full name: {0}"
 msgstr "रिपॉज़िटरी पूरा नाम: {0}"
