@@ -37,18 +37,18 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root emotion-0"
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded  MuiCard-root  emotion-0"
       color="#f44336"
       data-testid="error-state"
     >
       <h6
-        class="MuiTypography-root MuiTypography-subtitle2 emotion-1"
+        class="MuiTypography-root MuiTypography-subtitle2  emotion-1"
         data-testid="t"
       >
         Repository List
       </h6>
       <p
-        class="MuiTypography-root MuiTypography-body1 emotion-2"
+        class="MuiTypography-root MuiTypography-body1  emotion-2"
         data-testid="t"
       >
         Internal Service Error

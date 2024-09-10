@@ -1,17 +1,18 @@
-import { AlignCenter } from "@common/styled";
+import React from "react";
 import { Trans } from "@lingui/macro";
 import { styled } from "@mui/material/styles";
+import { AlignCenter } from "@common/styled";
 
-const Error = styled("div")(({ theme }) => ({
+const ErrorContainer = styled("div")(({ theme }) => ({
   color: theme.palette.error.main,
 }));
 
 const ErrorState = () => {
   return (
     <AlignCenter>
-      <Error>
+      <ErrorContainer>
         <Trans>Something Went Wrong</Trans>
-      </Error>
+      </ErrorContainer>
     </AlignCenter>
   );
 };

@@ -4,8 +4,9 @@ import { githubApiService } from "@utils/apiUtils";
 export interface IRepoItem {
   id: number;
   name: string;
-  fullName: string;
-  stargazersCount: number;
+  full_name: string;
+  stargazers_count: number;
+  forks: number;
   owner: {
     login: string;
   };

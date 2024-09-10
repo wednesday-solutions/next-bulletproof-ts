@@ -20,8 +20,13 @@ export const githubApiService = createApi({
   // to fix the error: "Type alias 'RootState' circularly references itself". return type is set to any
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   extractRehydrationInfo(action, { reducerPath }): any {
-    if (isHydrateAction(action)) {
-      return action.payload[reducerPath];
+    if (
+      isHydrateAction(action) &&
+      action.payload &&
+      typeof action.payload === "object" &&
+      reducerPath in action.payload
+    ) {
+      return action.payload[reducerPath as keyof typeof action.payload];
     }
   },
   endpoints: () => ({}),

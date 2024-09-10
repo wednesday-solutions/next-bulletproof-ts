@@ -7,9 +7,9 @@
 import React from "react";
 import get from "lodash/get";
 import { Divider, Skeleton } from "@mui/material";
+import { Trans } from "@lingui/macro";
 import { T, CustomCard, If } from "@common";
 import { IResponse, IRepoItem } from "@features/repos/api/getRecommendations";
-import { Trans } from "@lingui/macro";
 import RepoItem from "../RepoItem";
 
 export interface RepoListProps {
