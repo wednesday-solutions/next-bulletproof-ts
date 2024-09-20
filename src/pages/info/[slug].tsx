@@ -1,3 +1,4 @@
+import React from "react";
 import { loadCatalog } from "@app/utils/linguiUtils";
 import { Info } from "@features/info";
 import { repoInfoApi } from "@features/info/api/getRepoInfo";

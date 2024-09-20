@@ -1,3 +1,4 @@
+import React from "react";
 import { CustomCard, T } from "@app/common";
 import { Trans } from "@lingui/macro";
 import { useRouter } from "next/router";

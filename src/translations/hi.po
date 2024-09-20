@@ -37,15 +37,15 @@ msgstr "कोई रिकॉर्ड नहीं मिला"
 msgid "Recommendation"
 msgstr "सिफारिश"
 
-#: src/features/repos/components/RepoItem/index.tsx:24
+#: src/features/repos/components/RepoItem/index.tsx:25
 msgid "Repository full name: {0}"
 msgstr "रिपॉज़िटरी पूरा नाम: {0}"
 
-#: src/features/repos/components/ErrorState/index.tsx:30
+#: src/features/repos/components/ErrorState/index.tsx:33
 msgid "Repository List"
 msgstr "रिपॉज़िटरी सूची"
 
-#: src/features/repos/components/RepoItem/index.tsx:21
+#: src/features/repos/components/RepoItem/index.tsx:22
 msgid "Repository Name: {0}"
 msgstr "रिपॉज़िटरी का नाम: {0}"
 
@@ -53,7 +53,7 @@ msgstr "रिपॉज़िटरी का नाम: {0}"
 msgid "Repository Search"
 msgstr "रिपॉज़िटरी खोज"
 
-#: src/features/repos/components/RepoItem/index.tsx:27
+#: src/features/repos/components/RepoItem/index.tsx:28
 msgid "Repository stars: {0}"
 msgstr "रिपॉज़िटरी तारे: {0}"
 
@@ -65,8 +65,8 @@ msgstr "डिफ़ॉल्ट खोज"
 msgid "Search query: {repoName}"
 msgstr "खोज क्वेरी: {repoName}"
 
-#: src/common/ErrorBoundary/index.tsx:33
-#: src/features/info/components/ErrorState/index.tsx:13
+#: src/common/ErrorBoundary/index.tsx:32
+#: src/features/info/components/ErrorState/index.tsx:14
 msgid "Something Went Wrong"
 msgstr "कुछ गलत हो गया"
 
@@ -82,6 +82,6 @@ msgstr "मिलती रिपॉज़िटरी की कुल सं�
 msgid "Watchers: {watchers}"
 msgstr "नजरदार: {watchers}"
 
-#: src/pages/_offline.tsx:7
+#: src/pages/_offline.tsx:8
 msgid "You are Offline!"
 msgstr "आप ऑफ़लाइन हैं!"

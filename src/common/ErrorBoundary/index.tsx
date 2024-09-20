@@ -6,11 +6,17 @@
 
 import { Trans } from "@lingui/macro";
 import React, { ReactElement } from "react";
+import PropTypes from "prop-types";
+
 
 class ErrorBoundary extends React.Component<
   { children: ReactElement },
   { hasError: boolean; error: Error | null }
 > {
+  static propTypes = {
+    children: PropTypes.element.isRequired,
+  };
+
   constructor(props) {
     super(props);
     this.state = { hasError: false, error: null };
