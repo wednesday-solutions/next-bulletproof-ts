@@ -37,15 +37,15 @@ msgstr "No records found"
 msgid "Recommendation"
 msgstr "Recommendation"
 
-#: src/features/repos/components/RepoItem/index.tsx:24
+#: src/features/repos/components/RepoItem/index.tsx:25
 msgid "Repository full name: {0}"
 msgstr "Repository full name: {0}"
 
-#: src/features/repos/components/ErrorState/index.tsx:30
+#: src/features/repos/components/ErrorState/index.tsx:33
 msgid "Repository List"
 msgstr "Repository List"
 
-#: src/features/repos/components/RepoItem/index.tsx:21
+#: src/features/repos/components/RepoItem/index.tsx:22
 msgid "Repository Name: {0}"
 msgstr "Repository Name: {0}"
 
@@ -53,7 +53,7 @@ msgstr "Repository Name: {0}"
 msgid "Repository Search"
 msgstr "Repository Search"
 
-#: src/features/repos/components/RepoItem/index.tsx:27
+#: src/features/repos/components/RepoItem/index.tsx:28
 msgid "Repository stars: {0}"
 msgstr "Repository stars: {0}"
 
@@ -65,8 +65,8 @@ msgstr "Search Default"
 msgid "Search query: {repoName}"
 msgstr "Search query: {repoName}"
 
-#: src/common/ErrorBoundary/index.tsx:33
-#: src/features/info/components/ErrorState/index.tsx:13
+#: src/common/ErrorBoundary/index.tsx:32
+#: src/features/info/components/ErrorState/index.tsx:14
 msgid "Something Went Wrong"
 msgstr "Something Went Wrong"
 
@@ -82,6 +82,6 @@ msgstr "Total number of matching repos: {totalCount}"
 msgid "Watchers: {watchers}"
 msgstr "Watchers: {watchers}"
 
-#: src/pages/_offline.tsx:7
+#: src/pages/_offline.tsx:8
 msgid "You are Offline!"
 msgstr "You are Offline!"

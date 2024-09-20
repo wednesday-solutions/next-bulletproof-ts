@@ -1,3 +1,4 @@
+import React from "react";
 import { Container, T } from "@common";
 import { Trans } from "@lingui/macro";
 
